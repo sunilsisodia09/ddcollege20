@@ -1,0 +1,949 @@
+
+/* =========================================
+   D.D. COLLEGE — ABOUT PAGE
+   Premium responsive UI
+========================================= */
+
+.about-college-page {
+  --about-navy: #102852;
+  --about-blue: #183b70;
+  --about-yellow: #f5c400;
+  --about-gold: #bd8616;
+  --about-text: #56647a;
+  --about-light: #f7f8fb;
+
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  color: var(--about-navy);
+}
+
+.about-college-page *,
+.about-college-page *::before,
+.about-college-page *::after {
+  box-sizing: border-box;
+}
+
+.about-college-page a {
+  text-decoration: none;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(245, 196, 0, 0.11),
+      transparent 27%
+    ),
+    linear-gradient(115deg, #fff 0%, #f9fafc 100%);
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: 60px;
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 85px 6% 95px;
+}
+
+.about-hero-bg-shape {
+  position: absolute;
+  pointer-events: none;
+  border: 1px solid rgba(16, 40, 82, 0.06);
+  border-radius: 50%;
+}
+
+.about-shape-one {
+  top: -180px;
+  right: -130px;
+  width: 520px;
+  height: 520px;
+}
+
+.about-shape-two {
+  top: -100px;
+  right: -50px;
+  width: 360px;
+  height: 360px;
+}
+
+.about-hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.about-eyebrow,
+.about-section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--about-gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-eyebrow-line,
+.about-section-eyebrow > span {
+  display: inline-block;
+  flex: 0 0 36px;
+  height: 3px;
+  background: var(--about-yellow);
+}
+
+.about-hero-copy h1 {
+  margin: 26px 0 22px;
+  color: var(--about-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5.2vw, 72px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+}
+
+.about-hero-copy h1 span {
+  color: var(--about-gold);
+}
+
+.about-hero-copy > p {
+  max-width: 550px;
+  margin: 0;
+  color: var(--about-text);
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+.about-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.about-primary-btn,
+.about-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 23px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.about-primary-btn {
+  background: var(--about-yellow);
+  color: #10213e;
+}
+
+.about-primary-btn:hover {
+  background: #e6b600;
+}
+
+.about-secondary-btn {
+  border: 1px solid #dce1e9;
+  color: var(--about-navy);
+  background: #fff;
+}
+
+.about-secondary-btn:hover {
+  background: #f1f4f8;
+}
+
+.about-hero-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  color: #617087;
+  font-size: 13px;
+}
+
+.about-hero-note svg {
+  color: var(--about-gold);
+}
+
+/* HERO IMAGE */
+
+.about-hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  justify-self: end;
+  padding: 0 16px 18px 0;
+}
+
+.about-visual-backdrop {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  width: 84%;
+  height: 86%;
+  background: var(--about-yellow);
+}
+
+.about-main-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 4.4;
+  overflow: hidden;
+  background: #e8edf3;
+}
+
+.about-campus-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-photo-caption {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 240px;
+  padding: 17px 21px;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(16, 40, 82, 0.12);
+}
+
+.about-caption-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 43px;
+  height: 43px;
+  background: #fff5c8;
+  color: var(--about-navy);
+}
+
+.about-photo-caption strong,
+.about-photo-caption span:not(.about-caption-icon) {
+  display: block;
+}
+
+.about-photo-caption strong {
+  margin-bottom: 5px;
+  color: var(--about-navy);
+  font-size: 15px;
+}
+
+.about-photo-caption div > span {
+  color: #6b7689;
+  font-size: 12px;
+}
+
+.about-yellow-decoration {
+  position: absolute;
+  z-index: 0;
+  bottom: 70px;
+  left: -13px;
+  width: 60px;
+  height: 60px;
+  background-image: radial-gradient(#d4a400 2px, transparent 2px);
+  background-size: 12px 12px;
+}
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.about-introduction {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 85px;
+  width: min(1300px, 100%);
+  margin: 0 auto;
+  padding: 110px 6%;
+}
+
+.about-intro-visual {
+  position: relative;
+  padding: 0 25px 25px 0;
+}
+
+.about-intro-image-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 4.1;
+  overflow: hidden;
+  background: #e8edf3;
+}
+
+.about-intro-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-intro-visual::before {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  height: 70%;
+  background: #fff1b2;
+  content: "";
+}
+
+.about-image-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 250px;
+  padding: 20px;
+  background: var(--about-navy);
+  color: #fff;
+}
+
+.about-label-number {
+  color: var(--about-yellow);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.about-image-label strong,
+.about-image-label span:last-child {
+  display: block;
+}
+
+.about-image-label strong {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.about-image-label div span {
+  color: #c8d2e2;
+  font-size: 12px;
+}
+
+.about-intro-content h2,
+.about-section-heading h2,
+.about-vm-heading h2,
+.about-campus-copy h2 {
+  margin: 22px 0;
+  color: var(--about-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.23;
+  letter-spacing: -0.7px;
+}
+
+.about-intro-content h2 span,
+.about-section-heading h2 span,
+.about-vm-heading h2 span,
+.about-campus-copy h2 span {
+  color: var(--about-gold);
+}
+
+.about-intro-content > p {
+  margin: 0 0 18px;
+  color: var(--about-text);
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.about-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  color: var(--about-navy);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.about-text-link svg {
+  color: var(--about-gold);
+}
+
+/* =========================================
+   HIGHLIGHTS
+========================================= */
+
+.about-highlights {
+  padding: 95px 6% 105px;
+  background: var(--about-light);
+}
+
+.about-section-heading {
+  max-width: 750px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.about-section-heading .about-section-eyebrow {
+  justify-content: center;
+}
+
+.about-section-heading > p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--about-text);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.about-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: min(1300px, 100%);
+  margin: 0 auto;
+}
+
+.about-highlight-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 265px;
+  padding: 27px 23px 30px;
+  background: #fff;
+  border: 1px solid #e8ebf1;
+}
+
+.about-highlight-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.about-highlight-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  background: #fff5c9;
+  color: var(--about-navy);
+}
+
+.about-highlight-number {
+  color: #dce1e9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.about-highlight-card h3 {
+  margin: 0 0 13px;
+  color: var(--about-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.about-highlight-card p {
+  margin: 0;
+  color: #657187;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.about-card-bottom-line {
+  position: absolute;
+  right: 23px;
+  bottom: 0;
+  left: 23px;
+  height: 3px;
+  background: var(--about-yellow);
+}
+
+/* =========================================
+   VISION & MISSION
+========================================= */
+
+.about-vision-mission {
+  width: min(1250px, 100%);
+  margin: 0 auto;
+  padding: 105px 6%;
+}
+
+.about-vm-heading {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.about-vm-heading .about-section-eyebrow {
+  justify-content: center;
+}
+
+.about-vm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.about-vm-card {
+  padding: 38px 35px;
+  border: 1px solid #e6eaf0;
+}
+
+.about-vision-card {
+  background: #f8fafc;
+}
+
+.about-mission-card {
+  background: #fffaf0;
+}
+
+.about-vm-icon {
+  display: grid;
+  place-items: center;
+  width: 57px;
+  height: 57px;
+  margin-bottom: 25px;
+  background: var(--about-yellow);
+  color: var(--about-navy);
+}
+
+.about-vm-label {
+  color: var(--about-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-vm-card h3 {
+  margin: 13px 0;
+  color: var(--about-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+}
+
+.about-vm-card p {
+  margin: 0 0 24px;
+  color: var(--about-text);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.about-vm-card > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--about-navy);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* =========================================
+   CAMPUS SECTION
+========================================= */
+
+.about-campus-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 65px;
+  padding: 90px 6%;
+  background: #f7f8fb;
+}
+
+.about-campus-copy {
+  width: 100%;
+  max-width: 520px;
+  justify-self: end;
+}
+
+.about-campus-copy > p {
+  margin: 0 0 17px;
+  color: var(--about-text);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.about-campus-copy > .about-primary-btn {
+  margin-top: 13px;
+}
+
+.about-campus-gallery {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: end;
+  gap: 14px;
+  width: 100%;
+  max-width: 620px;
+}
+
+.about-gallery-large,
+.about-gallery-small {
+  overflow: hidden;
+  background: #e8edf3;
+}
+
+.about-gallery-large {
+  aspect-ratio: 4 / 4.8;
+}
+
+.about-gallery-small {
+  aspect-ratio: 4 / 4.1;
+}
+
+.about-gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================
+   CTA
+========================================= */
+
+.about-cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  width: min(1300px, calc(100% - 64px));
+  margin: 85px auto;
+  padding: 55px 60px;
+  overflow: hidden;
+  background: var(--about-navy);
+  color: #fff;
+}
+
+.about-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 690px;
+}
+
+.about-cta-content > span {
+  color: var(--about-yellow);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-cta h2 {
+  margin: 18px 0;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.25;
+}
+
+.about-cta h2 strong {
+  color: var(--about-yellow);
+}
+
+.about-cta-content > p {
+  max-width: 570px;
+  margin: 0;
+  color: #d4ddec;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.about-cta-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 28px;
+}
+
+.about-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 22px;
+  background: var(--about-yellow);
+  color: #10213e;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.about-cta-link {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.about-cta-decoration {
+  color: rgba(255, 255, 255, 0.06);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(120px, 20vw, 250px);
+  font-weight: 800;
+  line-height: 1;
+  user-select: none;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .about-hero-inner {
+    gap: 35px;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .about-introduction {
+    gap: 45px;
+  }
+
+  .about-highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-campus-section {
+    gap: 35px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .about-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding: 52px 22px 65px;
+  }
+
+  .about-hero-copy h1 {
+    margin-top: 22px;
+    font-size: clamp(39px, 10vw, 55px);
+    letter-spacing: -1px;
+  }
+
+  .about-hero-copy > p {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  .about-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .about-primary-btn,
+  .about-secondary-btn {
+    width: 100%;
+  }
+
+  .about-hero-visual {
+    justify-self: center;
+    max-width: 500px;
+    padding-right: 10px;
+  }
+
+  .about-photo-caption {
+    right: 0;
+    min-width: 220px;
+    padding: 13px 15px;
+  }
+
+  .about-introduction {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding: 65px 22px;
+  }
+
+  .about-intro-visual {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .about-intro-content h2,
+  .about-section-heading h2,
+  .about-vm-heading h2,
+  .about-campus-copy h2 {
+    font-size: 34px;
+  }
+
+  .about-intro-content > p {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .about-highlights {
+    padding: 65px 20px 75px;
+  }
+
+  .about-section-heading {
+    margin-bottom: 35px;
+  }
+
+  .about-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .about-highlight-card {
+    min-height: auto;
+    padding: 25px 22px 29px;
+  }
+
+  .about-highlight-top {
+    margin-bottom: 18px;
+  }
+
+  .about-highlight-card h3 {
+    font-size: 21px;
+  }
+
+  .about-highlight-card p {
+    font-size: 14px;
+  }
+
+  .about-vision-mission {
+    padding: 70px 20px;
+  }
+
+  .about-vm-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .about-vm-card {
+    padding: 30px 25px;
+  }
+
+  .about-vm-card h3 {
+    font-size: 25px;
+  }
+
+  .about-campus-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 65px 22px;
+  }
+
+  .about-campus-copy {
+    max-width: 600px;
+    justify-self: start;
+  }
+
+  .about-campus-gallery {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-cta {
+    width: calc(100% - 36px);
+    margin: 45px auto;
+    padding: 38px 25px;
+  }
+
+  .about-cta-decoration {
+    display: none;
+  }
+
+  .about-cta h2 {
+    font-size: 34px;
+  }
+
+  .about-cta-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-cta-button {
+    width: 100%;
+  }
+
+  .about-cta-link {
+    text-align: center;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px) {
+  .about-hero-inner {
+    padding: 42px 17px 50px;
+  }
+
+  .about-eyebrow,
+  .about-section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.3px;
+  }
+
+  .about-hero-copy h1 {
+    font-size: 38px;
+  }
+
+  .about-hero-note {
+    font-size: 11px;
+  }
+
+  .about-introduction {
+    padding: 50px 17px;
+  }
+
+  .about-intro-content h2,
+  .about-section-heading h2,
+  .about-vm-heading h2,
+  .about-campus-copy h2 {
+    font-size: 29px;
+  }
+
+  .about-image-label {
+    min-width: 220px;
+    padding: 15px;
+  }
+
+  .about-highlights {
+    padding: 50px 16px 60px;
+  }
+
+  .about-vision-mission {
+    padding: 55px 16px;
+  }
+
+  .about-vm-card {
+    padding: 25px 20px;
+  }
+
+  .about-campus-section {
+    padding: 50px 17px;
+  }
+
+  .about-cta {
+    width: calc(100% - 32px);
+    padding: 30px 20px;
+  }
+
+  .about-cta h2 {
+    font-size: 29px;
+  }
+}

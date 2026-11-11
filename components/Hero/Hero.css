@@ -1,0 +1,484 @@
+
+/* =====================================
+   DD COLLEGE HERO SECTION
+===================================== */
+
+.dd-hero {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  min-height: 580px;
+  overflow: hidden;
+  background: #17220e;
+  isolation: isolate;
+}
+
+/* Background Slider */
+
+.dd-hero-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dd-hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease;
+}
+
+.dd-hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+/* IMPORTANT: Image fitting */
+
+.dd-hero-image {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Dark Overlay */
+
+.dd-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 17, 8, 0.82) 0%,
+    rgba(8, 17, 8, 0.55) 45%,
+    rgba(8, 17, 8, 0.15) 100%
+  );
+}
+
+/* Hero Content */
+
+.dd-hero-content {
+  position: relative;
+  z-index: 3;
+  width: min(1150px, 90%);
+  height: 100%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  animation: ddHeroContent 0.7s ease;
+}
+
+/* Welcome Tag */
+
+.dd-hero-tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 10px 18px;
+  margin-bottom: 24px;
+
+  color: #e5f3a2;
+  background: rgba(255, 255, 255, 0.12);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+
+  backdrop-filter: blur(8px);
+}
+
+/* Heading */
+
+.dd-hero-content h1 {
+  max-width: 780px;
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(42px, 5.5vw, 76px);
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.dd-hero-content h1 span {
+  display: block;
+  margin-top: 14px;
+
+  color: #d7e96b;
+
+  font-size: clamp(25px, 3vw, 43px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+/* Admission Button */
+
+.dd-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  margin-top: 35px;
+  padding: 16px 27px;
+
+  color: #263414;
+  background: #d7e96b;
+
+  border: 2px solid #d7e96b;
+  border-radius: 5px;
+
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+
+  transition: all 0.3s ease;
+}
+
+.dd-hero-btn:hover {
+  color: #263414;
+  background: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* =====================================
+   SLIDER CONTROLS
+===================================== */
+
+.dd-hero-controls {
+  position: absolute;
+  z-index: 4;
+
+  left: 50%;
+  bottom: 35px;
+
+  width: min(1150px, 90%);
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Counter */
+
+.dd-hero-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.dd-hero-count span {
+  color: #d7e96b;
+  font-size: 20px;
+}
+
+.dd-hero-count i {
+  width: 35px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Dots */
+
+.dd-hero-dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.dd-hero-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+
+  border: none;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.dd-hero-dots button.active {
+  width: 30px;
+  background: #d7e96b;
+}
+
+/* Arrows */
+
+.dd-hero-arrows {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dd-hero-arrows button {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dd-hero-arrows button:hover {
+  color: #263414;
+  background: #d7e96b;
+  border-color: #d7e96b;
+}
+
+/* Animation */
+
+@keyframes ddHeroContent {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 768px) {
+  .dd-hero {
+    height: 500px;
+    min-height: 500px;
+  }
+
+  .dd-hero-content {
+    width: 88%;
+  }
+
+  .dd-hero-content h1 {
+    font-size: 48px;
+  }
+
+  .dd-hero-content h1 span {
+    font-size: 29px;
+  }
+
+  .dd-hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 17, 8, 0.78),
+      rgba(8, 17, 8, 0.30)
+    );
+  }
+
+  .dd-hero-controls {
+    width: 88%;
+    bottom: 22px;
+  }
+}
+
+/* =====================================
+   MOBILE
+   FULL IMAGE WIDTH - NO CROPPING
+===================================== */
+
+@media (max-width: 480px) {
+  .dd-hero {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #17220e;
+  }
+
+  .dd-hero-slider {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dd-hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Show complete image like laptop width */
+
+  .dd-hero-image {
+    object-fit: contain !important;
+    object-position: center center;
+  }
+
+  /* Overlay */
+
+  .dd-hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 17, 8, 0.68),
+      rgba(8, 17, 8, 0.30)
+    );
+  }
+
+  /* Content */
+
+  .dd-hero-content {
+    width: 88%;
+    height: 100%;
+    padding: 0;
+
+    justify-content: center;
+  }
+
+  .dd-hero-tag {
+    padding: 5px 10px;
+    margin-bottom: 8px;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .dd-hero-content h1 {
+    max-width: 100%;
+
+    font-size: clamp(19px, 5.5vw, 27px);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .dd-hero-content h1 span {
+    margin-top: 5px;
+
+    font-size: clamp(13px, 3.8vw, 18px);
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+
+  .dd-hero-btn {
+    gap: 6px;
+
+    margin-top: 12px;
+    padding: 8px 12px;
+
+    font-size: 10px;
+    border-width: 1px;
+  }
+
+  .dd-hero-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  /* Controls */
+
+  .dd-hero-controls {
+    width: 88%;
+    bottom: 8px;
+  }
+
+  .dd-hero-count {
+    gap: 5px;
+    font-size: 9px;
+  }
+
+  .dd-hero-count span {
+    font-size: 12px;
+  }
+
+  .dd-hero-count i {
+    width: 14px;
+  }
+
+  .dd-hero-dots {
+    gap: 5px;
+  }
+
+  .dd-hero-dots button {
+    width: 5px;
+    height: 5px;
+  }
+
+  .dd-hero-dots button.active {
+    width: 16px;
+  }
+
+  .dd-hero-arrows {
+    gap: 5px;
+  }
+
+  .dd-hero-arrows button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .dd-hero-arrows button svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* =====================================
+   VERY SMALL MOBILE
+===================================== */
+
+@media (max-width: 360px) {
+  .dd-hero-content h1 {
+    font-size: 18px;
+  }
+
+  .dd-hero-content h1 span {
+    font-size: 12px;
+  }
+
+  .dd-hero-tag {
+    font-size: 7px;
+  }
+
+  .dd-hero-btn {
+    margin-top: 8px;
+    padding: 6px 9px;
+    font-size: 9px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .dd-hero *,
+  .dd-hero *::before,
+  .dd-hero *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

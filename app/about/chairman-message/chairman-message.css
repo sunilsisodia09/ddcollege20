@@ -1,0 +1,649 @@
+
+/* =========================================================
+   DD COLLEGE — CHAIRMAN MESSAGE PAGE
+   Unique Classes: dd-chairman-
+   ========================================================= */
+
+/* ---------- PAGE ---------- */
+
+.dd-chairman-page {
+  --dd-chairman-navy: #07152f;
+  --dd-chairman-navy-light: #122a50;
+  --dd-chairman-gold: #f4b400;
+  --dd-chairman-text: #263247;
+  --dd-chairman-muted: #647086;
+
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--dd-chairman-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dd-chairman-page *,
+.dd-chairman-page *::before,
+.dd-chairman-page *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HERO BANNER — SMALLER BACKGROUND IMAGE
+   ========================================================= */
+
+.dd-chairman-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 400px;
+  padding: 35px 20px;
+  overflow: hidden;
+  background: var(--dd-chairman-navy);
+}
+
+.dd-chairman-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+/* Dark overlay over background image */
+
+.dd-chairman-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(4, 13, 31, 0.38);
+}
+
+/* ---------- GLASS / BLUR TEXT CARD ---------- */
+
+.dd-chairman-hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 700px);
+  padding: 25px 35px;
+  margin: 0 auto;
+  text-align: center;
+
+  /* Glass blur effect */
+  /* background: rgba(255, 255, 255, 0.78); */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(9, 8, 8, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.dd-chairman-hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #edecea;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.dd-chairman-hero-content h1 {
+  margin: 0;
+  color: var(--dd-chairman-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  overflow-wrap: anywhere;
+}
+
+.dd-chairman-hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 15px auto 12px;
+}
+
+.dd-chairman-hero-divider::before,
+.dd-chairman-hero-divider::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 1px;
+  background: #c7a44c;
+}
+
+.dd-chairman-hero-divider span {
+  display: block;
+  width: 9px;
+  height: 9px;
+  margin: 0 10px;
+  background: var(--dd-chairman-gold);
+  transform: rotate(45deg);
+}
+
+.dd-chairman-hero-content > p {
+  max-width: 100%;
+  margin: 0;
+  color: #f9f9fa;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   CHAIRMAN MESSAGE SECTION
+   ========================================================= */
+
+.dd-chairman-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
+  align-items: start;
+  gap: 50px;
+  width: min(calc(100% - 64px), 1200px);
+  margin: 0 auto;
+  padding: 65px 0 80px;
+}
+
+/* ---------- MESSAGE CONTENT ---------- */
+
+.dd-chairman-content {
+  min-width: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+.dd-chairman-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+.dd-chairman-eyebrow > span:first-child {
+  flex-shrink: 0;
+  color: #d7ee0a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  line-height: 1.6;
+}
+
+.dd-chairman-eyebrow-line {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--dd-chairman-gold);
+}
+
+.dd-chairman-content-title {
+  margin: 0 0 16px;
+  color: var(--dd-chairman-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3vw, 39px);
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.dd-chairman-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 25px;
+  color: #59667a;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.9;
+}
+
+.dd-chairman-tagline span {
+  color: #c49724;
+  font-weight: 800;
+}
+
+/* ---------- MESSAGE BODY ---------- */
+
+.dd-chairman-message-text {
+  color: #424d5f;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.95;
+  overflow-wrap: anywhere;
+}
+
+.dd-chairman-message-text p {
+  margin: 0 0 17px;
+}
+
+.dd-chairman-message-text p:first-child {
+  color: var(--dd-chairman-navy);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dd-chairman-message-text .dd-chairman-wishes {
+  margin-top: 24px;
+  margin-bottom: 7px;
+  color: var(--dd-chairman-navy);
+  font-weight: 600;
+}
+
+/* ---------- SIGNATURE ---------- */
+
+.dd-chairman-signature {
+  position: relative;
+  margin-top: 14px;
+  padding: 15px 0 0 18px;
+  border-left: 3px solid var(--dd-chairman-gold);
+}
+
+.dd-chairman-signature-mark {
+  display: block;
+  margin-bottom: 6px;
+  color: #7a8494;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+}
+
+.dd-chairman-signature h3 {
+  margin: 0 0 5px;
+  color: var(--dd-chairman-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.dd-chairman-signature p {
+  margin: 0;
+  color: #697589;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   CHAIRMAN PROFILE IMAGE
+   ========================================================= */
+
+.dd-chairman-profile {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 390px;
+  margin: 5px auto 0;
+}
+
+.dd-chairman-image-frame {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+  background: #f5f1e7;
+  border: 1px solid #e6d8b7;
+  border-radius: 4px;
+}
+
+.dd-chairman-profile-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 2px;
+}
+
+/* ---------- PROFILE INFORMATION CARD ---------- */
+
+.dd-chairman-profile-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  gap: 15px;
+  width: calc(100% - 25px);
+  margin: -24px auto 0;
+  padding: 20px 18px;
+  background: #ffffff;
+  border: 1px solid #eee5d1;
+  border-radius: 4px;
+  box-shadow: 0 10px 28px rgba(7, 21, 47, 0.1);
+}
+
+.dd-chairman-profile-accent {
+  display: block;
+  flex: 0 0 4px;
+  align-self: stretch;
+  min-height: 55px;
+  background: var(--dd-chairman-gold);
+  border-radius: 4px;
+}
+
+.dd-chairman-profile-details {
+  min-width: 0;
+}
+
+.dd-chairman-profile-details h3 {
+  margin: 0 0 6px;
+  color: var(--dd-chairman-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.dd-chairman-profile-details p {
+  margin: 0 0 6px;
+  color: #59667a;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.dd-chairman-profile-details > span {
+  display: block;
+  color: #858d9b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .dd-chairman-hero {
+    min-height: 280px;
+    padding: 30px 20px;
+  }
+
+  .dd-chairman-hero-content {
+    max-width: 650px;
+    padding: 24px 28px;
+  }
+
+  .dd-chairman-section {
+    grid-template-columns: minmax(0, 1.35fr) minmax(230px, 0.85fr);
+    gap: 30px;
+    width: calc(100% - 48px);
+    padding: 55px 0 65px;
+  }
+
+  .dd-chairman-content-title {
+    font-size: 32px;
+  }
+
+  .dd-chairman-message-text {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .dd-chairman-profile {
+    max-width: 350px;
+  }
+
+  .dd-chairman-profile-card {
+    gap: 12px;
+    padding: 18px 15px;
+  }
+}
+
+/* =========================================================
+   TABLET PORTRAIT
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .dd-chairman-hero {
+    min-height: 260px;
+    padding: 28px 18px;
+  }
+
+  .dd-chairman-hero-image {
+    object-position: center;
+  }
+
+  .dd-chairman-hero-overlay {
+    background: rgba(4, 13, 31, 0.42);
+  }
+
+  .dd-chairman-hero-content {
+    width: 100%;
+    max-width: 580px;
+    padding: 22px 20px;
+  }
+
+  .dd-chairman-hero-content h1 {
+    font-size: clamp(29px, 5.5vw, 38px);
+  }
+
+  .dd-chairman-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+    width: calc(100% - 42px);
+    max-width: 650px;
+    padding: 45px 0 55px;
+  }
+
+  .dd-chairman-content-title {
+    font-size: clamp(28px, 5vw, 35px);
+  }
+
+  .dd-chairman-tagline {
+    margin-bottom: 22px;
+  }
+
+  .dd-chairman-profile {
+    width: min(100%, 380px);
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .dd-chairman-profile-image {
+    max-height: none;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .dd-chairman-hero {
+    min-height: 225px;
+    padding: 22px 14px;
+  }
+
+  .dd-chairman-hero-content {
+    padding: 18px 14px;
+    border-radius: 6px;
+  }
+
+  .dd-chairman-hero-eyebrow {
+    margin-bottom: 8px;
+    font-size: 10px;
+    letter-spacing: 1.7px;
+  }
+
+  .dd-chairman-hero-content h1 {
+    font-size: 27px;
+    line-height: 1.25;
+  }
+
+  .dd-chairman-hero-divider {
+    margin: 12px auto;
+  }
+
+  .dd-chairman-hero-divider::before,
+  .dd-chairman-hero-divider::after {
+    width: 35px;
+  }
+
+  .dd-chairman-hero-divider span {
+    width: 8px;
+    height: 8px;
+    margin: 0 8px;
+  }
+
+  .dd-chairman-hero-content > p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .dd-chairman-section {
+    gap: 32px;
+    width: calc(100% - 34px);
+    padding: 38px 0 45px;
+  }
+
+  .dd-chairman-eyebrow {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .dd-chairman-eyebrow > span:first-child {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .dd-chairman-eyebrow-line {
+    width: 42px;
+  }
+
+  .dd-chairman-content-title {
+    margin-bottom: 13px;
+    font-size: 27px;
+    line-height: 1.3;
+  }
+
+  .dd-chairman-tagline {
+    gap: 5px;
+    margin-bottom: 20px;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .dd-chairman-message-text {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .dd-chairman-message-text p {
+    margin-bottom: 15px;
+  }
+
+  .dd-chairman-message-text p:first-child {
+    font-size: 14px;
+  }
+
+  .dd-chairman-message-text .dd-chairman-wishes {
+    margin-top: 20px;
+  }
+
+  .dd-chairman-signature {
+    margin-top: 12px;
+    padding: 13px 0 0 14px;
+  }
+
+  .dd-chairman-signature h3 {
+    font-size: 22px;
+  }
+
+  .dd-chairman-profile {
+    max-width: 340px;
+  }
+
+  .dd-chairman-image-frame {
+    padding: 8px;
+  }
+
+  .dd-chairman-profile-card {
+    width: calc(100% - 18px);
+    gap: 11px;
+    margin-top: -20px;
+    padding: 16px 13px;
+  }
+
+  .dd-chairman-profile-accent {
+    min-height: 50px;
+  }
+
+  .dd-chairman-profile-details h3 {
+    font-size: 20px;
+  }
+
+  .dd-chairman-profile-details p {
+    font-size: 12px;
+  }
+
+  .dd-chairman-profile-details > span {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .dd-chairman-hero {
+    min-height: 210px;
+    padding: 18px 11px;
+  }
+
+  .dd-chairman-hero-content {
+    padding: 17px 11px;
+  }
+
+  .dd-chairman-hero-content h1 {
+    font-size: 24px;
+  }
+
+  .dd-chairman-hero-content > p {
+    font-size: 10px;
+  }
+
+  .dd-chairman-section {
+    width: calc(100% - 28px);
+    padding: 32px 0 40px;
+  }
+
+  .dd-chairman-content-title {
+    font-size: 24px;
+  }
+
+  .dd-chairman-message-text {
+    font-size: 12px;
+  }
+
+  .dd-chairman-profile-card {
+    padding: 14px 11px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .dd-chairman-page *,
+  .dd-chairman-page *::before,
+  .dd-chairman-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

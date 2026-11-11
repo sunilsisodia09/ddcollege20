@@ -1,0 +1,262 @@
+
+
+.dd-gallery {
+  width: 100%;
+  padding: 60px 0 75px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.dd-gallery-container {
+  width: calc(100% - 80px);
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.dd-gallery-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.8fr 0.8fr 1.05fr;
+  grid-template-rows: 230px 230px 230px;
+  gap: 15px;
+}
+
+/* Common image style */
+
+.dd-gallery-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 6px;
+  background: #edf0ec;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.dd-gallery-item img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.65s ease;
+}
+
+.dd-gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* =========================================
+   DESKTOP MASONRY LAYOUT
+========================================= */
+
+/* Large landscape image */
+.gallery-item-one {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+/* Portrait image */
+.gallery-item-two {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+/* Portrait image */
+.gallery-item-three {
+  grid-column: 4;
+  grid-row: 1 / 3;
+}
+
+/* Landscape image */
+.gallery-item-four {
+  grid-column: 1 / 3;
+  grid-row: 3;
+}
+
+/* Landscape image */
+.gallery-item-five {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+/* Landscape image */
+.gallery-item-six {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+/* Seventh image */
+.gallery-item-seven {
+  display: none;
+}
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1500px) {
+  .dd-gallery-grid {
+    grid-template-rows: 270px 270px 250px;
+    gap: 18px;
+  }
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1100px) {
+  .dd-gallery-container {
+    width: calc(100% - 48px);
+  }
+
+  .dd-gallery-grid {
+    grid-template-columns: 1fr 0.8fr 0.8fr;
+    grid-template-rows: 220px 220px 180px;
+    gap: 12px;
+  }
+
+  .gallery-item-one {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+  }
+
+  .gallery-item-two {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+
+  .gallery-item-three {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .gallery-item-four {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .gallery-item-five {
+    grid-column: 3;
+    grid-row: 3;
+  }
+
+  .gallery-item-six,
+  .gallery-item-seven {
+    display: none;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+  .dd-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 260px 190px 260px 190px;
+    gap: 12px;
+  }
+
+  .gallery-item-one {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .gallery-item-two {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+
+  .gallery-item-three {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .gallery-item-four {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .gallery-item-five {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .gallery-item-six {
+    display: block;
+    grid-column: 2;
+    grid-row: 4;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 550px) {
+  .dd-gallery {
+    padding: 28px 0 40px;
+  }
+
+  .dd-gallery-container {
+    width: calc(100% - 24px);
+  }
+
+  .dd-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 210px 260px 160px 230px;
+    gap: 9px;
+  }
+
+  .gallery-item-one {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  /* Portrait */
+  .gallery-item-two {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+
+  /* Landscape */
+  .gallery-item-three {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* Landscape */
+  .gallery-item-four {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  /* Portrait */
+  .gallery-item-five {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  /* Portrait */
+  .gallery-item-six {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .gallery-item-seven {
+    display: none;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 360px) {
+  .dd-gallery-grid {
+    grid-template-rows: 180px 230px 145px 200px;
+    gap: 7px;
+  }
+}

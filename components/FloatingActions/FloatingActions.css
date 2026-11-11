@@ -1,0 +1,252 @@
+.floating-actions {
+  position: fixed;
+  right: 24px;
+  bottom: 30px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* ================================
+   NORMAL BUTTON
+================================ */
+
+.floating-action {
+  position: relative;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    width 0.35s ease,
+    border-radius 0.35s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keyboard accessibility */
+
+.floating-action:focus-visible {
+  outline: 3px solid #f5c400;
+  outline-offset: 4px;
+}
+
+/* ================================
+   ICON
+================================ */
+
+.floating-icon {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+  line-height: 1;
+
+  transition: transform 0.3s ease;
+}
+
+/* ================================
+   TEXT
+================================ */
+
+.floating-text {
+  position: absolute;
+  left: 58px;
+
+  white-space: nowrap;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(-12px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s ease,
+    visibility 0.25s ease;
+}
+
+/* ================================
+   ENQUIRY BUTTON
+================================ */
+
+.enquiry-action {
+  background: #f5c400;
+  color: #11133f;
+
+  border: 1px solid transparent;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.enquiry-action:hover {
+  background: #ffd21a;
+
+  box-shadow: 0 14px 35px rgba(245, 196, 0, 0.35);
+}
+
+/* ================================
+   BROCHURE / COURSES & FEES
+================================ */
+
+.brochure-action {
+  background: #17194f;
+  color: #ffffff;
+
+  border: 1px solid rgba(245, 196, 0, 0.5);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.brochure-action:hover {
+  background: #20236a;
+  border-color: #f5c400;
+
+  box-shadow: 0 14px 35px rgba(245, 196, 0, 0.25);
+}
+
+/* ================================
+   HOVER: EXPAND ONLY HOVERED BUTTON
+================================ */
+
+.floating-action:hover {
+  width: 165px;
+  border-radius: 30px;
+
+  transform: translateY(-4px);
+}
+
+/* Show only hovered button text */
+
+.floating-action:hover .floating-text {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(0);
+}
+
+/* Animate only hovered icon */
+
+.floating-action:hover .floating-icon {
+  transform: scale(1.12);
+}
+
+/* Click effect */
+
+.floating-action:active {
+  transform: scale(0.97);
+}
+
+/* ================================
+   TABLET & MOBILE
+================================ */
+
+@media (max-width: 767px) {
+  .floating-actions {
+    right: 15px;
+    bottom: 18px;
+    gap: 10px;
+  }
+
+  .floating-action {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+  }
+
+  .floating-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+
+    font-size: 18px;
+  }
+
+  .floating-text {
+    display: none;
+  }
+
+  /* Do not expand on mobile */
+
+  .floating-action:hover {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    transform: translateY(-3px);
+  }
+
+  .floating-action:hover .floating-icon {
+    transform: scale(1.1);
+  }
+}
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 450px) {
+  .floating-actions {
+    right: 12px;
+    bottom: 14px;
+    gap: 9px;
+  }
+
+  .floating-action {
+    width: 46px;
+    height: 46px;
+  }
+
+  .floating-icon {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+
+    font-size: 17px;
+  }
+
+  .floating-action:hover {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* ================================
+   REDUCED MOTION ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-action,
+  .floating-icon,
+  .floating-text {
+    transition: none;
+  }
+}

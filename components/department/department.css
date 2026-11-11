@@ -1,0 +1,475 @@
+/* ==========================================
+   D.D. COLLEGE DEPARTMENTS
+========================================== */
+
+.dd-departments {
+  width: 100%;
+  padding: 75px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.dd-departments-container {
+  width: min(1400px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* GRID */
+
+.dd-departments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+/* ==========================================
+   INTRO CARD
+========================================== */
+
+.dd-department-intro {
+  min-height: 365px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    #fbfcf6,
+    #f0f4e3
+  );
+  border: 1px solid #e8eddb;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dd-department-intro::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(146, 172, 42, 0.12);
+  border-radius: 50%;
+  top: -160px;
+  right: -120px;
+}
+
+.dd-department-intro::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(146, 172, 42, 0.12);
+  border-radius: 50%;
+  bottom: -150px;
+  left: -100px;
+}
+
+.dd-intro-icon {
+  color: #9db52e;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.dd-intro-small {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #829b23;
+  position: relative;
+  z-index: 1;
+}
+
+.dd-department-intro h2 {
+  color: #172d4b;
+  font-family: Georgia, serif;
+  font-size: clamp(26px, 2.4vw, 36px);
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 12px 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.dd-department-intro h2 span {
+  display: block;
+  color: #829e20;
+}
+
+.dd-intro-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.dd-intro-divider span {
+  width: 65px;
+  height: 1px;
+  background: #b6c47b;
+}
+
+.dd-intro-divider i {
+  width: 9px;
+  height: 9px;
+  background: #a5bb48;
+  transform: rotate(45deg);
+}
+
+.dd-department-intro p {
+  max-width: 360px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #33445c;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.dd-intro-link {
+  margin-top: 22px;
+  color: #728c17;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  position: relative;
+  z-index: 2;
+  transition: 0.3s ease;
+}
+
+.dd-intro-link:hover {
+  gap: 15px;
+  color: #253c0b;
+}
+
+.dd-intro-watermark {
+  position: absolute;
+  bottom: -35px;
+  right: -5px;
+  font-family: Georgia, serif;
+  font-size: 125px;
+  font-weight: 900;
+  color: rgba(136, 158, 54, 0.045);
+  pointer-events: none;
+}
+
+/* ==========================================
+   DEPARTMENT CARDS
+========================================== */
+
+.dd-department-card {
+  position: relative;
+  min-height: 365px;
+  overflow: hidden;
+  border-radius: 11px;
+  background-color: #293c50;
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+
+.dd-department-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.7s ease;
+  z-index: -2;
+}
+
+.dd-department-card:hover::before {
+  transform: scale(1.09);
+}
+
+.dd-department-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 29, 58, 0.88) 0%,
+    rgba(7, 32, 58, 0.58) 55%,
+    rgba(7, 32, 58, 0.12) 100%
+  );
+  transition: 0.4s ease;
+}
+
+.dd-department-card:hover .dd-department-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(5, 29, 58, 0.94) 0%,
+    rgba(7, 32, 58, 0.65) 60%,
+    rgba(7, 32, 58, 0.25) 100%
+  );
+}
+
+.dd-department-content {
+  width: 100%;
+  padding: 35px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.dd-department-subtitle {
+  display: block;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.dd-department-content h3 {
+  max-width: 390px;
+  color: #ffffff;
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 850;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.dd-department-courses {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 650;
+  margin-top: 12px;
+  opacity: 0.95;
+}
+
+.dd-department-description {
+  max-width: 350px;
+  color: rgba(255,255,255,0.88);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 12px 0 20px;
+}
+
+.dd-department-button {
+  min-height: 43px;
+  padding: 0 18px;
+  width: fit-content;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #a6c900;
+  color: #172337;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.dd-department-button:hover {
+  background: #ffffff;
+  color: #172337;
+  gap: 17px;
+  transform: translateY(-3px);
+}
+
+.dd-department-number {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  color: rgba(255,255,255,0.22);
+  font-size: 45px;
+  line-height: 1;
+  font-weight: 900;
+  z-index: 1;
+}
+
+/* CARD ACCENT COLORS */
+
+.dd-department-card.management .dd-department-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(167, 113, 0, 0.82),
+    rgba(115, 80, 0, 0.25)
+  );
+}
+
+.dd-department-card.computer .dd-department-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(68, 32, 100, 0.85),
+    rgba(40, 26, 72, 0.2)
+  );
+}
+
+.dd-department-card.pharmacy .dd-department-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(0, 88, 157, 0.85),
+    rgba(0, 55, 110, 0.2)
+  );
+}
+
+.dd-department-card.nursing .dd-department-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(0, 116, 92, 0.85),
+    rgba(0, 70, 60, 0.2)
+  );
+}
+
+.dd-department-card.science .dd-department-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(30, 99, 65, 0.86),
+    rgba(25, 60, 45, 0.2)
+  );
+}
+
+.dd-department-card.arts .dd-department-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(102, 53, 126, 0.86),
+    rgba(58, 34, 95, 0.2)
+  );
+}
+
+/* ==========================================
+   BOTTOM SECTION
+========================================== */
+
+.dd-departments-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 35px;
+}
+
+.dd-departments-bottom p {
+  color: #667085;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.dd-departments-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #728d15;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+.dd-departments-bottom a:hover {
+  gap: 16px;
+  color: #273e08;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .dd-departments-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .dd-department-intro,
+  .dd-department-card {
+    min-height: 340px;
+  }
+
+  .dd-department-content {
+    padding: 28px 24px;
+  }
+
+  .dd-department-subtitle {
+    font-size: 21px;
+  }
+
+  .dd-department-content h3 {
+    font-size: 22px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .dd-departments {
+    padding: 48px 0;
+  }
+
+  .dd-departments-container {
+    width: calc(100% - 30px);
+  }
+
+  .dd-departments-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .dd-department-intro {
+    min-height: 330px;
+    padding: 35px 20px;
+  }
+
+  .dd-department-card {
+    min-height: 310px;
+    background-position: center;
+  }
+
+  .dd-department-content {
+    padding: 28px 23px;
+  }
+
+  .dd-department-subtitle {
+    font-size: 21px;
+  }
+
+  .dd-department-content h3 {
+    font-size: 23px;
+  }
+
+  .dd-department-description {
+    max-width: 300px;
+  }
+
+  .dd-departments-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 25px;
+  }
+
+  .dd-department-number {
+    font-size: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dd-department-card,
+  .dd-department-card::before,
+  .dd-department-overlay,
+  .dd-department-button {
+    transition: none;
+  }
+}

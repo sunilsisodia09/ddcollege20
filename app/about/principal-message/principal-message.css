@@ -1,0 +1,597 @@
+
+/* =====================================================
+   DD COLLEGE — PRINCIPAL MESSAGE PAGE
+   Unique class prefix: dd-principal-
+   ===================================================== */
+
+.dd-principal-page {
+  --dd-principal-navy: #07152f;
+  --dd-principal-gold: #f4b400;
+  --dd-principal-text: #424d5f;
+  --dd-principal-muted: #697589;
+
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff;
+  color: var(--dd-principal-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dd-principal-page *,
+.dd-principal-page *::before,
+.dd-principal-page *::after {
+  box-sizing: border-box;
+}
+
+/* HERO BANNER */
+
+.dd-principal-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 400px;
+  padding: 35px 20px;
+  overflow: hidden;
+  background: var(--dd-principal-navy);
+}
+
+.dd-principal-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.dd-principal-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(4, 13, 31, 0.4);
+}
+
+/* GLASS BLUR CARD */
+
+.dd-principal-hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 700px);
+  padding: 25px 35px;
+  margin: 0 auto;
+  text-align: center;
+
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.dd-principal-hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #eae9e5;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.dd-principal-hero-content h1 {
+  margin: 0;
+  color: var(--dd-principal-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.dd-principal-hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px auto 12px;
+}
+
+.dd-principal-hero-divider::before,
+.dd-principal-hero-divider::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 1px;
+  background: #e4e408;
+}
+
+.dd-principal-hero-divider span {
+  display: block;
+  width: 9px;
+  height: 9px;
+  margin: 0 10px;
+  background: var(--dd-principal-gold);
+  transform: rotate(45deg);
+}
+
+.dd-principal-hero-content > p {
+  margin: 0;
+  color: #f0f2f6;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* MAIN SECTION */
+
+.dd-principal-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
+  align-items: start;
+  gap: 50px;
+  width: min(calc(100% - 64px), 1200px);
+  margin: 0 auto;
+  padding: 65px 0 80px;
+}
+
+/* CONTENT */
+
+.dd-principal-content {
+  min-width: 0;
+  background: #fff;
+}
+
+.dd-principal-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+.dd-principal-eyebrow > span:first-child {
+  flex-shrink: 0;
+  color: #f5f4f2;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  line-height: 1.6;
+}
+
+.dd-principal-eyebrow-line {
+  width: 60px;
+  height: 2px;
+  background: var(--dd-principal-gold);
+}
+
+.dd-principal-content-title {
+  margin: 0 0 16px;
+  color: var(--dd-principal-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3vw, 39px);
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.dd-principal-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 25px;
+  color: #59667a;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.9;
+}
+
+.dd-principal-tagline span {
+  color: #c49724;
+  font-weight: 800;
+}
+
+/* MESSAGE BODY */
+
+.dd-principal-message-text {
+  color: var(--dd-principal-text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.95;
+  overflow-wrap: anywhere;
+}
+
+.dd-principal-message-text p {
+  margin: 0 0 17px;
+}
+
+.dd-principal-message-text p:first-child {
+  color: var(--dd-principal-navy);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dd-principal-message-text .dd-principal-wishes {
+  margin-top: 24px;
+  margin-bottom: 7px;
+  color: var(--dd-principal-navy);
+  font-weight: 600;
+}
+
+/* SIGNATURE */
+
+.dd-principal-signature {
+  margin-top: 14px;
+  padding: 15px 0 0 18px;
+  border-left: 3px solid var(--dd-principal-gold);
+}
+
+.dd-principal-signature-mark {
+  display: block;
+  margin-bottom: 6px;
+  color: #7a8494;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+}
+
+.dd-principal-signature h3 {
+  margin: 0 0 5px;
+  color: var(--dd-principal-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.dd-principal-signature p {
+  margin: 0;
+  color: var(--dd-principal-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* PROFILE IMAGE */
+
+.dd-principal-profile {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 390px;
+  margin: 5px auto 0;
+}
+
+.dd-principal-image-frame {
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+  background: #f5f1e7;
+  border: 1px solid #e6d8b7;
+  border-radius: 4px;
+}
+
+.dd-principal-profile-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 2px;
+}
+
+/* PROFILE CARD */
+
+.dd-principal-profile-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  gap: 15px;
+  width: calc(100% - 25px);
+  margin: -24px auto 0;
+  padding: 20px 18px;
+  background: #fff;
+  border: 1px solid #eee5d1;
+  border-radius: 4px;
+  box-shadow: 0 10px 28px rgba(7, 21, 47, 0.1);
+}
+
+.dd-principal-profile-accent {
+  display: block;
+  flex: 0 0 4px;
+  align-self: stretch;
+  min-height: 55px;
+  background: var(--dd-principal-gold);
+  border-radius: 4px;
+}
+
+.dd-principal-profile-details {
+  min-width: 0;
+}
+
+.dd-principal-profile-details h3 {
+  margin: 0 0 6px;
+  color: var(--dd-principal-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.dd-principal-profile-details p {
+  margin: 0 0 6px;
+  color: #59667a;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.dd-principal-profile-details > span {
+  display: block;
+  color: #858d9b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* TABLET */
+
+@media (max-width: 1024px) {
+  .dd-principal-hero {
+    min-height: 280px;
+    padding: 30px 20px;
+  }
+
+  .dd-principal-hero-content {
+    max-width: 650px;
+    padding: 24px 28px;
+  }
+
+  .dd-principal-section {
+    grid-template-columns: minmax(0, 1.35fr) minmax(230px, 0.85fr);
+    gap: 30px;
+    width: calc(100% - 48px);
+    padding: 55px 0 65px;
+  }
+
+  .dd-principal-content-title {
+    font-size: 32px;
+  }
+
+  .dd-principal-profile {
+    max-width: 350px;
+  }
+}
+
+/* TABLET PORTRAIT */
+
+@media (max-width: 768px) {
+  .dd-principal-hero {
+    min-height: 260px;
+    padding: 28px 18px;
+  }
+
+  .dd-principal-hero-overlay {
+    background: rgba(4, 13, 31, 0.42);
+  }
+
+  .dd-principal-hero-content {
+    width: 100%;
+    max-width: 580px;
+    padding: 22px 20px;
+  }
+
+  .dd-principal-hero-content h1 {
+    font-size: clamp(29px, 5.5vw, 38px);
+  }
+
+  .dd-principal-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+    width: calc(100% - 42px);
+    max-width: 650px;
+    padding: 45px 0 55px;
+  }
+
+  .dd-principal-content-title {
+    font-size: clamp(28px, 5vw, 35px);
+  }
+
+  .dd-principal-profile {
+    width: min(100%, 380px);
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .dd-principal-profile-image {
+    max-height: none;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .dd-principal-hero {
+    min-height: 225px;
+    padding: 22px 14px;
+  }
+
+  .dd-principal-hero-content {
+    padding: 18px 14px;
+    border-radius: 6px;
+  }
+
+  .dd-principal-hero-eyebrow {
+    margin-bottom: 8px;
+    font-size: 10px;
+    letter-spacing: 1.7px;
+  }
+
+  .dd-principal-hero-content h1 {
+    font-size: 27px;
+    line-height: 1.25;
+  }
+
+  .dd-principal-hero-divider {
+    margin: 12px auto;
+  }
+
+  .dd-principal-hero-divider::before,
+  .dd-principal-hero-divider::after {
+    width: 35px;
+  }
+
+  .dd-principal-hero-divider span {
+    width: 8px;
+    height: 8px;
+    margin: 0 8px;
+  }
+
+  .dd-principal-hero-content > p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .dd-principal-section {
+    gap: 32px;
+    width: calc(100% - 34px);
+    padding: 38px 0 45px;
+  }
+
+  .dd-principal-eyebrow {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .dd-principal-eyebrow > span:first-child {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .dd-principal-eyebrow-line {
+    width: 42px;
+  }
+
+  .dd-principal-content-title {
+    margin-bottom: 13px;
+    font-size: 27px;
+    line-height: 1.3;
+  }
+
+  .dd-principal-tagline {
+    gap: 5px;
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .dd-principal-message-text {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .dd-principal-message-text p {
+    margin-bottom: 15px;
+  }
+
+  .dd-principal-message-text p:first-child {
+    font-size: 14px;
+  }
+
+  .dd-principal-message-text .dd-principal-wishes {
+    margin-top: 20px;
+  }
+
+  .dd-principal-signature {
+    margin-top: 12px;
+    padding: 13px 0 0 14px;
+  }
+
+  .dd-principal-signature h3 {
+    font-size: 22px;
+  }
+
+  .dd-principal-profile {
+    max-width: 340px;
+  }
+
+  .dd-principal-image-frame {
+    padding: 8px;
+  }
+
+  .dd-principal-profile-card {
+    width: calc(100% - 18px);
+    gap: 11px;
+    margin-top: -20px;
+    padding: 16px 13px;
+  }
+
+  .dd-principal-profile-accent {
+    min-height: 50px;
+  }
+
+  .dd-principal-profile-details h3 {
+    font-size: 20px;
+  }
+
+  .dd-principal-profile-details p {
+    font-size: 12px;
+  }
+
+  .dd-principal-profile-details > span {
+    font-size: 11px;
+  }
+}
+
+/* EXTRA SMALL MOBILE */
+
+@media (max-width: 360px) {
+  .dd-principal-hero {
+    min-height: 210px;
+    padding: 18px 11px;
+  }
+
+  .dd-principal-hero-content {
+    padding: 17px 11px;
+  }
+
+  .dd-principal-hero-content h1 {
+    font-size: 24px;
+  }
+
+  .dd-principal-hero-content > p {
+    font-size: 10px;
+  }
+
+  .dd-principal-section {
+    width: calc(100% - 28px);
+    padding: 32px 0 40px;
+  }
+
+  .dd-principal-content-title {
+    font-size: 24px;
+  }
+
+  .dd-principal-message-text {
+    font-size: 12px;
+  }
+
+  .dd-principal-profile-card {
+    padding: 14px 11px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .dd-principal-page *,
+  .dd-principal-page *::before,
+  .dd-principal-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
