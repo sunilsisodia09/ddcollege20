@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+build/
+dist/
+.env
+.env.local
+.env.*.local
+.vercel/
+.DS_Store
+
+# Large video - keep locally, don't upload
+public/campus/dd.mp4
