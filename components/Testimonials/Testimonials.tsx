@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -16,9 +17,7 @@ import "./Testimonials.css";
 interface Alumni {
   id: number;
   name: string;
-  role: string;
   company: string;
-  batch: string;
   course: string;
   image: string;
   description: string;
@@ -27,75 +26,76 @@ interface Alumni {
 const alumni: Alumni[] = [
   {
     id: 1,
-    name: "Anjuet Singh Sajwan",
-    role: "UX Designer",
-    company: "Google",
-    batch: "2026",
-    course: "User Experience and Interaction Design",
-    image: "/gallery/ab.jpeg",
+    name: "Khusboo Gautam",
+    company: "Skywings",
+    course: "BBA",
+    image: "/gallery/Khusbo.jpeg",
     description:
       "My journey at DD College helped me develop creative thinking, practical skills, and confidence. The learning environment and guidance helped me move towards my professional goals.",
   },
   {
     id: 2,
-    name: "Shreya Mahajan",
-    role: "Software Engineer",
-    company: "Microsoft",
-    batch: "2026",
-    course: "B.Tech Computer Science",
-    image: "/gallery/aa.jpeg",
+    name: "Lavanya Arora",
+    company: "Indigo",
+    course: "B.Com",
+    image: "/gallery/Lavanya.jpeg",
     description:
       "My college experience helped me strengthen my technical knowledge and problem-solving skills. The support of my teachers encouraged me to keep learning and growing.",
   },
   {
     id: 3,
-    name: "Arshita",
-    role: "Software Developer",
-    company: "Amazon",
-    batch: "2026",
-    course: "B.Tech Computer Science",
-    image: "/images/stda.webp",
+    name: "Shradha Gurung",
+    company: "AXIS Bank",
+    course: "BBA",
+    image: "/gallery/Shradha.jpeg",
     description:
       "The practical learning experience and academic support at DD College helped me build confidence and prepare for professional opportunities.",
   },
-  {
+    {
     id: 4,
-    name: "Ashutosh Kumar Pandey",
-    role: "Software Engineer",
-    company: "Microsoft",
-    batch: "2025",
-    course: "B.Tech Computer Science",
-    image: "/images/stda.webp",
+    name: "Megha Suyal",
+    company: "Bajaj Capital",
+    course: "B.Sc Science",
+    image: "/gallery/Megha.jpeg",
     description:
-      "My time at DD College was an important part of my professional journey. The knowledge, guidance, and opportunities helped me prepare for my career.",
-  },
-  {
-    id: 5,
-    name: "Rohit Singh",
-    role: "Technology Associate",
-    company: "Infosys",
-    batch: "2026",
-    course: "B.Tech Computer Science",
-    image: "/images/stda.webp",
-    description:
-      "DD College provided a supportive environment to learn, explore, and improve my skills. The experience helped me take confident steps towards my career.",
+      "The practical learning experience and academic support at DD College helped me build confidence and prepare for professional opportunities.",
   },
 ];
 
 const companies = [
-  { name: "Google", logo: "/images/google-logo.png" },
-  { name: "Microsoft", logo: "/images/microsoft-logo.png" },
-  { name: "Amazon", logo: "/images/amazon-logo.png" },
-  { name: "Infosys", logo: "/images/infosys-logo.png" },
+  { name: "Google", logo: "/gallery/axis.jpeg" },
+  { name: "Microsoft", logo: "/gallery/tr.jpeg" },
+  { name: "Amazon", logo: "/gallery/ind.jpeg" },
+  { name: "Infosys", logo: "/gallery/baj.jpeg" },
+  { name: "Wipro", logo: "/gallery/wi.jpeg" },
 ];
 
 export default function Testimonials() {
   const [selectedAlumni, setSelectedAlumni] = useState<Alumni | null>(null);
 
+  useEffect(() => {
+    if (!selectedAlumni) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedAlumni(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "";
+    };
+  }, [selectedAlumni]);
+
   return (
     <section className="dd-alumni-section">
       <div className="dd-alumni-container">
-        {/* Section Heading */}
+
+        {/* Heading */}
         <div className="dd-alumni-heading">
           <div className="dd-alumni-eyebrow">
             <Sparkles size={16} />
@@ -112,7 +112,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Alumni Cards Auto Slider */}
+        {/* Alumni Slider */}
         <div className="dd-alumni-slider">
           <div className="dd-alumni-track">
             {[...alumni, ...alumni].map((person, index) => (
@@ -120,26 +120,23 @@ export default function Testimonials() {
                 className="dd-alumni-card"
                 key={`${person.id}-${index}`}
               >
-                {/* Alumni Photo */}
                 <div className="dd-alumni-image-wrapper">
                   <Image
                     src={person.image}
-                    alt={person.name}
+                    alt={`${person.name} - DD College Alumni`}
                     fill
-                    sizes="290px"
+                    sizes="(max-width: 600px) 260px, 290px"
                     className="dd-alumni-image"
+                    priority={index < 2}
                   />
-
-                  <span className="dd-alumni-batch">
-                    Batch {person.batch}
+                  <span className="dd-alumni-image-label">
+                    DD COLLEGE ALUMNI
                   </span>
                 </div>
 
-                {/* Card Details */}
                 <div className="dd-alumni-content">
                   <div className="dd-alumni-name-area">
                     <h3>{person.name}</h3>
-                    <p>{person.role}</p>
                   </div>
 
                   <div className="dd-alumni-company-name">
@@ -148,11 +145,10 @@ export default function Testimonials() {
                   </div>
 
                   <div className="dd-alumni-course">
-                    <GraduationCap size={17} />
+                    <GraduationCap size={18} />
                     <span>{person.course}</span>
                   </div>
 
-                  {/* Read Story Button */}
                   <button
                     type="button"
                     className="dd-alumni-read-more"
@@ -170,7 +166,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Company Logos Auto Slider */}
+        {/* Company Logos */}
         <div className="dd-company-section">
           <div className="dd-company-heading">
             <span />
@@ -185,12 +181,14 @@ export default function Testimonials() {
                   <div
                     className="dd-company-logo-card"
                     key={`${company.name}-${index}`}
+                    title={company.name}
                   >
                     <Image
                       src={company.logo}
                       alt={`${company.name} logo`}
-                      width={145}
-                      height={55}
+                      width={160}
+                      height={65}
+                      sizes="160px"
                       className="dd-company-logo"
                     />
                   </div>
@@ -201,7 +199,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Success Story Popup */}
+      {/* Alumni Success Story Modal */}
       {selectedAlumni && (
         <div
           className="dd-alumni-modal-overlay"
@@ -223,17 +221,16 @@ export default function Testimonials() {
               <X size={21} />
             </button>
 
-            {/* Popup Image */}
             <div className="dd-alumni-modal-image">
               <Image
                 src={selectedAlumni.image}
                 alt={selectedAlumni.name}
                 fill
                 sizes="200px"
+                className="dd-alumni-modal-photo"
               />
             </div>
 
-            {/* Popup Content */}
             <div className="dd-alumni-modal-info">
               <div className="dd-alumni-modal-label">
                 <Sparkles size={14} />
@@ -245,9 +242,7 @@ export default function Testimonials() {
               </h2>
 
               <p className="dd-alumni-modal-role">
-                {selectedAlumni.role}
-                <span> at </span>
-                {selectedAlumni.company}
+                Working at <strong>{selectedAlumni.company}</strong>
               </p>
 
               <div className="dd-alumni-modal-details">
@@ -258,7 +253,7 @@ export default function Testimonials() {
 
                 <div>
                   <BriefcaseBusiness size={19} />
-                  <span>Batch {selectedAlumni.batch}</span>
+                  <span>{selectedAlumni.company}</span>
                 </div>
               </div>
 

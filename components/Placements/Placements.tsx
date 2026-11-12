@@ -11,71 +11,71 @@ type Student = {
   course: string;
   batch: string;
   company: string;
-  companyLogo: string;
-  package: string;
+  // companyLogo: string;
+  
   image: string;
 };
 
 const students: Student[] = [
   {
     id: 1,
-    name: "Shreya Mahajan",
-    course: "B.Tech CSE",
+    name: "Shweta Kapr",
+    course: "BSc IT",
     batch: "2026",
-    company: "Google",
-    companyLogo: "/images/google-logo.png",
-    package: "₹54.84 L",
+    company: "WIPRO WILP",
+    // companyLogo: "/images/google-logo.png",
+    
    image: "/gallery/aa.png",
   },
   {
     id: 2,
-    name: "Arshita",
-    course: "B.Tech CSE",
+    name: "Rajeev Selwan",
+    course: "B.Sc (CS)",
     batch: "2026",
-    company: "Google",
-    companyLogo: "/images/google-logo.png",
-    package: "₹54.84 L",
-    image: "/images/stda.webp",
+    company: "Spectrum",
+    // companyLogo: "/images/google-logo.png",
+   
+       image: "/gallery/Rajeev.jpeg",
   },
   {
     id: 3,
-    name: "Ashutosh Kumar Pandey",
-    course: "B.Tech CSE",
+    name: "Megha Suyal",
+    course: "B.Sc Science",
     batch: "2025",
-    company: "Microsoft",
-    companyLogo: "/images/microsoft-logo.png",
-    package: "₹52.95 L",
-    image: "/images/stda.webp",
+    company: "Bajaj Capital",
+    // companyLogo: "/images/microsoft-logo.png",
+  
+    image: "/gallery/Megha.jpeg",
   },
   {
     id: 4,
-    name: "Rohit Singh",
-    course: "B.Tech CSE",
+    name: "Amrita Kothari",
+    course: "Bsc (CS)",
     batch: "2026",
-    company: "Infosys",
-    companyLogo: "/images/infosys-logo.png",
-    package: "₹48.70 L",
-    image: "/images/stda.webp",
+    company: "Talent IQ",
+    // companyLogo: "/images/infosys-logo.png",
+  
+    image: "/gallery/Amrita.jpeg",
   },
   {
     id: 5,
-    name: "Student Five",
-    course: "B.Tech CSE",
+    name: "Shradha Gurung",
+    course: "BBA",
     batch: "2026",
-    company: "Amazon",
-    companyLogo: "/images/amazon-logo.png",
-    package: "₹42.00 L",
-    image: "/images/stda.webp",
+    company: "AXIS Bank",
+    // companyLogo: "/images/amazon-logo.png",
+    
+    image: "/gallery/Shradha.jpeg",
   },
   {
     id: 6,
-    name: "Student Six",
-    course: "B.Tech CSE",
+    name: "Lavanya Arora",
+    course: "B.Com",
     batch: "2025",
-    company: "TCS",
-    companyLogo: "/images/tcs-logo.png",
-    package: "₹18.00 L",
-    image: "/images/stda.webp",
+    company: "Indigo",
+    // companyLogo: "/images/tcs-logo.png",
+   
+    image: "/gallery/Lavanya.jpeg",
   },
 ];
 
@@ -135,20 +135,20 @@ function PlacementCard({
           </div>
 
           <div className="company-logo-box">
-            <Image
+            {/* <Image
               src={student.companyLogo}
               alt={`${student.company} logo`}
               width={100}
               height={50}
               className="placement-company-logo"
-            />
+            /> */}
           </div>
         </div>
 
         <div className="placement-package">
           <div>
             <span>ANNUAL PACKAGE</span>
-            <strong>{student.package}</strong>
+            {/* <strong>{student.package}</strong> */}
           </div>
 
           <div className="package-arrow">↗</div>

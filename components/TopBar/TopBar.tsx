@@ -9,11 +9,11 @@ import {
 import "./TopBar.css";
 
 const navigationLinks = [
-  { label: "News & Events", href: "/news" },
-  { label: "Quick Links", href: "/quick-links" },
+  // { label: "News & Events", href: "/news" },
+  // { label: "Quick Links", href: "/quick-links" },
   { label: "Admission Enquiry", href: "/admissions" },
-  { label: "Examinations", href: "/examinations" },
-  { label: "Alumni", href: "/alumni" },
+  // { label: "Examinations", href: "/examinations" },
+  // { label: "Alumni", href: "/alumni" },
 ];
 
 export default function TopBar() {

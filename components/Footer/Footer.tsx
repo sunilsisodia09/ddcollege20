@@ -1,7 +1,8 @@
+
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   MapPin,
@@ -17,22 +18,25 @@ import "./Footer.css";
 
 const quickLinks = [
   { label: "About College", href: "/about" },
-  { label: "Courses & Programs", href: "/courses" },
-  { label: "Departments", href: "/departments" },
-  { label: "Campus Life", href: "/campus" },
+  { label: "Courses & Programs", href: "/admission/courses" },
+  { label: "Departments", href: "/Departments/SCHOOLOFCOMMERCE" },
+  { label: "Campus Overview", href: "/CampusLife/campusoverview" },
+  { label: "Campus Events", href: "/CampusLife/events" },
+  { label: "Clubs & Societies", href: "/CampusLife/clubs" },
   { label: "Placements", href: "/placements" },
-  { label: "College Gallery", href: "/gallery" },
+  { label: "Photo Gallery", href: "/CampusLife/gallery" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 const admissionLinks = [
-  { label: "Admission Process", href: "/admission" },
-  { label: "How to Apply", href: "/admission/how-to-apply" },
-  { label: "Eligibility Criteria", href: "/admission/eligibility" },
+  { label: "Admission Process", href: "/admissions" },
+  { label: "How to Apply", href: "/admissions" },
+  { label: "Eligibility Criteria", href: "/admissions" },
   { label: "Courses & Fees", href: "/admission/courses" },
-  { label: "Scholarships", href: "/scholarships" },
+  { label: "Scholarships", href: "/admissions" },
   { label: "Anti-Ragging Policy", href: "/anti-ragging" },
-  { label: "Student Syllabus", href: "/student-corner/syllabus" },
+  { label: "Student Syllabus", href: "/studentconer/syllabus" },
+  { label: "Student Portal", href: "/student-corner/studentportal" },
 ];
 
 const programs = [
@@ -47,18 +51,18 @@ const programs = [
 const socialLinks = [
   {
     name: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/",
     icon: (
-      <svg viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3.2l.8-4H13V9c0-.7.3-1 1-1Z" />
       </svg>
     ),
   },
   {
     name: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/",
     icon: (
-      <svg viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="5" />
         <circle cx="12" cy="12" r="4" />
         <circle cx="17.5" cy="6.5" r="1" className="dd-social-dot" />
@@ -67,9 +71,9 @@ const socialLinks = [
   },
   {
     name: "YouTube",
-    href: "#",
+    href: "https://www.youtube.com/",
     icon: (
-      <svg viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M21.5 7.2a2.8 2.8 0 0 0-2-2C17.7 4.7 12 4.7 12 4.7s-5.7 0-7.5.5a2.8 2.8 0 0 0-2 2C2 9 2 12 2 12s0 3 .5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8Z" />
         <path d="m10 9 5 3-5 3V9Z" className="dd-youtube-play" />
       </svg>
@@ -77,9 +81,9 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/",
     icon: (
-      <svg viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M5 3.5A2.5 2.5 0 1 1 5 8a2.5 2.5 0 0 1 0-4.5ZM3 9h4v12H3V9Zm6 0h3.8v1.6h.1c.5-1 1.8-2.1 3.8-2.1 4.1 0 4.9 2.7 4.9 6.2V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9V9Z" />
       </svg>
     ),
@@ -91,18 +95,11 @@ export default function Footer() {
 
   return (
     <footer className="dd-footer">
-
-   
-
-      {/* MAIN FOOTER */}
       <div className="dd-footer-main">
         <div className="dd-footer-container">
-
           <div className="dd-footer-grid">
-
             {/* COLLEGE BRAND */}
             <div className="dd-footer-brand">
-
               <Link href="/" className="dd-footer-logo">
                 <Image
                   src="/logos/college.png"
@@ -143,13 +140,11 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-
             </div>
 
             {/* QUICK LINKS */}
             <div className="dd-footer-column">
               <h3>Explore College</h3>
-
               <ul>
                 {quickLinks.map((link) => (
                   <li key={link.label}>
@@ -165,7 +160,6 @@ export default function Footer() {
             {/* ADMISSIONS */}
             <div className="dd-footer-column">
               <h3>Admissions</h3>
-
               <ul>
                 {admissionLinks.map((link) => (
                   <li key={link.label}>
@@ -186,7 +180,6 @@ export default function Footer() {
                 <div className="dd-footer-contact-icon">
                   <MapPin size={19} />
                 </div>
-
                 <div>
                   <strong>College Campus</strong>
                   <span>
@@ -200,7 +193,6 @@ export default function Footer() {
                 <div className="dd-footer-contact-icon">
                   <Phone size={19} />
                 </div>
-
                 <div>
                   <strong>Admission Enquiry</strong>
                   <Link href="/contact">
@@ -213,7 +205,6 @@ export default function Footer() {
                 <div className="dd-footer-contact-icon">
                   <Mail size={19} />
                 </div>
-
                 <div>
                   <strong>Email Us</strong>
                   <Link href="/contact">
@@ -226,7 +217,6 @@ export default function Footer() {
                 <div className="dd-footer-contact-icon">
                   <Clock3 size={19} />
                 </div>
-
                 <div>
                   <strong>Office Hours</strong>
                   <span>
@@ -245,7 +235,6 @@ export default function Footer() {
                 <ArrowRight size={16} />
               </Link>
             </div>
-
           </div>
 
           {/* PROGRAMS STRIP */}
@@ -258,7 +247,7 @@ export default function Footer() {
             <div className="dd-footer-program-list">
               {programs.map((program) => (
                 <Link
-                  href="/courses"
+                  href="/admission/courses"
                   key={program}
                 >
                   {program}
@@ -266,7 +255,6 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
 
@@ -274,7 +262,6 @@ export default function Footer() {
       <div className="dd-footer-bottom">
         <div className="dd-footer-container">
           <div className="dd-footer-bottom-inner">
-
             <p>
               © {currentYear} D.D. College, Dehradun.
               All Rights Reserved.
@@ -284,34 +271,26 @@ export default function Footer() {
               <Link href="/privacy-policy">
                 Privacy Policy
               </Link>
-
               <span />
-              
               <Link href="/terms">
                 Terms & Conditions
               </Link>
-
               <span />
-
               <Link href="/contact">
                 Contact Us
               </Link>
             </div>
 
-            <a
-              href="https://admissions.ddcollege.in"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/admissions"
               className="dd-footer-admission-link"
             >
               Admission Portal
               <ExternalLink size={13} />
-            </a>
-
+            </Link>
           </div>
         </div>
       </div>
-
     </footer>
   );
 }

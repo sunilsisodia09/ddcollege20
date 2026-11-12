@@ -115,7 +115,7 @@ export default function PrincipalMessagePage() {
         <aside className="dd-principal-profile">
           <div className="dd-principal-image-frame">
             <Image
-              src="/images/principal.jpg"
+              src="/campus/prin.jpg"
               alt="Principal of D.D. College, Dehradun"
               width={650}
               height={820}

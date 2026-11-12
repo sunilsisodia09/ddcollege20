@@ -32,17 +32,7 @@ const departments = [
       "Explore technology, programming, software development and digital innovation.",
     href: "/courses",
   },
-  {
-    id: 3,
-    name: "Pharmaceutical Sciences",
-    subtitle: "SCHOOL OF",
-    courses: "D.Pharm",
-   image: "/campus/build.webp",
-    color: "pharmacy",
-    description:
-      "Build pharmaceutical knowledge and practical skills for the healthcare industry.",
-    href: "/courses",
-  },
+
   {
     id: 4,
     name: "Nursing Sciences",

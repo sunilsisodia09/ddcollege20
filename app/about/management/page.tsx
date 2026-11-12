@@ -4,47 +4,28 @@ import "./management.css";
 
 const managementMembers = [
   {
-    name: "Governing Body",
-    designation: "Institutional Governance",
-    image: "/images/management/governing-body.jpg",
+    name: "Ms. Parul Goel",
+    designation: "HOD(Commerce and Management) ",
+     image: "/gallery/Parul.jpeg",
     description:
       "Provides institutional oversight, supports policy decisions and guides the long-term development of the college.",
   },
   {
-    name: "Director",
-    designation: "Institutional Administration",
-    image: "/images/management/director.jpg",
+    name: "Dr. Divyanshi Dubey",
+    designation: "HOD(Department of Arts)",
+    image: "/gallery/div.jpeg",
     description:
       "Supports institutional planning, coordination and the effective implementation of college initiatives.",
   },
+  
   {
-    name: "Registrar",
-    designation: "Academic Administration",
-    image: "/images/management/registrar.jpg",
-    description:
-      "Coordinates administrative records, official documentation and institutional processes.",
-  },
-  {
-    name: "Academic Coordinator",
-    designation: "Academic Coordination",
-    image: "/images/management/academic-coordinator.jpg",
+    name: "Dr. Prerna Negi",
+    designation: "HOD(Agriculture)",
+    image: "/gallery/PRENA.jpeg",
     description:
       "Supports academic planning, coordination of learning activities and communication between departments.",
   },
-  {
-    name: "Administrative Officer",
-    designation: "Administration & Operations",
-    image: "/images/management/administrative-officer.jpg",
-    description:
-      "Helps coordinate daily administrative activities and supports the smooth functioning of the campus.",
-  },
-  {
-    name: "Student Welfare Team",
-    designation: "Student Support",
-    image: "/images/management/student-welfare.jpg",
-    description:
-      "Supports student welfare initiatives, campus engagement and a positive learning environment.",
-  },
+  
 ];
 
 export default function ManagementPage() {

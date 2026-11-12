@@ -1,0 +1,740 @@
+
+/* =========================================
+   DD COLLEGE - SCHOOL OF COMMERCE
+   & MANAGEMENT
+========================================= */
+
+.scm-page {
+  --primary: #850d32;
+  --primary-dark: #59091f;
+  --gold: #d6ad68;
+  --dark: #24232b;
+  --muted: #71717c;
+  --light: #f8f6f7;
+
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--dark);
+}
+
+.scm-container {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.scm-page a {
+  text-decoration: none;
+}
+
+.scm-section {
+  padding: 90px 0;
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.scm-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 610px;
+  isolation: isolate;
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(29, 12, 23, 0.96) 0%,
+      rgba(91, 10, 42, 0.87) 55%,
+      rgba(64, 13, 35, 0.68) 100%
+    ),
+    url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=90")
+      center / cover no-repeat;
+}
+
+.scm-hero::after {
+  content: "";
+  position: absolute;
+  right: -140px;
+  bottom: -220px;
+  z-index: -1;
+  width: 480px;
+  height: 480px;
+  border: 1px solid rgba(214, 173, 104, 0.25);
+  border-radius: 50%;
+}
+
+.scm-hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.scm-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.scm-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.scm-hero h1 {
+  margin: 25px 0 20px;
+  color: #ffffff;
+  font-size: clamp(43px, 6.5vw, 76px);
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.scm-hero h1 span {
+  color: var(--gold);
+}
+
+.scm-hero-content > p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.83);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.scm-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 32px;
+}
+
+.scm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 51px;
+  padding: 0 23px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.scm-button:hover {
+  transform: translateY(-3px);
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 9px 22px rgba(133, 13, 50, 0.2);
+}
+
+.scm-button-outline {
+  border-color: rgba(255, 255, 255, 0.65);
+  background: transparent;
+  color: #ffffff;
+}
+
+.scm-button-outline:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--primary);
+}
+
+.scm-hero .scm-buttons .scm-button:first-child {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #291b1d;
+}
+
+.scm-hero .scm-buttons .scm-button:first-child:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.scm-hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 65px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scm-hero-highlights div {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.scm-hero-highlights svg {
+  color: var(--gold);
+}
+
+/* =========================================
+   COMMON SECTION HEADING
+========================================= */
+
+.scm-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 1.8px;
+}
+
+.scm-label::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.scm-heading {
+  max-width: 720px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.scm-heading .scm-label {
+  justify-content: center;
+}
+
+.scm-heading h2 {
+  margin: 17px 0;
+  color: var(--dark);
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.scm-heading h2 span {
+  color: var(--primary);
+}
+
+.scm-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.scm-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.scm-about > div:first-child {
+  min-width: 0;
+}
+
+.scm-about h2 {
+  margin: 18px 0;
+  color: var(--dark);
+  font-size: clamp(29px, 4vw, 42px);
+  font-weight: 850;
+  line-height: 1.25;
+  letter-spacing: -1px;
+}
+
+.scm-about h2 span {
+  color: var(--primary);
+}
+
+.scm-about p {
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.scm-checks {
+  display: grid;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.scm-checks div {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  color: #42414b;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.scm-checks svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--primary);
+}
+
+.scm-about-image {
+  min-height: 410px;
+  border-radius: 9px;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(37, 12, 26, 0.1),
+      transparent
+    ),
+    url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=85")
+      center / cover no-repeat;
+  box-shadow: 18px 18px 0 #f5eaf0;
+}
+
+/* =========================================
+   PROGRAMMES SECTION
+========================================= */
+
+.scm-light {
+  background: var(--light);
+}
+
+.scm-programmes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.scm-course-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 27px;
+  border: 1px solid #eae6e9;
+  border-radius: 9px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.scm-course-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(133, 13, 50, 0.3);
+  box-shadow: 0 16px 40px rgba(40, 15, 30, 0.09);
+}
+
+.scm-course-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 20px;
+  place-items: center;
+  border-radius: 8px;
+  background: #f8edf1;
+  color: var(--primary);
+}
+
+.scm-course-code {
+  align-self: flex-start;
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: #f8f1e6;
+  color: #936a2c;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.scm-course-card h3 {
+  margin: 17px 0 10px;
+  color: var(--dark);
+  font-size: 19px;
+  font-weight: 850;
+  line-height: 1.4;
+}
+
+.scm-course-card > p {
+  min-height: 78px;
+  margin: 0 0 17px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.scm-duration {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 15px 0;
+  border-top: 1px solid #eee9ec;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.scm-duration strong {
+  color: var(--dark);
+  font-weight: 800;
+}
+
+.scm-course-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 15px;
+  border-radius: 5px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  transition: all 0.25s ease;
+}
+
+.scm-course-link:hover {
+  background: var(--primary-dark);
+}
+
+.scm-note {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* =========================================
+   AREAS OF STUDY
+========================================= */
+
+.scm-areas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.scm-area-card {
+  padding: 27px 22px;
+  border: 1px solid #ece9eb;
+  border-radius: 8px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.scm-area-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.scm-area-card > svg {
+  color: var(--primary);
+}
+
+.scm-area-card h3 {
+  margin: 18px 0 10px;
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.scm-area-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* =========================================
+   CAREER SECTION
+========================================= */
+
+.scm-career {
+  background: #f8f6f7;
+}
+
+.scm-career-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.scm-career-content h2 {
+  margin: 17px 0;
+  color: var(--dark);
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.scm-career-content h2 span {
+  color: var(--primary);
+}
+
+.scm-career-content > div:first-child > p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.scm-career-content .scm-button {
+  margin-top: 18px;
+}
+
+.scm-career-box {
+  display: grid;
+  gap: 12px;
+}
+
+.scm-career-box > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 20px;
+  border: 1px solid #ece8eb;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #383741;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.scm-career-box > div:hover {
+  transform: translateX(5px);
+  border-color: var(--gold);
+}
+
+.scm-career-box svg {
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.scm-bottom {
+  padding: 20px 0 85px;
+  background: #ffffff;
+}
+
+.scm-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 38px;
+  border-radius: 9px;
+  background: linear-gradient(115deg, #590820, #940e3b);
+  color: #ffffff;
+}
+
+.scm-bottom-inner h2 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.scm-bottom-inner p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.scm-bottom-button {
+  flex-shrink: 0;
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #291b1d;
+}
+
+.scm-bottom-button:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--primary);
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .scm-about,
+  .scm-career-content {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .scm-programmes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scm-areas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scm-about-image {
+    min-height: 360px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .scm-container {
+    width: calc(100% - 30px);
+  }
+
+  .scm-section {
+    padding: 62px 0;
+  }
+
+  .scm-hero {
+    min-height: 570px;
+    background-position: 58% center;
+  }
+
+  .scm-hero-content {
+    padding-top: 55px;
+    padding-bottom: 50px;
+  }
+
+  .scm-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+
+  .scm-hero h1 {
+    margin: 23px 0 17px;
+    font-size: 43px;
+    letter-spacing: -1px;
+  }
+
+  .scm-hero-content > p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .scm-buttons {
+    gap: 11px;
+  }
+
+  .scm-buttons .scm-button {
+    width: 100%;
+  }
+
+  .scm-hero-highlights {
+    gap: 17px;
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+
+  .scm-hero-highlights div {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .scm-heading {
+    margin-bottom: 30px;
+  }
+
+  .scm-heading h2,
+  .scm-about h2,
+  .scm-career-content h2 {
+    font-size: 29px;
+  }
+
+  .scm-about-image {
+    min-height: 280px;
+    box-shadow: 10px 10px 0 #f5eaf0;
+  }
+
+  .scm-programmes,
+  .scm-areas {
+    grid-template-columns: 1fr;
+  }
+
+  .scm-course-card {
+    padding: 23px;
+  }
+
+  .scm-course-card > p {
+    min-height: auto;
+  }
+
+  .scm-area-card {
+    padding: 23px;
+  }
+
+  .scm-career-box > div {
+    gap: 12px;
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .scm-bottom {
+    padding-bottom: 60px;
+  }
+
+  .scm-bottom-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 25px 20px;
+  }
+
+  .scm-bottom-inner h2 {
+    font-size: 21px;
+  }
+
+  .scm-bottom-button {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .scm-hero h1 {
+    font-size: 37px;
+  }
+
+  .scm-section {
+    padding: 52px 0;
+  }
+
+  .scm-course-card {
+    padding: 19px;
+  }
+
+  .scm-heading h2,
+  .scm-about h2,
+  .scm-career-content h2 {
+    font-size: 26px;
+  }
+}

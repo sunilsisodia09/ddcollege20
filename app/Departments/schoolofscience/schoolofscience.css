@@ -1,0 +1,679 @@
+
+.sos-page {
+  --sos-primary: #850d32;
+  --sos-dark: #20202a;
+  --sos-gold: #d6a64b;
+  --sos-muted: #687080;
+  color: var(--sos-dark);
+  background: #fff;
+  overflow: hidden;
+}
+
+.sos-container {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sos-page a {
+  text-decoration: none;
+}
+
+.sos-page button {
+  font: inherit;
+}
+
+.section-space {
+  padding: 95px 0;
+}
+
+/* HERO */
+
+.sos-hero {
+  position: relative;
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(25, 14, 25, .96), rgba(70, 12, 39, .83)),
+    url("https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1800&q=90")
+      center/cover no-repeat;
+}
+
+.sos-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 80% 45%, rgba(214, 166, 75, .17), transparent 35%);
+}
+
+.sos-hero-content {
+  position: relative;
+  padding-top: 65px;
+  padding-bottom: 100px;
+}
+
+.sos-eyebrow,
+.sos-section-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sos-gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.sos-eyebrow span,
+.sos-section-tag::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--sos-gold);
+}
+
+.sos-hero h1 {
+  max-width: 800px;
+  margin: 24px 0 18px;
+  font-size: clamp(44px, 7vw, 78px);
+  line-height: 1.08;
+  font-weight: 850;
+  letter-spacing: -2px;
+}
+
+.sos-hero h1 span {
+  color: var(--sos-gold);
+}
+
+.sos-hero-content > p {
+  max-width: 660px;
+  color: rgba(255, 255, 255, .83);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.sos-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 32px;
+}
+
+.sos-hero-actions a,
+.sos-career-btn,
+.sos-cta-btn {
+  min-height: 51px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 0 23px;
+  border-radius: 5px;
+  background: var(--sos-gold);
+  color: #271b19;
+  font-size: 14px;
+  font-weight: 800;
+  transition: .25s ease;
+}
+
+.sos-hero-actions a:hover,
+.sos-career-btn:hover,
+.sos-cta-btn:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+.sos-hero-actions .sos-outline-btn {
+  border: 1px solid rgba(255, 255, 255, .65);
+  background: transparent;
+  color: #fff;
+}
+
+.sos-hero-actions .sos-outline-btn:hover {
+  background: #fff;
+  color: var(--sos-primary);
+}
+
+.sos-hero-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 65px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+.sos-hero-bottom div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, .9);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sos-hero-bottom svg {
+  color: var(--sos-gold);
+}
+
+.sos-hero-shape {
+  position: absolute;
+  right: -130px;
+  bottom: -180px;
+  width: 430px;
+  height: 430px;
+  border: 1px solid rgba(214, 166, 75, .25);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* COMMON HEADINGS */
+
+.sos-section-heading {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.sos-section-heading .sos-section-tag {
+  justify-content: center;
+}
+
+.sos-section-heading h2,
+.sos-about-content h2,
+.sos-career-content h2 {
+  margin: 17px 0;
+  color: var(--sos-dark);
+  font-size: clamp(30px, 4vw, 43px);
+  line-height: 1.2;
+  font-weight: 850;
+  letter-spacing: -1px;
+}
+
+.sos-section-heading h2 span,
+.sos-about-content h2 span,
+.sos-career-content h2 span {
+  color: var(--sos-primary);
+}
+
+.sos-section-heading > p,
+.sos-about-content > p,
+.sos-career-content > p {
+  color: var(--sos-muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* ABOUT */
+
+.sos-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.sos-about-visual {
+  position: relative;
+  min-height: 420px;
+}
+
+.sos-image-main {
+  position: absolute;
+  inset: 0 25px 20px 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background:
+    linear-gradient(0deg, rgba(30, 12, 24, .7), transparent 60%),
+    url("https://images.unsplash.com/photo-1581093458791-9d15482442f1?w=1000&q=85")
+      center/cover no-repeat;
+}
+
+.sos-image-caption {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fff;
+}
+
+.sos-image-caption span {
+  color: var(--sos-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.sos-image-caption strong {
+  font-size: 22px;
+}
+
+.sos-floating-card {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 23px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .13);
+}
+
+.sos-floating-card svg {
+  color: var(--sos-primary);
+}
+
+.sos-floating-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sos-floating-card strong {
+  font-size: 17px;
+}
+
+.sos-floating-card span {
+  color: var(--sos-muted);
+  font-size: 12px;
+}
+
+.sos-about-content .sos-section-tag,
+.sos-career-content .sos-section-tag {
+  margin-bottom: 18px;
+}
+
+.sos-about-points {
+  display: grid;
+  gap: 14px;
+  margin: 25px 0;
+}
+
+.sos-about-points div {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #343744;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sos-about-points svg {
+  flex-shrink: 0;
+  color: var(--sos-primary);
+}
+
+.sos-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sos-primary);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.sos-text-link:hover {
+  gap: 15px;
+}
+
+/* SUBJECTS */
+
+.sos-subjects {
+  background: #f7f7fa;
+}
+
+.sos-subject-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.sos-subject-card {
+  position: relative;
+  min-height: 245px;
+  padding: 29px;
+  overflow: hidden;
+  border: 1px solid #e9e8ed;
+  border-radius: 9px;
+  background: #fff;
+  transition: .3s ease;
+}
+
+.sos-subject-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(133, 13, 50, .3);
+  box-shadow: 0 15px 35px rgba(39, 24, 36, .08);
+}
+
+.sos-subject-number {
+  position: absolute;
+  top: 23px;
+  right: 25px;
+  color: #e9e6e9;
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.sos-subject-icon,
+.sos-learning-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 8px;
+  background: #f8edf1;
+  color: var(--sos-primary);
+}
+
+.sos-subject-card h3,
+.sos-learning-card h3 {
+  margin: 21px 0 10px;
+  color: var(--sos-dark);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.sos-subject-card p,
+.sos-learning-card p {
+  margin: 0;
+  color: var(--sos-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.sos-card-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--sos-primary);
+  transition: .3s ease;
+}
+
+.sos-subject-card:hover .sos-card-line {
+  width: 100%;
+}
+
+/* LEARNING */
+
+.sos-learning-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sos-learning-card {
+  padding: 27px 22px;
+  border: 1px solid #ecebf0;
+  border-radius: 9px;
+  background: #fff;
+  transition: .3s ease;
+}
+
+.sos-learning-card:hover {
+  border-color: var(--sos-gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .06);
+}
+
+.sos-learning-icon {
+  background: #fbf4e7;
+  color: #9a6818;
+}
+
+.sos-learning-card h3 {
+  font-size: 17px;
+}
+
+/* CAREERS */
+
+.sos-careers {
+  background: #f8f6f7;
+}
+
+.sos-career-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.sos-career-list {
+  display: grid;
+  gap: 12px;
+}
+
+.sos-career-item {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 17px 20px;
+  border: 1px solid #ebe6e9;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.sos-career-item > span {
+  color: var(--sos-primary);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.sos-career-item strong {
+  flex: 1;
+  color: #33323a;
+  font-size: 14px;
+}
+
+.sos-career-item svg {
+  color: #a27b37;
+}
+
+.sos-career-btn {
+  margin-top: 18px;
+  background: var(--sos-primary);
+  color: #fff;
+}
+
+.sos-career-btn:hover {
+  background: var(--sos-dark);
+  color: #fff;
+}
+
+/* CTA */
+
+.sos-cta-section {
+  padding: 70px 0;
+  background: #fff;
+}
+
+.sos-cta {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 38px;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #600a28, #940e3b);
+  color: #fff;
+}
+
+.sos-cta-icon {
+  display: grid;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .12);
+  color: var(--sos-gold);
+}
+
+.sos-cta-content {
+  flex: 1;
+}
+
+.sos-cta-content > span {
+  color: var(--sos-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.sos-cta-content h2 {
+  margin: 9px 0;
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.sos-cta-content p {
+  margin: 0;
+  color: rgba(255, 255, 255, .78);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.sos-cta-btn {
+  flex-shrink: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .sos-about-grid,
+  .sos-career-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .sos-about-visual {
+    min-height: 380px;
+  }
+
+  .sos-subject-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sos-learning-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sos-cta {
+    flex-wrap: wrap;
+  }
+
+  .sos-cta-btn {
+    margin-left: 97px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sos-container {
+    width: min(100% - 30px, 1160px);
+  }
+
+  .section-space {
+    padding: 65px 0;
+  }
+
+  .sos-hero {
+    min-height: 590px;
+    background-position: 58% center;
+  }
+
+  .sos-hero-content {
+    padding-top: 55px;
+    padding-bottom: 75px;
+  }
+
+  .sos-hero h1 {
+    font-size: 47px;
+    letter-spacing: -1.5px;
+  }
+
+  .sos-hero-content > p {
+    font-size: 14px;
+  }
+
+  .sos-hero-bottom {
+    gap: 17px;
+    margin-top: 40px;
+  }
+
+  .sos-hero-bottom div {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .sos-section-heading {
+    margin-bottom: 30px;
+  }
+
+  .sos-section-heading h2,
+  .sos-about-content h2,
+  .sos-career-content h2 {
+    font-size: 30px;
+  }
+
+  .sos-about-visual {
+    min-height: 310px;
+  }
+
+  .sos-image-main {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .sos-floating-card {
+    padding: 14px;
+  }
+
+  .sos-floating-card strong {
+    font-size: 14px;
+  }
+
+  .sos-subject-grid,
+  .sos-learning-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sos-subject-card {
+    min-height: auto;
+  }
+
+  .sos-career-item {
+    gap: 12px;
+    padding: 15px 12px;
+  }
+
+  .sos-career-item strong {
+    font-size: 12px;
+  }
+
+  .sos-cta {
+    align-items: flex-start;
+    padding: 25px 20px;
+  }
+
+  .sos-cta-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .sos-cta-content {
+    flex-basis: calc(100% - 80px);
+  }
+
+  .sos-cta-content h2 {
+    font-size: 20px;
+  }
+
+  .sos-cta-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+}
