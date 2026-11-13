@@ -18,7 +18,7 @@ export default function FloatingActions() {
 
       {/* Download Courses & Fee Structure PDF */}
       <a
-     href="/courses-fees.pdf"
+     href="/courses/ddcollegefee.pdf"
         download="College-Courses-and-Fee-Structure.pdf"
         className="floating-action brochure-action"
         aria-label="Download All Courses and Fee Structure"

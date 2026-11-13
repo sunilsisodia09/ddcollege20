@@ -371,14 +371,14 @@ export default function Navbar() {
           </nav>
 
           {/* ADMISSION BUTTON */}
-          <Link
-            href="/admissions"
-            className="dd-admission-btn"
-            onClick={closeAll}
-          >
-            Apply Now
-            <ArrowUpRight size={16} />
-          </Link>
+         <Link
+  href="https://admissions.ddcollege.in/"
+  className="dd-admission-btn"
+  onClick={closeAll}
+>
+  Apply Now
+  <ArrowUpRight size={17} />
+</Link>
 
           {/* MOBILE TOGGLE */}
           <button

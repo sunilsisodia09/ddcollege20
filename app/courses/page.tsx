@@ -4,16 +4,12 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
   BookOpen,
   BriefcaseBusiness,
-  CheckCircle2,
-  ChevronRight,
   Clock3,
   GraduationCap,
   Search,
-  Sparkles,
   Users,
   Laptop,
   Calculator,
@@ -49,7 +45,8 @@ const courses: Course[] = [
     duration: "3 Years",
     overview:
       "Build a strong foundation in computer applications, programming, software development and modern technologies.",
-    eligibility: "10+2 or equivalent. Confirm the current admission requirements with the college.",
+    eligibility:
+      "10+2 or equivalent. Confirm the current admission requirements with the college.",
     icon: Laptop,
     color: "blue",
     highlights: ["Programming", "Web Development", "Database Systems"],
@@ -62,7 +59,8 @@ const courses: Course[] = [
     duration: "3 Years",
     overview:
       "Explore business management, marketing, finance, entrepreneurship and organizational leadership.",
-    eligibility: "10+2 or equivalent. Confirm the current admission requirements with the college.",
+    eligibility:
+      "10+2 or equivalent. Confirm the current admission requirements with the college.",
     icon: BriefcaseBusiness,
     color: "yellow",
     highlights: ["Business Management", "Marketing", "Entrepreneurship"],
@@ -75,7 +73,8 @@ const courses: Course[] = [
     duration: "3 Years",
     overview:
       "Develop knowledge of commerce, accounting, financial management, taxation and business practices.",
-    eligibility: "10+2 or equivalent. Confirm the current admission requirements with the college.",
+    eligibility:
+      "10+2 or equivalent. Confirm the current admission requirements with the college.",
     icon: Calculator,
     color: "purple",
     highlights: ["Accounting", "Finance", "Business Studies"],
@@ -88,7 +87,8 @@ const courses: Course[] = [
     duration: "3 Years",
     overview:
       "Explore humanities, social sciences and subjects that develop critical thinking and communication.",
-    eligibility: "10+2 or equivalent. Subject availability and requirements should be confirmed.",
+    eligibility:
+      "10+2 or equivalent. Subject availability and requirements should be confirmed.",
     icon: BookOpen,
     color: "green",
     highlights: ["Humanities", "Social Sciences", "Communication"],
@@ -101,7 +101,8 @@ const courses: Course[] = [
     duration: "3 Years",
     overview:
       "Build scientific understanding through academic study, analytical thinking and practical learning.",
-    eligibility: "10+2 with relevant subjects. Confirm subject combinations with the college.",
+    eligibility:
+      "10+2 with relevant subjects. Confirm subject combinations with the college.",
     icon: FlaskConical,
     color: "orange",
     highlights: ["Science", "Research Skills", "Practical Learning"],
@@ -114,7 +115,8 @@ const courses: Course[] = [
     duration: "2 Years",
     overview:
       "Develop advanced subject knowledge, research skills and academic expertise in the chosen discipline.",
-    eligibility: "Relevant bachelor's degree. Subject-specific criteria may apply.",
+    eligibility:
+      "Relevant bachelor's degree. Subject-specific criteria may apply.",
     icon: Landmark,
     color: "purple",
     highlights: ["Advanced Studies", "Research", "Specialization"],
@@ -127,7 +129,8 @@ const courses: Course[] = [
     duration: "2 Years",
     overview:
       "Explore advanced concepts in accounting, commerce, finance and business management.",
-    eligibility: "Relevant bachelor's degree. Confirm current admission criteria.",
+    eligibility:
+      "Relevant bachelor's degree. Confirm current admission criteria.",
     icon: Calculator,
     color: "blue",
     highlights: ["Advanced Commerce", "Finance", "Accounting"],
@@ -161,6 +164,8 @@ const benefits = [
   },
 ];
 
+const admissionUrl = "https://admissions.ddcollege.in/";
+
 export default function CoursesPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
@@ -168,7 +173,8 @@ export default function CoursesPage() {
   const filteredCourses = useMemo(() => {
     return courses.filter((course) => {
       const matchesCategory =
-        activeCategory === "All" || course.category === activeCategory;
+        activeCategory === "All" ||
+        course.category === activeCategory;
 
       const searchText =
         `${course.name} ${course.shortName} ${course.overview}`.toLowerCase();
@@ -179,23 +185,14 @@ export default function CoursesPage() {
     });
   }, [activeCategory, search]);
 
-  const undergraduateCount = courses.filter(
-    (course) => course.category === "Undergraduate"
-  ).length;
-
-  const postgraduateCount = courses.filter(
-    (course) => course.category === "Postgraduate"
-  ).length;
-
   return (
     <main className="courses-page">
-    
-
-      
 
       {/* COURSE LIST */}
+
       <section className="courses-list-section" id="course-list">
         <div className="courses-container">
+
           <div className="courses-section-heading">
             <div>
               <div className="courses-section-label">
@@ -218,9 +215,12 @@ export default function CoursesPage() {
           </div>
 
           {/* SEARCH AND FILTER */}
+
           <div className="courses-filter-bar">
+
             <div className="courses-search">
               <Search size={19} />
+
               <input
                 type="search"
                 placeholder="Search courses, subjects or programs..."
@@ -231,35 +231,45 @@ export default function CoursesPage() {
             </div>
 
             <div className="courses-filter-buttons">
-              {["All", "Undergraduate", "Postgraduate"].map((category) => (
-                <button
-                  key={category}
-                  type="button"
-                  className={activeCategory === category ? "active" : ""}
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category === "All" ? "All Programs" : category}
-                </button>
-              ))}
+              {["All", "Undergraduate", "Postgraduate"].map(
+                (category) => (
+                  <button
+                    key={category}
+                    type="button"
+                    className={
+                      activeCategory === category ? "active" : ""
+                    }
+                    onClick={() => setActiveCategory(category)}
+                  >
+                    {category === "All" ? "All Programs" : category}
+                  </button>
+                )
+              )}
             </div>
+
           </div>
 
           <div className="courses-results-info">
             <span>
               Showing <strong>{filteredCourses.length}</strong> programs
             </span>
+
             <span>Explore the details below</span>
           </div>
 
           {/* COURSE CARDS */}
+
           {filteredCourses.length > 0 ? (
             <div className="courses-grid">
+
               {filteredCourses.map((course) => {
                 const Icon = course.icon;
 
                 return (
                   <article className="course-card" key={course.id}>
+
                     <div className={`course-card-top ${course.color}`}>
+
                       <div className="course-card-icon">
                         <Icon size={30} />
                       </div>
@@ -271,9 +281,11 @@ export default function CoursesPage() {
                       <div className="course-card-code">
                         {course.shortName}
                       </div>
+
                     </div>
 
                     <div className="course-card-content">
+
                       <div className="course-card-duration">
                         <Clock3 size={15} />
                         {course.duration}
@@ -287,7 +299,9 @@ export default function CoursesPage() {
 
                       <div className="course-card-highlights">
                         {course.highlights.map((highlight) => (
-                          <span key={highlight}>{highlight}</span>
+                          <span key={highlight}>
+                            {highlight}
+                          </span>
                         ))}
                       </div>
 
@@ -297,8 +311,11 @@ export default function CoursesPage() {
                       </div>
 
                       <div className="course-card-actions">
+
+                        {/* DIRECT ADMISSION PORTAL LINK */}
+
                         <Link
-                          href="/admission"
+                          href={admissionUrl}
                           className="course-apply-btn"
                         >
                           Admission Enquiry
@@ -313,17 +330,26 @@ export default function CoursesPage() {
                         >
                           <FileText size={18} />
                         </Link>
+
                       </div>
+
                     </div>
                   </article>
                 );
               })}
+
             </div>
           ) : (
+
             <div className="courses-empty">
               <Search size={38} />
+
               <h3>No programs found</h3>
-              <p>Try another course name or select a different category.</p>
+
+              <p>
+                Try another course name or select a different category.
+              </p>
+
               <button
                 type="button"
                 onClick={() => {
@@ -334,14 +360,19 @@ export default function CoursesPage() {
                 Reset Search
               </button>
             </div>
+
           )}
+
         </div>
       </section>
 
-      {/* WHY CHOOSE */}
+      {/* WHY CHOOSE DD COLLEGE */}
+
       <section className="courses-benefits-section">
         <div className="courses-container">
+
           <div className="courses-section-heading centered">
+
             <div className="courses-section-label">
               <span />
               THE LEARNING EXPERIENCE
@@ -356,47 +387,66 @@ export default function CoursesPage() {
               Education is about developing knowledge, confidence and the
               ability to make a positive contribution.
             </p>
+
           </div>
 
           <div className="courses-benefits-grid">
+
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
 
               return (
-                <article className="courses-benefit-card" key={benefit.title}>
+                <article
+                  className="courses-benefit-card"
+                  key={benefit.title}
+                >
+
                   <div className="courses-benefit-top">
+
                     <div className="courses-benefit-icon">
                       <Icon size={26} />
                     </div>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
+
+                    <span>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
                   </div>
 
                   <h3>{benefit.title}</h3>
+
                   <p>{benefit.description}</p>
+
                 </article>
               );
             })}
+
           </div>
         </div>
       </section>
 
-    
-
       {/* SYLLABUS CTA */}
+
       <section className="courses-syllabus-section">
         <div className="courses-container">
+
           <div className="courses-syllabus-card">
+
             <div className="courses-syllabus-icon">
               <FileText size={29} />
             </div>
 
             <div className="courses-syllabus-content">
+
               <span>ACADEMIC RESOURCES</span>
+
               <h2>Looking for Course Syllabus?</h2>
+
               <p>
                 Visit the Student Corner to explore department-wise and
                 year-wise syllabus documents.
               </p>
+
             </div>
 
             <Link
@@ -404,11 +454,13 @@ export default function CoursesPage() {
               className="courses-syllabus-btn"
             >
               View Syllabus
-              <ChevronRight size={18} />
+              <ArrowUpRight size={18} />
             </Link>
+
           </div>
         </div>
       </section>
+
     </main>
   );
 }
