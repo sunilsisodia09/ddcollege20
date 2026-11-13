@@ -25,7 +25,7 @@ const students: Student[] = [
     company: "WIPRO WILP",
     // companyLogo: "/images/google-logo.png",
     
-   image: "/gallery/aa.png",
+   image: "/gallery/af.png",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const students: Student[] = [
     company: "Spectrum",
     // companyLogo: "/images/google-logo.png",
    
-       image: "/gallery/Rajeev.jpeg",
+       image: "/gallery/Rajeev.png",
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const students: Student[] = [
     company: "Bajaj Capital",
     // companyLogo: "/images/microsoft-logo.png",
   
-    image: "/gallery/Megha.jpeg",
+    image: "/gallery/Megha.png",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ const students: Student[] = [
     company: "Talent IQ",
     // companyLogo: "/images/infosys-logo.png",
   
-    image: "/gallery/Amrita.jpeg",
+    image: "/gallery/Amrita.png",
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const students: Student[] = [
     company: "AXIS Bank",
     // companyLogo: "/images/amazon-logo.png",
     
-    image: "/gallery/Shradha.jpeg",
+    image: "/gallery/Shradha.png",
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ const students: Student[] = [
     company: "Indigo",
     // companyLogo: "/images/tcs-logo.png",
    
-    image: "/gallery/Lavanya.jpeg",
+    image: "/gallery/Lavanya.png",
   },
 ];
 
