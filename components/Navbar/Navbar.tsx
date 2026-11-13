@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -10,6 +10,7 @@ import {
   ChevronDown,
   ArrowUpRight,
 } from "lucide-react";
+
 import "./Navbar.css";
 
 type MenuItem = {
@@ -49,14 +50,14 @@ const menuGroups: MenuGroup[] = [
         href: "/about/chairman-message",
         description:
           "Read the chairman's message and our commitment to creating opportunities for every student.",
-      image: "/gallery/chairmansira.jpg",
+        image: "/gallery/chairmansira.jpg",
       },
       {
         label: "Principal's Message",
         href: "/about/principal-message",
         description:
           "A message from our principal about academic excellence, discipline and student development.",
-         image: "/campus/prin.jpg",
+        image: "/campus/prin.jpg",
       },
       {
         label: "Management",
@@ -68,59 +69,25 @@ const menuGroups: MenuGroup[] = [
       },
     ],
   },
-
-  // {
-  //   label: "Admission",
-  //   items: [
-  //     {
-  //       label: "Admission Overview",
-  //       href: "/admission",
-  //       description:
-  //         "Explore admission information, eligibility and the process to become a part of D.D. College.",
-  //       image:
-  //         "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1000&q=85",
-  //     },
-  //     {
-  //       label: "Courses & Programs",
-  //       href: "/courses",
-  //       description:
-  //         "Explore undergraduate and postgraduate programs across different academic disciplines.",
-  //       image:
-  //         "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1000&q=85",
-  //     },
-  //     {
-  //       label: "Eligibility Criteria",
-  //       href: "/admission/eligibility",
-  //       description:
-  //         "Check course-wise eligibility requirements and academic qualifications.",
-  //       image:
-  //         "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1000&q=85",
-  //     },
-     
-      
-  //   ],
-  // },
-
   {
     label: "Departments",
     items: [
-    
-   {
-  label: "DEPARTMENT OF SCIENCE",
-  href: "/Departments/schoolofscience",
-  description:
-    "Explore scientific knowledge, laboratory learning, research, innovation and practical understanding of the natural world at DD College.",
-  image:
-    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1000&q=85",
-},
-     {
-  label: "LAW",
-  href: "/Departments/LAW",
-  description:
-    "Explore legal education, constitutional law, criminal law, human rights, justice and legal awareness at DD College.",
-  image:
-    "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1000&q=85",
-},
+      {
+        label: "DEPARTMENT OF SCIENCE",
+        href: "/Departments/schoolofscience",
+        description:
+          "Explore scientific knowledge, laboratory learning, research, innovation and practical understanding of the natural world at DD College.",
+        image:
+          "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1000&q=85",
+      },
+      {
+        label: "LAW",
+        href: "/Departments/LAW",
+        description:
+          "Explore legal education, constitutional law, criminal law, human rights, justice and legal awareness at DD College.",
+        image:
+          "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1000&q=85",
+      },
       {
         label: "Management Studies",
         href: "/Departments/SCHOOLOFCOMMERCE&MANAGEMENT",
@@ -129,49 +96,40 @@ const menuGroups: MenuGroup[] = [
         image:
           "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1000&q=85",
       },
-   {
-  label: "YOGA",
-  href: "/Departments/SCHOOLOFYOGA",
-  description:
-    "Explore yoga, meditation, wellness, breathing exercises and holistic learning at DD College.",
-  image:
-    "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=85",
-},
-{
-  label: "HEALTH SCIENCES",
-  href: "/Departments/HEALTHSCIENCES",
-  description:
-    "Explore human health, healthcare awareness, medical sciences, wellness, disease prevention and practical scientific learning at DD College.",
-  image:
-    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&q=85",
-},
-{
-  label: "DEPARTMENT OF COMPUTER SCIENCE",
-  href: "/Departments/COMPUTERSCIENCE",
-  description:
-    "Explore computer science, programming, software development, web technologies, databases, artificial intelligence and modern IT skills at DD College.",
-  image:
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&q=85",
-},
-      // {
-      //   label: "Science",
-      //   href: "/departments/science",
-      //   description:
-      //     "Discover scientific learning through practical education, research and experimentation.",
-      //   image:
-      //     "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1000&q=85",
-      // },
       {
-  label: "DEPARTMENT OF HUMANITIES & SOCIAL SCIENCES",
-  href: "/Departments/HUMANITIESSOCIALSCIENCES",
-  description:
-    "Explore history, political science, sociology, psychology, literature, culture and social development through interdisciplinary learning at DD College.",
-  image:
-    "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1000&q=85",
-},
+        label: "YOGA",
+        href: "/Departments/SCHOOLOFYOGA",
+        description:
+          "Explore yoga, meditation, wellness, breathing exercises and holistic learning at DD College.",
+        image:
+          "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=85",
+      },
+      {
+        label: "HEALTH SCIENCES",
+        href: "/Departments/HEALTHSCIENCES",
+        description:
+          "Explore human health, healthcare awareness, medical sciences, wellness, disease prevention and practical scientific learning at DD College.",
+        image:
+          "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&q=85",
+      },
+      {
+        label: "DEPARTMENT OF COMPUTER SCIENCE",
+        href: "/Departments/COMPUTERSCIENCE",
+        description:
+          "Explore computer science, programming, software development, web technologies, databases, artificial intelligence and modern IT skills at DD College.",
+        image:
+          "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&q=85",
+      },
+      {
+        label: "DEPARTMENT OF HUMANITIES & SOCIAL SCIENCES",
+        href: "/Departments/HUMANITIESSOCIALSCIENCES",
+        description:
+          "Explore history, political science, sociology, psychology, literature, culture and social development through interdisciplinary learning at DD College.",
+        image:
+          "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1000&q=85",
+      },
     ],
   },
-
   {
     label: "Placements",
     items: [
@@ -183,43 +141,29 @@ const menuGroups: MenuGroup[] = [
         image:
           "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&q=85",
       },
-     
     ],
   },
-
   {
     label: "Campus Life",
     items: [
       {
         label: "Campus Overview",
-         href: "/CampusLife/campusoverview",
+        href: "/CampusLife/campusoverview",
         description:
           "Experience campus life, student activities and the learning environment at D.D. College.",
-       image: "/campus/build.webp",
+        image: "/campus/build.webp",
       },
-     
-      // {
-      //   label: "Library",
-      //   href: "/campus-life/library",
-      //   description:
-      //     "Discover learning resources, books and study spaces available to students.",
-      //   image:
-      //     "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1000&q=85",
-      // },
       {
-        label: " Labs",
-      href: "/CampusLife/labs",
+        label: "Labs",
+        href: "/CampusLife/labs",
         description:
           "Explore practical learning facilities and computer laboratories.",
         image:
           "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1000&q=85",
       },
-  
-    
-     
       {
         label: "Clubs & Societies",
-         href: "/CampusLife/clubs",
+        href: "/CampusLife/clubs",
         description:
           "Participate in clubs, societies and extracurricular activities.",
         image:
@@ -227,42 +171,41 @@ const menuGroups: MenuGroup[] = [
       },
       {
         label: "Events & Activities",
-       href: "/CampusLife/events",
+        href: "/CampusLife/events",
         description:
           "Stay connected with campus events, celebrations, workshops and activities.",
         image:
           "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1000&q=85",
       },
-     {
-  label: "Photo Gallery",
-  href: "/CampusLife/gallery",
-  description:
-    "Explore photographs capturing campus events, achievements and college memories.",
-  image:
-    "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1000&q=85",
-},
+      {
+        label: "Photo Gallery",
+        href: "/CampusLife/gallery",
+        description:
+          "Explore photographs capturing campus events, achievements and college memories.",
+        image:
+          "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1000&q=85",
+      },
     ],
   },
-
   {
     label: "Student Corner",
     items: [
-    {
-  label: "Student Portal",
-  href: "/student-corner/studentportal",
-  description:
-    "Access student-related information, academic resources and important updates.",
-  image:
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&q=85",
-},
-  {
-  label: "Syllabus",
-  href: "/student-corner/syllabus",
-  description:
-    "Find department-wise and year-wise syllabus PDFs and academic resources.",
-  image:
-    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=85",
-},
+      {
+        label: "Student Portal",
+        href: "/student-corner/studentportal",
+        description:
+          "Access student-related information, academic resources and important updates.",
+        image:
+          "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&q=85",
+      },
+      {
+        label: "Syllabus",
+        href: "/student-corner/syllabus",
+        description:
+          "Find department-wise and year-wise syllabus PDFs and academic resources.",
+        image:
+          "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=85",
+      },
       {
         label: "Anti-Ragging Cell",
         href: "/student-corner/anti-ragging",
@@ -271,39 +214,6 @@ const menuGroups: MenuGroup[] = [
         image:
           "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1000&q=85",
       },
-      // {
-      //   label: "Grievance Redressal",
-      //   href: "/student-corner/grievance",
-      //   description:
-      //     "Find information about student grievance support and redressal procedures.",
-      //   image:
-      //     "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1000&q=85",
-      // },
-      // {
-      //   label: "Internal Complaints Committee",
-      //   href: "/student-corner/icc",
-      //   description:
-      //     "Explore institutional support and complaint redressal information.",
-      //   image:
-      //     "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=85",
-      // },
-      // {
-      //   label: "NSS & Social Activities",
-      //   href: "/student-corner/nss",
-      //   description:
-      //     "Discover volunteering, social responsibility and community engagement activities.",
-      //   image:
-      //     "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1000&q=85",
-      // },
-      // {
-      //   label: "Alumni Association",
-      //   href: "/student-corner/alumni",
-      //   description:
-      //     "Stay connected with alumni and the wider D.D. College community.",
-      //   image:
-      //     "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1000&q=85",
-      // },
-   
     ],
   },
 ];
@@ -318,29 +228,30 @@ export default function Navbar() {
 
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const [selectedItems, setSelectedItems] = useState<
     Record<string, number>
   >({});
 
-  const [isScrolled, setIsScrolled] = useState(false);
-
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
     };
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  useEffect(() => {
-    setActiveMenu(null);
-    setMobileOpen(false);
-  }, [pathname]);
-
+  // Close menus using Escape key
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -351,16 +262,25 @@ export default function Navbar() {
 
     window.addEventListener("keydown", handleKeyDown);
 
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
-  const getSelectedItem = (group: MenuGroup) => {
+  const closeAll = () => {
+    setActiveMenu(null);
+    setMobileOpen(false);
+  };
+
+  const getSelectedItem = (group: MenuGroup): MenuItem => {
     const index = selectedItems[group.label] ?? 0;
     return group.items[index] || group.items[0];
   };
 
   const openMenu = (label: string) => {
-    setActiveMenu((current) => current === label ? null : label);
+    setActiveMenu((current) =>
+      current === label ? null : label
+    );
   };
 
   const selectItem = (group: string, index: number) => {
@@ -370,21 +290,17 @@ export default function Navbar() {
     }));
   };
 
-  const closeAll = () => {
-    setActiveMenu(null);
-    setMobileOpen(false);
-  };
-
   return (
     <>
       <header
         className={`dd-navbar ${isScrolled ? "is-scrolled" : ""}`}
         onMouseLeave={() => {
-          if (!mobileOpen) setActiveMenu(null);
+          if (!mobileOpen) {
+            setActiveMenu(null);
+          }
         }}
       >
         <div className="dd-navbar-inner">
-
           {/* LOGO */}
           <Link
             href="/"
@@ -392,7 +308,10 @@ export default function Navbar() {
             onClick={closeAll}
             aria-label="D.D. College Home"
           >
-            <img src="/logos/college.png" alt="D.D. College Logo" />
+            <img
+              src="/logos/college.png"
+              alt="D.D. College Logo"
+            />
 
             <span className="dd-brand-text">
               <strong>D.D. COLLEGE</strong>
@@ -401,12 +320,15 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP NAVIGATION */}
-          <nav className="dd-desktop-nav" aria-label="Main navigation">
-
+          <nav
+            className="dd-desktop-nav"
+            aria-label="Main navigation"
+          >
             {directLinks.slice(0, 1).map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
+                onClick={closeAll}
                 className={`dd-nav-link ${
                   pathname === item.href ? "active" : ""
                 }`}
@@ -425,41 +347,46 @@ export default function Navbar() {
                 onClick={() => openMenu(group.label)}
                 onMouseEnter={() => setActiveMenu(group.label)}
                 aria-expanded={activeMenu === group.label}
+                aria-haspopup="true"
               >
                 {group.label}
+
                 <ChevronDown
                   size={15}
-                  className={activeMenu === group.label ? "rotate" : ""}
+                  className={
+                    activeMenu === group.label ? "rotate" : ""
+                  }
                 />
               </button>
             ))}
 
             <Link
-              href="/contact"
+              href={directLinks[1].href}
+              onClick={closeAll}
               className={`dd-nav-link ${
                 pathname === "/contact" ? "active" : ""
               }`}
             >
               Contact
             </Link>
-
           </nav>
 
           {/* ADMISSION BUTTON */}
           <Link
-  href="/admissions"
-  className="dd-admission-btn"
-  onClick={closeAll}
->
-  Apply Now <ArrowUpRight size={16} />
-</Link>
+            href="/admissions"
+            className="dd-admission-btn"
+            onClick={closeAll}
+          >
+            Apply Now
+            <ArrowUpRight size={16} />
+          </Link>
 
           {/* MOBILE TOGGLE */}
           <button
             className="dd-mobile-toggle"
             type="button"
             onClick={() => {
-              setMobileOpen(!mobileOpen);
+              setMobileOpen((previous) => !previous);
               setActiveMenu(null);
             }}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -467,11 +394,10 @@ export default function Navbar() {
           >
             {mobileOpen ? <X size={25} /> : <Menu size={25} />}
           </button>
-
         </div>
 
         {/* DESKTOP MEGA MENU */}
-        {activeMenu && (
+        {activeMenu && !mobileOpen && (
           <div
             className="dd-mega-menu"
             onMouseEnter={() => setActiveMenu(activeMenu)}
@@ -483,15 +409,14 @@ export default function Navbar() {
 
                 return (
                   <div className="dd-mega-inner" key={group.label}>
-
                     {/* LEFT MENU */}
                     <div className="dd-mega-left">
-
                       <div className="dd-mega-heading">
                         <span>EXPLORE D.D. COLLEGE</span>
                         <h3>{group.label}</h3>
                         <p>
-                          Discover more about our college and opportunities.
+                          Discover more about our college and
+                          opportunities.
                         </p>
                       </div>
 
@@ -520,12 +445,13 @@ export default function Navbar() {
                           </button>
                         ))}
                       </div>
-
                     </div>
 
                     {/* RIGHT IMAGE PREVIEW */}
-                    <div className="dd-mega-preview" key={selected.label}>
-
+                    <div
+                      className="dd-mega-preview"
+                      key={selected.label}
+                    >
                       <div className="dd-preview-image">
                         <img
                           src={selected.image}
@@ -552,15 +478,12 @@ export default function Navbar() {
                           <ArrowUpRight size={17} />
                         </Link>
                       </div>
-
                     </div>
-
                   </div>
                 );
               })}
           </div>
         )}
-
       </header>
 
       {/* DESKTOP BACKDROP */}
@@ -574,15 +497,21 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="dd-mobile-overlay" onClick={closeAll}>
+        <div
+          className="dd-mobile-overlay"
+          onClick={closeAll}
+        >
           <div
             className="dd-mobile-panel"
             onClick={(event) => event.stopPropagation()}
           >
-
             <div className="dd-mobile-header">
               <div className="dd-mobile-brand">
-                <img src="/logo.jpeg" alt="D.D. College Logo" />
+                <img
+                  src="/logos/college.png"
+                  alt="D.D. College Logo"
+                />
+
                 <div>
                   <strong>D.D. COLLEGE</strong>
                   <small>DEHRADUN</small>
@@ -599,7 +528,6 @@ export default function Navbar() {
             </div>
 
             <div className="dd-mobile-links">
-
               <Link href="/" onClick={closeAll}>
                 Home
               </Link>
@@ -608,16 +536,20 @@ export default function Navbar() {
                 const selected = getSelectedItem(group);
 
                 return (
-                  <div className="dd-mobile-group" key={group.label}>
-
+                  <div
+                    className="dd-mobile-group"
+                    key={group.label}
+                  >
                     <button
                       type="button"
                       className={`dd-mobile-group-trigger ${
                         activeMenu === group.label ? "active" : ""
                       }`}
                       onClick={() => openMenu(group.label)}
+                      aria-expanded={activeMenu === group.label}
                     >
                       {group.label}
+
                       <ChevronDown
                         size={19}
                         className={
@@ -628,7 +560,6 @@ export default function Navbar() {
 
                     {activeMenu === group.label && (
                       <div className="dd-mobile-submenu">
-
                         {group.items.map((item, index) => (
                           <button
                             type="button"
@@ -656,18 +587,18 @@ export default function Navbar() {
                           <div>
                             <h4>{selected.label}</h4>
                             <p>{selected.description}</p>
+
                             <Link
                               href={selected.href}
                               onClick={closeAll}
                             >
-                              Explore More <ArrowUpRight size={15} />
+                              Explore More
+                              <ArrowUpRight size={15} />
                             </Link>
                           </div>
                         </div>
-
                       </div>
                     )}
-
                   </div>
                 );
               })}
@@ -675,20 +606,20 @@ export default function Navbar() {
               <Link href="/contact" onClick={closeAll}>
                 Contact
               </Link>
-<Link
-  href="/admissions"
-  className="dd-mobile-apply"
-  onClick={closeAll}
->
-  Apply Now <ArrowUpRight size={17} />
-</Link>
 
+              <Link
+                href="/admissions"
+                className="dd-mobile-apply"
+                onClick={closeAll}
+              >
+                Apply Now
+                <ArrowUpRight size={17} />
+              </Link>
             </div>
 
             <div className="dd-mobile-footer">
               D.D. College Dehradun
             </div>
-
           </div>
         </div>
       )}

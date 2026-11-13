@@ -301,7 +301,9 @@ export default function ComputerSciencePage() {
       <section className="cs-hero">
         <div className="cs-container">
           <div className="cs-hero-content">
-            <span className="cs-eyebrow">DD College · Academic Department</span>
+            <span className="cs-eyebrow">
+              DD College · Academic Department
+            </span>
             <h1>
               Department of <span>Computer Science</span>
             </h1>
@@ -311,10 +313,16 @@ export default function ComputerSciencePage() {
               problem-solving abilities for a technology-driven future.
             </p>
             <div className="cs-actions">
-              <Link href="/contact?course=Computer%20Science#contact-form" className="cs-btn cs-btn-primary">
+              <Link
+                href="/contact?course=Computer%20Science#contact-form"
+                className="cs-btn cs-btn-primary"
+              >
                 Admission Enquiry <ArrowUpRight size={18} />
               </Link>
-              <a href="#about-department" className="cs-btn cs-btn-outline">
+              <a
+                href="#about-department"
+                className="cs-btn cs-btn-outline"
+              >
                 Explore Department <ArrowRight size={18} />
               </a>
             </div>
@@ -335,7 +343,9 @@ export default function ComputerSciencePage() {
               src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1000&q=85"
               alt="Students learning computer science"
             />
-            <div className="cs-image-label">Learn · Create · Innovate</div>
+            <div className="cs-image-label">
+              Learn · Create · Innovate
+            </div>
           </div>
 
           <div className="cs-about-text">
@@ -376,7 +386,7 @@ export default function ComputerSciencePage() {
             <h2>Explore the World of Computer Science</h2>
             <p>
               Develop a foundation in important computing areas and understand
-              how technology is used in today's digital environment.
+              how technology is used in today&apos;s digital environment.
             </p>
           </div>
 
@@ -385,7 +395,9 @@ export default function ComputerSciencePage() {
               const Icon = area.icon;
               return (
                 <article className="cs-card" key={area.title}>
-                  <div className="cs-icon"><Icon size={26} /></div>
+                  <div className="cs-icon">
+                    <Icon size={26} />
+                  </div>
                   <h3>{area.title}</h3>
                   <p>{area.description}</p>
                 </article>
@@ -463,17 +475,26 @@ export default function ComputerSciencePage() {
             <article className="cs-card">
               <div className="cs-icon"><Laptop size={26} /></div>
               <h3>Practical Understanding</h3>
-              <p>Connect classroom concepts with practical computing activities and exercises.</p>
+              <p>
+                Connect classroom concepts with practical computing activities
+                and exercises.
+              </p>
             </article>
             <article className="cs-card">
               <div className="cs-icon"><Monitor size={26} /></div>
               <h3>Digital Skills</h3>
-              <p>Build confidence in using digital tools and understanding modern technologies.</p>
+              <p>
+                Build confidence in using digital tools and understanding
+                modern technologies.
+              </p>
             </article>
             <article className="cs-card">
               <div className="cs-icon"><Cpu size={26} /></div>
               <h3>Innovation Mindset</h3>
-              <p>Develop curiosity, creativity and an interest in emerging computing trends.</p>
+              <p>
+                Develop curiosity, creativity and an interest in emerging
+                computing trends.
+              </p>
             </article>
           </div>
         </div>
@@ -487,7 +508,10 @@ export default function ComputerSciencePage() {
             Interested in learning about computing and technology? Contact DD
             College for information about available programmes and admissions.
           </p>
-          <Link href="/contact?course=Computer%20Science#contact-form" className="cs-btn cs-btn-primary">
+          <Link
+            href="/contact?course=Computer%20Science#contact-form"
+            className="cs-btn cs-btn-primary"
+          >
             Admission Enquiry <ArrowUpRight size={18} />
           </Link>
         </div>

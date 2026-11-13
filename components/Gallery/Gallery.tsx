@@ -12,17 +12,22 @@ import {
 
 import "./Gallery.css";
 
-const galleryImages = [
-  { id: 1, image: "/images/a.jpg",  },
-  { id: 2, image: "/images/b.jpg",  },
-  { id: 3, image: "/images/c.jpg",  },
-  { id: 4, image: "/images/d.jpg", },
-  { id: 5, image: "/images/e.jpg",  },
-  { id: 6, image: "/images/f.jpg",  },
-  { id: 7, image: "/images/g.jpg",  },
-  { id: 8, image: "/images/h.jpg"},
-  { id: 9, image: "/images/hh.jpg" },
-  // { id: 10, image: "/campus/ground.jpg", alt: "freshers" },
+interface GalleryImage {
+  id: number;
+  image: string;
+  alt: string;
+}
+
+const galleryImages: GalleryImage[] = [
+  { id: 1, image: "/images/a.jpg", alt: "Campus View" },
+  { id: 2, image: "/images/b.jpg", alt: "College Campus" },
+  { id: 3, image: "/images/c.jpg", alt: "Student Activities" },
+  { id: 4, image: "/images/d.jpg", alt: "College Events" },
+  { id: 5, image: "/images/e.jpg", alt: "Campus Memories" },
+  { id: 6, image: "/images/f.jpg", alt: "College Life" },
+  { id: 7, image: "/images/g.jpg", alt: "Campus Activities" },
+  { id: 8, image: "/images/h.jpg", alt: "College Facilities" },
+  { id: 9, image: "/images/hh.jpg", alt: "D.D. College Gallery" },
 ];
 
 export default function GallerySection() {
@@ -41,7 +46,7 @@ export default function GallerySection() {
     );
   }, []);
 
-  const getImage = (offset: number) => {
+  const getImage = (offset: number): GalleryImage => {
     return galleryImages[
       (activeImage + offset + galleryImages.length) % galleryImages.length
     ];
@@ -51,6 +56,7 @@ export default function GallerySection() {
     if (isPaused || lightbox) return;
 
     const timer = window.setInterval(nextImage, 3000);
+
     return () => window.clearInterval(timer);
   }, [isPaused, lightbox, nextImage]);
 
@@ -65,6 +71,7 @@ export default function GallerySection() {
 
     const oldOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
     document.addEventListener("keydown", handleKey);
 
     return () => {
@@ -77,7 +84,6 @@ export default function GallerySection() {
     <>
       <section className="dd-gallery">
         <div className="dd-gallery-container">
-
           <div className="dd-gallery-header">
             <div className="dd-gallery-heading">
               <span className="dd-gallery-eyebrow">
@@ -98,14 +104,15 @@ export default function GallerySection() {
             </div>
 
             <div className="dd-gallery-count">
-              <strong>{String(activeImage + 1).padStart(2, "0")}</strong>
+              <strong>
+                {String(activeImage + 1).padStart(2, "0")}
+              </strong>
               <span>
                 / {String(galleryImages.length).padStart(2, "0")}
               </span>
             </div>
           </div>
 
-          {/* Three Image Slider */}
           <div
             className="dd-gallery-main"
             onMouseEnter={() => setIsPaused(true)}
@@ -114,7 +121,6 @@ export default function GallerySection() {
             onTouchEnd={() => setIsPaused(false)}
           >
             <div className="dd-gallery-three">
-
               {/* Left Image */}
               <button
                 type="button"
@@ -122,7 +128,10 @@ export default function GallerySection() {
                 onClick={previousImage}
                 aria-label="Previous image"
               >
-                <img src={getImage(-1).image} alt={getImage(-1).alt} />
+                <img
+                  src={getImage(-1).image}
+                  alt={getImage(-1).alt}
+                />
                 <span>{getImage(-1).alt}</span>
               </button>
 
@@ -158,21 +167,28 @@ export default function GallerySection() {
                 onClick={nextImage}
                 aria-label="Next image"
               >
-                <img src={getImage(1).image} alt={getImage(1).alt} />
+                <img
+                  src={getImage(1).image}
+                  alt={getImage(1).alt}
+                />
                 <span>{getImage(1).alt}</span>
               </button>
-
             </div>
 
             {/* Navigation */}
             <div className="dd-gallery-navigation">
-              <button onClick={previousImage} aria-label="Previous">
+              <button
+                type="button"
+                onClick={previousImage}
+                aria-label="Previous"
+              >
                 <ChevronLeft size={22} />
               </button>
 
               <div className="dd-gallery-dots">
                 {galleryImages.map((item, index) => (
                   <button
+                    type="button"
                     key={item.id}
                     className={activeImage === index ? "active" : ""}
                     onClick={() => setActiveImage(index)}
@@ -181,7 +197,11 @@ export default function GallerySection() {
                 ))}
               </div>
 
-              <button onClick={nextImage} aria-label="Next">
+              <button
+                type="button"
+                onClick={nextImage}
+                aria-label="Next"
+              >
                 <ChevronRight size={22} />
               </button>
             </div>
@@ -192,7 +212,6 @@ export default function GallerySection() {
             <p>Creating Memories. Building Futures.</p>
             <span />
           </div>
-
         </div>
       </section>
 
@@ -203,8 +222,10 @@ export default function GallerySection() {
           onClick={() => setLightbox(false)}
           role="dialog"
           aria-modal="true"
+          aria-label="Campus gallery fullscreen preview"
         >
           <button
+            type="button"
             className="dd-gallery-close"
             onClick={() => setLightbox(false)}
             aria-label="Close"
@@ -213,9 +234,10 @@ export default function GallerySection() {
           </button>
 
           <button
+            type="button"
             className="dd-gallery-lightbox-arrow left"
-            onClick={(e) => {
-              e.stopPropagation();
+            onClick={(event) => {
+              event.stopPropagation();
               previousImage();
             }}
             aria-label="Previous image"
@@ -225,7 +247,7 @@ export default function GallerySection() {
 
           <div
             className="dd-gallery-lightbox-content"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
           >
             <img
               src={getImage(0).image}
@@ -235,9 +257,10 @@ export default function GallerySection() {
           </div>
 
           <button
+            type="button"
             className="dd-gallery-lightbox-arrow right"
-            onClick={(e) => {
-              e.stopPropagation();
+            onClick={(event) => {
+              event.stopPropagation();
               nextImage();
             }}
             aria-label="Next image"

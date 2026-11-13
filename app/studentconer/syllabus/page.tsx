@@ -1,6 +1,6 @@
-
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
   BookOpen,
@@ -174,7 +174,7 @@ export default function SyllabusPage() {
 
         <div className="syllabus-container syllabus-hero-content">
           <div className="syllabus-breadcrumb">
-            <a href="/">Home</a>
+           <Link href="/">Home</Link>
             <ChevronRight size={15} />
             <span>Academic Resources</span>
             <ChevronRight size={15} />
@@ -463,11 +463,7 @@ export default function SyllabusPage() {
                 curriculum-related information and assistance.
               </p>
             </div>
-
-            <a href="/#contact" className="syllabus-help-btn">
-              Contact College
-              <ArrowUpRight size={18} />
-            </a>
+<Link href="/">Home</Link>
           </div>
         </div>
       </section>

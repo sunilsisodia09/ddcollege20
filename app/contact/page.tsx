@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -129,7 +130,7 @@ export default function ContactPage() {
             </div>
 
             <h1>
-              Let's Start a
+              Let&apos;s Start a
               <span> Conversation.</span>
             </h1>
 
@@ -172,7 +173,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <strong>Need assistance?</strong>
-                <span>Let's find the right information for you.</span>
+                <span>Let&apos;s find the right information for you.</span>
               </div>
             </div>
           </div>
@@ -523,8 +524,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-    
     </main>
   );
 }

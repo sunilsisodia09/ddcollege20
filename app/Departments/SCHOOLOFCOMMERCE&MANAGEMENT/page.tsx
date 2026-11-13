@@ -47,22 +47,26 @@ const programmes = [
 const areas = [
   {
     title: "Accounting & Finance",
-    description: "Understand accounting, financial planning and business finance.",
+    description:
+      "Understand accounting, financial planning and business finance.",
     icon: Coins,
   },
   {
     title: "Business Management",
-    description: "Learn management principles, planning and decision-making.",
+    description:
+      "Learn management principles, planning and decision-making.",
     icon: Building2,
   },
   {
     title: "Marketing",
-    description: "Explore branding, marketing strategies and consumer behaviour.",
+    description:
+      "Explore branding, marketing strategies and consumer behaviour.",
     icon: Megaphone,
   },
   {
     title: "Human Resources",
-    description: "Understand teamwork, leadership and people management.",
+    description:
+      "Understand teamwork, leadership and people management.",
     icon: Users,
   },
 ];
@@ -78,13 +82,17 @@ const benefits = [
 export default function SchoolOfCommerceManagementPage() {
   return (
     <main className="scm-page">
+      {/* HERO */}
       <section className="scm-hero">
         <div className="scm-container scm-hero-content">
-          <span className="scm-eyebrow">DD COLLEGE | ACADEMIC DEPARTMENT</span>
+          <span className="scm-eyebrow">
+            DD COLLEGE | ACADEMIC DEPARTMENT
+          </span>
 
           <h1>
             School of <span>Commerce</span>
-            <br />& Management
+            <br />
+            & Management
           </h1>
 
           <p>
@@ -108,24 +116,29 @@ export default function SchoolOfCommerceManagementPage() {
         </div>
       </section>
 
+      {/* ABOUT DEPARTMENT */}
       <section className="scm-section">
         <div className="scm-container scm-about">
           <div>
             <span className="scm-label">ABOUT THE DEPARTMENT</span>
+
             <h2>
               Building Knowledge for the
               <span> Business World</span>
             </h2>
+
             <p>
               The School of Commerce & Management at DD College focuses on
-              developing students' understanding of commerce, accounting,
+              developing students&apos; understanding of commerce, accounting,
               finance, business administration and management.
             </p>
+
             <p>
               The academic approach encourages analytical thinking,
               communication, leadership and awareness of the modern business
               environment.
             </p>
+
             <div className="scm-checks">
               {benefits.map((item) => (
                 <div key={item}>
@@ -140,13 +153,16 @@ export default function SchoolOfCommerceManagementPage() {
         </div>
       </section>
 
+      {/* PROGRAMMES */}
       <section className="scm-section scm-light" id="programmes">
         <div className="scm-container">
           <div className="scm-heading">
             <span className="scm-label">ACADEMIC PROGRAMMES</span>
+
             <h2>
               Explore Our <span>Programmes</span>
             </h2>
+
             <p>
               Discover programmes designed to introduce students to commerce
               and management education.
@@ -164,7 +180,9 @@ export default function SchoolOfCommerceManagementPage() {
                   </div>
 
                   <span className="scm-course-code">{course.code}</span>
+
                   <h3>{course.name}</h3>
+
                   <p>{course.description}</p>
 
                   <div className="scm-duration">
@@ -173,7 +191,9 @@ export default function SchoolOfCommerceManagementPage() {
                   </div>
 
                   <Link
-                    href={`/contact?course=${encodeURIComponent(course.code)}&department=School%20of%20Commerce%20%26%20Management#contact-form`}
+                    href={`/contact?course=${encodeURIComponent(
+                      course.code
+                    )}&department=School%20of%20Commerce%20%26%20Management#contact-form`}
                     className="scm-course-link"
                   >
                     Admission Enquiry <ArrowRight size={17} />
@@ -190,10 +210,12 @@ export default function SchoolOfCommerceManagementPage() {
         </div>
       </section>
 
+      {/* AREAS OF STUDY */}
       <section className="scm-section">
         <div className="scm-container">
           <div className="scm-heading">
             <span className="scm-label">AREAS OF STUDY</span>
+
             <h2>
               Explore the <span>Business World</span>
             </h2>
@@ -215,34 +237,45 @@ export default function SchoolOfCommerceManagementPage() {
         </div>
       </section>
 
+      {/* CAREER OPPORTUNITIES */}
       <section className="scm-section scm-career">
         <div className="scm-container scm-career-content">
           <div>
             <span className="scm-label">FUTURE OPPORTUNITIES</span>
+
             <h2>
               Prepare Yourself for
               <span> New Opportunities</span>
             </h2>
+
             <p>
               Commerce and management education can support further studies
               and career pathways in finance, banking, accounting, marketing,
               administration and entrepreneurship.
             </p>
-            {/* <Link href="/admission/courses" className="scm-button">
-              Explore All Courses <ArrowRight size={18} />
-            </Link> */}
           </div>
 
           <div className="scm-career-box">
-            <div><BookOpen size={22} /> Higher Education</div>
-            <div><Coins size={22} /> Banking & Finance</div>
-            <div><BriefcaseBusiness size={22} /> Business Administration</div>
-            <div><Target size={22} /> Entrepreneurship</div>
-            <div><GraduationCap size={22} /> Professional Development</div>
+            <div>
+              <BookOpen size={22} /> Higher Education
+            </div>
+            <div>
+              <Coins size={22} /> Banking & Finance
+            </div>
+            <div>
+              <BriefcaseBusiness size={22} /> Business Administration
+            </div>
+            <div>
+              <Target size={22} /> Entrepreneurship
+            </div>
+            <div>
+              <GraduationCap size={22} /> Professional Development
+            </div>
           </div>
         </div>
       </section>
 
+      {/* BOTTOM CTA */}
       <section className="scm-bottom">
         <div className="scm-container scm-bottom-inner">
           <div>

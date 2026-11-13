@@ -24,26 +24,10 @@ import {
 import "./placements.css";
 
 const stats = [
-  {
-    value: "Career",
-    label: "Focused Learning",
-    icon: Target,
-  },
-  {
-    value: "Industry",
-    label: "Career Awareness",
-    icon: Building2,
-  },
-  {
-    value: "Practical",
-    label: "Skill Development",
-    icon: Laptop,
-  },
-  {
-    value: "Personal",
-    label: "Career Guidance",
-    icon: Users,
-  },
+  { value: "Career", label: "Focused Learning", icon: Target },
+  { value: "Industry", label: "Career Awareness", icon: Building2 },
+  { value: "Practical", label: "Skill Development", icon: Laptop },
+  { value: "Personal", label: "Career Guidance", icon: Users },
 ];
 
 const recruiters = [
@@ -109,7 +93,7 @@ const studentStories = [
     company: "Add verified employer",
     image: "/images/placements/student-3.jpg",
     quote:
-      "Highlight a real student's journey, achievements and experience at D.D. College.",
+      "Highlight a real student&apos;s journey, achievements and experience at D.D. College.",
   },
 ];
 
@@ -212,7 +196,7 @@ export default function PlacementsPage() {
                 </span>
                 <div>
                   <span>YOUR JOURNEY STARTS HERE</span>
-                  <strong>Prepare for what's next.</strong>
+                  <strong>Prepare for what&apos;s next.</strong>
                 </div>
               </div>
             </div>
@@ -535,7 +519,7 @@ export default function PlacementsPage() {
             <h2>
               More than a degree.
               <br />
-              <span>Ready for what's next.</span>
+              <span>Ready for what&apos;s next.</span>
             </h2>
 
             <p>

@@ -6,7 +6,6 @@ import {
   ShieldCheck,
   HeartHandshake,
   Users,
-  GraduationCap,
   AlertTriangle,
   Ban,
   MessageCircle,
@@ -15,7 +14,6 @@ import {
   CheckCircle2,
   PhoneCall,
   LockKeyhole,
-  BookOpen,
   HandHeart,
   ClipboardCheck,
   ExternalLink,
@@ -201,7 +199,7 @@ export default function AntiRaggingPage() {
             <div className="ar-intro-content">
               <p>
                 Ragging has no place in an educational institution. It can
-                affect a student's confidence, dignity, mental well-being
+                affect a student&apos;s confidence, dignity, mental well-being
                 and academic experience.
               </p>
 
@@ -215,7 +213,7 @@ export default function AntiRaggingPage() {
               <div className="ar-intro-highlight">
                 <ShieldCheck size={25} />
                 <strong>
-                  A safe campus is everyone's responsibility.
+                  A safe campus is everyone&apos;s responsibility.
                 </strong>
               </div>
             </div>
@@ -394,7 +392,7 @@ export default function AntiRaggingPage() {
               </h2>
 
               <p>
-                The college's designated anti-ragging authorities
+                The college&apos;s designated anti-ragging authorities
                 help promote awareness, receive complaints and
                 support a safe campus environment in accordance
                 with applicable regulations.

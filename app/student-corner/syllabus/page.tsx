@@ -1,22 +1,19 @@
-
 "use client";
 
-import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useMemo, useState } from "react";
 import {
-  ArrowRight,
-  ArrowUpRight,
-  BookOpen,
-  Building2,
-  CalendarDays,
-  CheckCircle2,
-  ChevronDown,
-  Download,
-  FileText,
-  GraduationCap,
   Search,
-  ShieldCheck,
-  Sparkles,
+  BookOpen,
+  GraduationCap,
+  Download,
+  ExternalLink,
+  ChevronDown,
+  FileText,
+  FolderOpen,
+  ArrowRight,
+  Phone,
+  Mail,
 } from "lucide-react";
 
 import "./syllabus.css";
@@ -26,26 +23,25 @@ type SyllabusYear = {
   file: string;
 };
 
-type Department = {
-  id: string;
+type SyllabusCourse = {
+  id: number;
   name: string;
   shortName: string;
-  duration: string;
   category: string;
   description: string;
-  icon: string;
+  duration: string;
   years: SyllabusYear[];
 };
 
-const departments: Department[] = [
+const syllabusCourses: SyllabusCourse[] = [
   {
-    id: "bca",
+    id: 1,
     name: "Bachelor of Computer Applications",
     shortName: "BCA",
-    duration: "3 Years",
     category: "Undergraduate",
-    description: "Computer applications, programming and software development.",
-    icon: "💻",
+    description:
+      "Computer applications, programming, software development and modern information technology.",
+    duration: "3 Years",
     years: [
       { label: "1st Year", file: "/syllabus/bca/1st-year.pdf" },
       { label: "2nd Year", file: "/syllabus/bca/2nd-year.pdf" },
@@ -53,13 +49,13 @@ const departments: Department[] = [
     ],
   },
   {
-    id: "bba",
+    id: 2,
     name: "Bachelor of Business Administration",
     shortName: "BBA",
-    duration: "3 Years",
     category: "Undergraduate",
-    description: "Management, business administration and entrepreneurship.",
-    icon: "📊",
+    description:
+      "Business management, marketing, finance, entrepreneurship and leadership.",
+    duration: "3 Years",
     years: [
       { label: "1st Year", file: "/syllabus/bba/1st-year.pdf" },
       { label: "2nd Year", file: "/syllabus/bba/2nd-year.pdf" },
@@ -67,13 +63,13 @@ const departments: Department[] = [
     ],
   },
   {
-    id: "bcom",
+    id: 3,
     name: "Bachelor of Commerce",
     shortName: "B.Com",
-    duration: "3 Years",
     category: "Undergraduate",
-    description: "Accounting, finance, taxation and commerce studies.",
-    icon: "📚",
+    description:
+      "Accounting, business studies, finance, taxation and commerce.",
+    duration: "3 Years",
     years: [
       { label: "1st Year", file: "/syllabus/bcom/1st-year.pdf" },
       { label: "2nd Year", file: "/syllabus/bcom/2nd-year.pdf" },
@@ -81,13 +77,13 @@ const departments: Department[] = [
     ],
   },
   {
-    id: "ba",
+    id: 4,
     name: "Bachelor of Arts",
     shortName: "BA",
-    duration: "3 Years",
     category: "Undergraduate",
-    description: "Humanities, social sciences and language studies.",
-    icon: "🎓",
+    description:
+      "Humanities, social sciences, literature and related disciplines.",
+    duration: "3 Years",
     years: [
       { label: "1st Year", file: "/syllabus/ba/1st-year.pdf" },
       { label: "2nd Year", file: "/syllabus/ba/2nd-year.pdf" },
@@ -95,13 +91,13 @@ const departments: Department[] = [
     ],
   },
   {
-    id: "bsc",
+    id: 5,
     name: "Bachelor of Science",
     shortName: "B.Sc",
-    duration: "3 Years",
     category: "Undergraduate",
-    description: "Scientific knowledge, research and practical learning.",
-    icon: "🔬",
+    description:
+      "Scientific concepts, laboratory learning and practical knowledge.",
+    duration: "3 Years",
     years: [
       { label: "1st Year", file: "/syllabus/bsc/1st-year.pdf" },
       { label: "2nd Year", file: "/syllabus/bsc/2nd-year.pdf" },
@@ -109,26 +105,26 @@ const departments: Department[] = [
     ],
   },
   {
-    id: "ma",
+    id: 6,
     name: "Master of Arts",
     shortName: "MA",
-    duration: "2 Years",
     category: "Postgraduate",
-    description: "Advanced learning and specialization in humanities.",
-    icon: "📖",
+    description:
+      "Advanced studies, research and specialized knowledge in humanities.",
+    duration: "2 Years",
     years: [
       { label: "1st Year", file: "/syllabus/ma/1st-year.pdf" },
       { label: "2nd Year", file: "/syllabus/ma/2nd-year.pdf" },
     ],
   },
   {
-    id: "mcom",
+    id: 7,
     name: "Master of Commerce",
     shortName: "M.Com",
-    duration: "2 Years",
     category: "Postgraduate",
-    description: "Advanced commerce, accounting and financial management.",
-    icon: "📈",
+    description:
+      "Advanced commerce, accounting, financial management and business studies.",
+    duration: "2 Years",
     years: [
       { label: "1st Year", file: "/syllabus/mcom/1st-year.pdf" },
       { label: "2nd Year", file: "/syllabus/mcom/2nd-year.pdf" },
@@ -136,370 +132,285 @@ const departments: Department[] = [
   },
 ];
 
+const categories = [
+  "All Courses",
+  "Undergraduate",
+  "Postgraduate",
+];
+
 export default function SyllabusPage() {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("All");
-  const [expanded, setExpanded] = useState<string | null>("bca");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] =
+    useState("All Courses");
+  const [openCourse, setOpenCourse] = useState<number | null>(1);
 
-  const filteredDepartments = useMemo(() => {
-    return departments.filter((department) => {
-      const matchesSearch =
-        department.name.toLowerCase().includes(search.toLowerCase()) ||
-        department.shortName.toLowerCase().includes(search.toLowerCase());
+  const filteredCourses = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
 
+    return syllabusCourses.filter((course) => {
       const matchesCategory =
-        category === "All" || department.category === category;
+        selectedCategory === "All Courses" ||
+        course.category === selectedCategory;
 
-      return matchesSearch && matchesCategory;
+      const matchesSearch =
+        !query ||
+        course.name.toLowerCase().includes(query) ||
+        course.shortName.toLowerCase().includes(query) ||
+        course.description.toLowerCase().includes(query);
+
+      return matchesCategory && matchesSearch;
     });
-  }, [search, category]);
+  }, [searchQuery, selectedCategory]);
 
-  const totalPrograms = departments.length;
-  const totalPDFs = departments.reduce(
-    (total, department) => total + department.years.length,
-    0
-  );
+  const toggleCourse = (id: number) => {
+    setOpenCourse((current) => (current === id ? null : id));
+  };
 
   return (
     <main className="syllabus-page">
       {/* HERO SECTION */}
       <section className="syllabus-hero">
-        <div className="syllabus-hero-pattern" />
+        <div className="syllabus-hero-overlay" />
 
-        <div className="syllabus-container syllabus-hero-content">
+        <div className="syllabus-hero-content">
           <div className="syllabus-breadcrumb">
             <Link href="/">Home</Link>
-            <ArrowRight size={14} />
-            <span>Student Corner</span>
-            <ArrowRight size={14} />
+            <span>/</span>
+            <Link href="/student-corner/studentportal">
+              Student Corner
+            </Link>
+            <span>/</span>
             <span>Syllabus</span>
           </div>
 
-          <div className="syllabus-hero-grid">
-            <div className="syllabus-hero-text">
-              <div className="syllabus-eyebrow">
-                <Sparkles size={15} />
-                ACADEMIC RESOURCES
-              </div>
+          <span className="syllabus-eyebrow">
+            <BookOpen size={16} />
+            ACADEMIC RESOURCES
+          </span>
 
-              <h1>
-                Your Learning Journey,
-                <span> One Syllabus at a Time.</span>
-              </h1>
+          <h1>
+            Academic <span>Syllabus</span>
+          </h1>
 
-              <p>
-                Explore department-wise and year-wise academic syllabi.
-                Find your course, access study plans and download syllabus
-                documents in one place.
-              </p>
+          <p>
+            Access course-wise and year-wise syllabus documents
+            to plan your academic journey at D.D. College,
+            Dehradun.
+          </p>
 
-              <a href="#department-list" className="syllabus-primary-btn">
-                Explore Syllabus
-                <ArrowRight size={18} />
-              </a>
-
-              <div className="syllabus-hero-points">
-                <span>
-                  <CheckCircle2 size={16} />
-                  Easy Access
-                </span>
-                <span>
-                  <CheckCircle2 size={16} />
-                  Year-wise PDFs
-                </span>
-              </div>
-            </div>
-
-            <div className="syllabus-hero-visual">
-              <div className="syllabus-visual-circle circle-one" />
-              <div className="syllabus-visual-circle circle-two" />
-
-              <div className="syllabus-document-card">
-                <div className="syllabus-document-icon">
-                  <FileText size={36} />
-                </div>
-                <div className="syllabus-document-lines">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <div className="syllabus-document-footer">
-                  <span>ACADEMIC SYLLABUS</span>
-                  <GraduationCap size={23} />
-                </div>
-              </div>
-
-              <div className="syllabus-floating-card floating-top">
-                <div className="floating-icon">
-                  <BookOpen size={19} />
-                </div>
-                <div>
-                  <strong>Study Resources</strong>
-                  <small>All in one place</small>
-                </div>
-              </div>
-
-              <div className="syllabus-floating-card floating-bottom">
-                <div className="floating-icon yellow">
-                  <Download size={19} />
-                </div>
-                <div>
-                  <strong>PDF Downloads</strong>
-                  <small>Quick & easy access</small>
-                </div>
-              </div>
-            </div>
-          </div>
+          <a
+            href="#syllabus-list"
+            className="syllabus-hero-btn"
+          >
+            Explore Syllabus
+            <ArrowRight size={18} />
+          </a>
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="syllabus-stats-section">
+      {/* INTRODUCTION */}
+      <section className="syllabus-intro">
         <div className="syllabus-container">
-          <div className="syllabus-stats">
-            <div className="syllabus-stat">
-              <div className="syllabus-stat-icon">
-                <Building2 size={23} />
-              </div>
-              <div>
-                <strong>{totalPrograms}+</strong>
-                <span>Academic Programs</span>
-              </div>
-            </div>
+          <div className="syllabus-intro-icon">
+            <GraduationCap size={35} />
+          </div>
 
-            <div className="syllabus-stat">
-              <div className="syllabus-stat-icon">
-                <FileText size={23} />
-              </div>
-              <div>
-                <strong>{totalPDFs}+</strong>
-                <span>Year-wise Documents</span>
-              </div>
-            </div>
-
-            <div className="syllabus-stat">
-              <div className="syllabus-stat-icon">
-                <CalendarDays size={23} />
-              </div>
-              <div>
-                <strong>2–3</strong>
-                <span>Years of Study</span>
-              </div>
-            </div>
-
-            <div className="syllabus-stat">
-              <div className="syllabus-stat-icon">
-                <ShieldCheck size={23} />
-              </div>
-              <div>
-                <strong>Easy</strong>
-                <span>Student Access</span>
-              </div>
-            </div>
+          <div className="syllabus-intro-content">
+            <span>STUDENT RESOURCES</span>
+            <h2>Find Your Course Syllabus</h2>
+            <p>
+              Browse the available academic syllabus by course
+              and year. View or download the documents to stay
+              updated with your curriculum.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* DEPARTMENT SECTION */}
+      {/* SYLLABUS LIST */}
       <section
-        className="syllabus-departments-section"
-        id="department-list"
+        className="syllabus-main"
+        id="syllabus-list"
       >
         <div className="syllabus-container">
           <div className="syllabus-section-heading">
             <div>
-              <div className="syllabus-section-label">
-                <span />
-                FIND YOUR COURSE
-              </div>
+              <span className="syllabus-section-tag">
+                ACADEMIC PROGRAMS
+              </span>
 
-              <h2>
-                Explore Our <span>Academic Syllabus</span>
-              </h2>
+              <h2>Courses & Syllabus</h2>
 
               <p>
-                Select your department to find the syllabus for each
-                academic year.
+                Select your course to view the available
+                academic documents.
               </p>
             </div>
 
-            <div className="syllabus-heading-icon">
-              <GraduationCap size={34} />
+            <div className="syllabus-total">
+              <BookOpen size={19} />
+              <span>
+                {filteredCourses.length} Courses Available
+              </span>
             </div>
           </div>
 
           {/* SEARCH AND FILTER */}
-          <div className="syllabus-filter-bar">
+          <div className="syllabus-toolbar">
             <div className="syllabus-search">
               <Search size={20} />
+
               <input
                 type="search"
-                placeholder="Search department or course..."
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Search course name..."
+                value={searchQuery}
+                onChange={(event) =>
+                  setSearchQuery(event.target.value)
+                }
+                aria-label="Search courses"
               />
+
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  aria-label="Clear search"
+                >
+                  ×
+                </button>
+              )}
             </div>
 
-            <div className="syllabus-category-filter">
-              <button
-                className={category === "All" ? "active" : ""}
-                onClick={() => setCategory("All")}
-              >
-                All Courses
-              </button>
-
-              <button
-                className={
-                  category === "Undergraduate" ? "active" : ""
-                }
-                onClick={() => setCategory("Undergraduate")}
-              >
-                Undergraduate
-              </button>
-
-              <button
-                className={
-                  category === "Postgraduate" ? "active" : ""
-                }
-                onClick={() => setCategory("Postgraduate")}
-              >
-                Postgraduate
-              </button>
+            <div className="syllabus-filters">
+              {categories.map((category) => (
+                <button
+                  type="button"
+                  key={category}
+                  className={
+                    selectedCategory === category
+                      ? "active"
+                      : ""
+                  }
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* DEPARTMENT CARDS */}
-          <div className="syllabus-department-list">
-            {filteredDepartments.length > 0 ? (
-              filteredDepartments.map((department, index) => {
-                const isExpanded = expanded === department.id;
+          {/* COURSE ACCORDIONS */}
+          <div className="syllabus-course-list">
+            {filteredCourses.length > 0 ? (
+              filteredCourses.map((course) => {
+                const isOpen = openCourse === course.id;
 
                 return (
                   <article
-                    className={`syllabus-department-card ${
-                      isExpanded ? "expanded" : ""
+                    className={`syllabus-course-card ${
+                      isOpen ? "expanded" : ""
                     }`}
-                    key={department.id}
+                    key={course.id}
                   >
                     <button
-                      className="syllabus-department-header"
-                      onClick={() =>
-                        setExpanded(isExpanded ? null : department.id)
-                      }
-                      aria-expanded={isExpanded}
+                      type="button"
+                      className="syllabus-course-header"
+                      onClick={() => toggleCourse(course.id)}
+                      aria-expanded={isOpen}
                     >
-                      <div className="syllabus-department-left">
-                        <div className="syllabus-department-icon">
-                          <span>{department.icon}</span>
-                        </div>
-
-                        <div className="syllabus-department-info">
-                          <div className="syllabus-department-meta">
-                            <span className="syllabus-course-code">
-                              {department.shortName}
-                            </span>
-                            <span className="syllabus-course-category">
-                              {department.category}
-                            </span>
-                          </div>
-
-                          <h3>{department.name}</h3>
-                          <p>{department.description}</p>
-
-                          <div className="syllabus-course-details">
-                            <span>
-                              <CalendarDays size={14} />
-                              {department.duration}
-                            </span>
-                            <span>
-                              <FileText size={14} />
-                              {department.years.length} Year-wise PDFs
-                            </span>
-                          </div>
-                        </div>
+                      <div className="syllabus-course-icon">
+                        <FileText size={25} />
                       </div>
 
-                      <div className="syllabus-department-action">
-                        <span>
-                          {isExpanded ? "Hide Years" : "View Syllabus"}
-                        </span>
+                      <div className="syllabus-course-info">
+                        <div className="syllabus-course-meta">
+                          <span>{course.category}</span>
+                          <span>{course.duration}</span>
+                        </div>
+
+                        <h3>{course.name}</h3>
+
+                        <p>{course.shortName}</p>
+                      </div>
+
+                      <div className="syllabus-course-toggle">
                         <ChevronDown
-                          size={20}
-                          className={isExpanded ? "rotate" : ""}
+                          size={22}
+                          className={isOpen ? "rotate" : ""}
                         />
                       </div>
                     </button>
 
-                    {isExpanded && (
-                      <div className="syllabus-year-panel">
+                    {isOpen && (
+                      <div className="syllabus-course-body">
+                        <p className="syllabus-course-description">
+                          {course.description}
+                        </p>
+
                         <div className="syllabus-year-heading">
-                          <div>
-                            <span className="syllabus-section-label">
-                              <span />
-                              AVAILABLE DOCUMENTS
-                            </span>
-                            <h4>{department.shortName} Syllabus</h4>
-                          </div>
-                          <span className="syllabus-year-count">
-                            {department.years.length} Documents
-                          </span>
+                          <FolderOpen size={19} />
+                          Available Syllabus
                         </div>
 
                         <div className="syllabus-year-grid">
-                          {department.years.map((year) => (
+                          {course.years.map((year) => (
                             <div
                               className="syllabus-year-card"
-                              key={year.label}
+                              key={year.file}
                             >
-                              <div className="syllabus-year-file-icon">
-                                <FileText size={23} />
+                              <div className="syllabus-year-file">
+                                <FileText size={22} />
+
+                                <div>
+                                  <h4>{year.label}</h4>
+                                  <span>PDF Document</span>
+                                </div>
                               </div>
 
-                              <div className="syllabus-year-info">
-                                <strong>{year.label}</strong>
-                                <span>PDF Document</span>
+                              <div className="syllabus-year-actions">
+                                <a
+                                  href={year.file}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="syllabus-view-btn"
+                                  aria-label={`View ${course.shortName} ${year.label} syllabus`}
+                                >
+                                  <ExternalLink size={16} />
+                                  View
+                                </a>
+
+                                <a
+                                  href={year.file}
+                                  download
+                                  className="syllabus-download-btn"
+                                  aria-label={`Download ${course.shortName} ${year.label} syllabus`}
+                                >
+                                  <Download size={16} />
+                                  Download
+                                </a>
                               </div>
-
-                              <a
-                                href={year.file}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="syllabus-view-btn"
-                                aria-label={`View ${department.shortName} ${year.label} syllabus`}
-                              >
-                                <ArrowUpRight size={18} />
-                              </a>
-
-                              <a
-                                href={year.file}
-                                download
-                                className="syllabus-download-btn"
-                              >
-                                <Download size={15} />
-                                Download
-                              </a>
                             </div>
                           ))}
                         </div>
                       </div>
                     )}
-
-                    <span className="syllabus-card-number">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
                   </article>
                 );
               })
             ) : (
-              <div className="syllabus-empty">
+              <div className="syllabus-no-results">
                 <Search size={38} />
-                <h3>No courses found</h3>
-                <p>Try another department name or change the filter.</p>
+                <h3>No Courses Found</h3>
+                <p>
+                  Try another search term or select a different
+                  category.
+                </p>
+
                 <button
+                  type="button"
                   onClick={() => {
-                    setSearch("");
-                    setCategory("All");
+                    setSearchQuery("");
+                    setSelectedCategory("All Courses");
                   }}
                 >
                   Clear Filters
@@ -511,26 +422,47 @@ export default function SyllabusPage() {
       </section>
 
       {/* HELP SECTION */}
-      <section className="syllabus-help-section">
+      <section className="syllabus-help">
         <div className="syllabus-container">
-          <div className="syllabus-help-card">
+          <div className="syllabus-help-content">
             <div className="syllabus-help-icon">
-              <BookOpen size={31} />
+              <GraduationCap size={32} />
             </div>
 
-            <div className="syllabus-help-content">
-              <span>NEED ACADEMIC ASSISTANCE?</span>
-              <h2>Can't Find Your Syllabus?</h2>
+            <div>
+              <span>NEED ASSISTANCE?</span>
+              <h2>Need Help With Your Syllabus?</h2>
               <p>
-                Contact the college office for assistance with your
-                department, academic year or syllabus documents.
+                For syllabus-related questions or academic
+                assistance, contact our college team.
               </p>
             </div>
+          </div>
 
-            <Link href="/contact" className="syllabus-help-btn">
-              Contact College
+          <div className="syllabus-help-actions">
+            <Link
+              href="/contact"
+              className="syllabus-contact-btn"
+            >
+              Contact Us
               <ArrowRight size={18} />
             </Link>
+
+            <a
+              href="tel:+917417555666"
+              className="syllabus-phone-btn"
+            >
+              <Phone size={17} />
+              Call Us
+            </a>
+
+            <a
+              href="mailto:info@ddcollege.in"
+              className="syllabus-email-btn"
+            >
+              <Mail size={17} />
+              Email Us
+            </a>
           </div>
         </div>
       </section>
