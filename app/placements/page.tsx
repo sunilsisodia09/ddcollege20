@@ -75,7 +75,7 @@ const studentStories = [
     name: "Student Profile 01",
     course: "Add verified course name",
     company: "Add verified employer",
-    image: "/images/placements/student-1.jpg",
+    image: "/gallery/af.jpeg",
     quote:
       "Add an authentic student testimonial describing their learning experience and career journey.",
   },

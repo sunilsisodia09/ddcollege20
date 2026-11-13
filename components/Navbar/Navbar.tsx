@@ -34,8 +34,7 @@ const menuGroups: MenuGroup[] = [
         href: "/about",
         description:
           "Discover D.D. College, our educational journey, academic environment and commitment to excellence.",
-        image:
-          "https://images.unsplash.com/photo-1562774053-701939374585?w=1000&q=85",
+              image: "/campus/build.webp",
       },
       {
         label: "Vision & Mission",
