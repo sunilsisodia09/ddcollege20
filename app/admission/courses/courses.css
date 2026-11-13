@@ -1,0 +1,492 @@
+
+/* =========================================
+   DD COLLEGE COURSES PAGE
+   Responsive Maroon & Gold Theme
+========================================= */
+
+.dd-courses-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #faf9f7;
+  color: #29232a;
+  overflow: hidden;
+}
+
+/* HERO */
+
+.dd-courses-hero {
+  min-height: 390px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(216, 173, 85, 0.2), transparent 30%),
+    linear-gradient(120deg, #430719 0%, #710b2b 55%, #8b0929 100%);
+  overflow: hidden;
+}
+
+.dd-courses-hero::before,
+.dd-courses-hero::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dd-courses-hero::before {
+  width: 480px;
+  height: 480px;
+  right: -130px;
+  top: -210px;
+}
+
+.dd-courses-hero::after {
+  width: 330px;
+  height: 330px;
+  right: -50px;
+  top: -135px;
+}
+
+.dd-courses-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(39, 0, 12, 0.2),
+    transparent 70%
+  );
+}
+
+.dd-courses-hero-content {
+  width: 100%;
+  max-width: 1150px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.dd-courses-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 17px;
+  border: 1px solid rgba(237, 205, 139, 0.45);
+  border-radius: 50px;
+  color: #f0cf8b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.dd-courses-hero-content h1 {
+  margin: 23px 0 15px;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.dd-courses-hero-content > p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.dd-courses-breadcrumb {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dd-courses-breadcrumb a {
+  color: #f0cf8b;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.dd-courses-breadcrumb a:hover {
+  color: #fff;
+}
+
+/* MAIN SECTION */
+
+.dd-courses-section {
+  padding: 90px 24px 100px;
+}
+
+.dd-courses-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.dd-courses-heading {
+  max-width: 680px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.dd-courses-subtitle {
+  display: inline-block;
+  color: #9b173b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.dd-courses-heading h2 {
+  margin: 14px 0;
+  color: #32121e;
+  font-size: clamp(30px, 4vw, 43px);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.dd-courses-heading h2 span {
+  color: #9b173b;
+}
+
+.dd-courses-heading p {
+  margin: 0;
+  color: #77717a;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* COURSE GRID */
+
+.dd-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.dd-course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 285px;
+  padding: 29px;
+  background: #fff;
+  border: 1px solid #eee8e8;
+  border-radius: 17px;
+  box-shadow: 0 8px 30px rgba(53, 13, 27, 0.045);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.dd-course-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8b0929, #d8ad55);
+  transition: width 0.35s ease;
+}
+
+.dd-course-card:hover {
+  transform: translateY(-8px);
+  border-color: #e2c6cd;
+  box-shadow: 0 20px 45px rgba(75, 10, 34, 0.11);
+}
+
+.dd-course-card:hover::before {
+  width: 100%;
+}
+
+.dd-course-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 23px;
+}
+
+.dd-course-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b0929;
+  background: #fff2f4;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.dd-course-card:hover .dd-course-icon {
+  color: #fff;
+  background: #8b0929;
+  transform: rotate(-5deg);
+}
+
+.dd-course-number {
+  color: #e6dfe0;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.dd-course-level {
+  width: fit-content;
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 5px;
+  color: #8b0929;
+  background: #fff3f4;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.dd-course-card h3 {
+  margin: 17px 0 18px;
+  color: #35121f;
+  font-size: 20px;
+  line-height: 1.45;
+  font-weight: 750;
+}
+
+.dd-course-duration {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #77717a;
+  font-size: 13px;
+}
+
+.dd-course-duration svg {
+  color: #b18a43;
+}
+
+.dd-course-card-footer {
+  margin-top: auto;
+  padding-top: 23px;
+}
+
+.dd-course-card-footer a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 17px;
+  border-top: 1px solid #f0ebeb;
+  color: #8b0929;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  transition: color 0.25s ease;
+}
+
+.dd-course-card-footer a svg {
+  transition: transform 0.25s ease;
+}
+
+.dd-course-card-footer a:hover {
+  color: #b18a43;
+}
+
+.dd-course-card-footer a:hover svg {
+  transform: translateX(5px);
+}
+
+/* ADMISSION CTA */
+
+.dd-courses-cta {
+  margin-top: 75px;
+  padding: 42px 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 95% 10%, rgba(216, 173, 85, 0.17), transparent 30%),
+    linear-gradient(115deg, #4b071b, #850b2c);
+  color: #fff;
+}
+
+.dd-courses-cta > div {
+  max-width: 650px;
+}
+
+.dd-courses-cta > div > span {
+  color: #eacb8d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.dd-courses-cta h2 {
+  margin: 12px 0 10px;
+  font-size: clamp(23px, 3vw, 31px);
+  line-height: 1.3;
+  font-weight: 800;
+}
+
+.dd-courses-cta p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.dd-courses-cta-button {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 22px;
+  border-radius: 8px;
+  background: #e4bd75;
+  color: #390b1b;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  transition: all 0.3s ease;
+}
+
+.dd-courses-cta-button:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .dd-courses-section {
+    padding: 70px 22px 80px;
+  }
+
+  .dd-courses-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .dd-course-card {
+    min-height: 270px;
+    padding: 25px;
+  }
+
+  .dd-courses-cta {
+    padding: 35px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .dd-courses-hero {
+    min-height: 320px;
+    padding: 65px 20px;
+  }
+
+  .dd-courses-hero-content h1 {
+    font-size: 34px;
+    letter-spacing: -0.8px;
+  }
+
+  .dd-courses-hero-content > p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .dd-courses-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .dd-courses-section {
+    padding: 58px 17px 65px;
+  }
+
+  .dd-courses-heading {
+    margin-bottom: 34px;
+  }
+
+  .dd-courses-heading h2 {
+    font-size: 30px;
+  }
+
+  .dd-courses-heading p {
+    font-size: 13px;
+  }
+
+  .dd-courses-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .dd-course-card {
+    min-height: 255px;
+    padding: 24px;
+    border-radius: 14px;
+  }
+
+  .dd-course-card h3 {
+    font-size: 19px;
+  }
+
+  .dd-courses-cta {
+    margin-top: 45px;
+    padding: 29px 23px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 23px;
+    border-radius: 15px;
+  }
+
+  .dd-courses-cta h2 {
+    font-size: 24px;
+  }
+
+  .dd-courses-cta p {
+    font-size: 13px;
+  }
+
+  .dd-courses-cta-button {
+    width: 100%;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 360px) {
+  .dd-courses-hero-content h1 {
+    font-size: 29px;
+  }
+
+  .dd-course-card {
+    padding: 20px;
+  }
+
+  .dd-courses-heading h2 {
+    font-size: 26px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .dd-courses-page *,
+  .dd-courses-page *::before,
+  .dd-courses-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
