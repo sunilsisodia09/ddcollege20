@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -25,13 +24,13 @@ const galleryImages: GalleryImage[] = [
   { id: 4, image: "/images/d.jpg", alt: "College Events" },
   { id: 5, image: "/images/e.jpg", alt: "Campus Memories" },
   { id: 6, image: "/images/f.jpg", alt: "College Life" },
-  { id: 7, image: "/images/g.jpg", alt: "Campus Activities" },
-  { id: 8, image: "/images/grv.JPG", alt: "College Facilities" },
+  { id: 7, image: "/gallery/g.JPG", alt: "Campus Activities" },
+  { id: 8, image: "/gallery/grv.JPG", alt: "College Facilities" },
   { id: 9, image: "/images/gr.JPG", alt: "College Gallery" },
   { id: 10, image: "/images/h.jpg", alt: "College Building" },
-  { id: 11, image: "/images/lab.JPG", alt: "College Laboratory" },
-  { id: 12, image: "/images/lb.JPG", alt: "College Library" },
-  { id: 13, image: "/images/group.JPG", alt: "College Group Photo" },
+  { id: 11, image: "/gallery/lab.JPG", alt: "College Laboratory" },
+  { id: 12, image: "/gallery/lb.JPG", alt: "College Library" },
+  { id: 13, image: "/gallery/group.JPG", alt: "College Group Photo" },
 ];
 
 export default function GallerySection() {
@@ -40,7 +39,6 @@ export default function GallerySection() {
   const [lightbox, setLightbox] = useState(false);
   const [failedImages, setFailedImages] = useState<string[]>([]);
 
-  // Only show images that have loaded successfully.
   const validImages = galleryImages.filter(
     (item) => !failedImages.includes(item.image)
   );
@@ -53,7 +51,7 @@ export default function GallerySection() {
   const current = validImages[currentIndex];
 
   const getImage = (offset: number): GalleryImage | undefined => {
-    if (!validImages.length) return undefined;
+    if (validImages.length === 0) return undefined;
 
     const index =
       (currentIndex + offset + validImages.length) %
@@ -62,19 +60,27 @@ export default function GallerySection() {
     return validImages[index];
   };
 
-  const nextImage = useCallback(() => {
-    setActiveImage((index) => index + 1);
-  }, []);
+  // Next image
+  const nextImage = () => {
+    if (validImages.length <= 1) return;
 
-  const previousImage = useCallback(() => {
-    setActiveImage((index) => Math.max(0, index - 1));
-  }, []);
+    setActiveImage((index) => (index + 1) % validImages.length);
+  };
 
+  // Previous image
+  const previousImage = () => {
+    if (validImages.length <= 1) return;
+
+    setActiveImage(
+      (index) =>
+        (index - 1 + validImages.length) % validImages.length
+    );
+  };
+
+  // Handle broken images
   const handleImageError = (image: string) => {
     setFailedImages((previous) =>
-      previous.includes(image)
-        ? previous
-        : [...previous, image]
+      previous.includes(image) ? previous : [...previous, image]
     );
   };
 
@@ -85,20 +91,15 @@ export default function GallerySection() {
     }
 
     const timer = window.setInterval(() => {
-      setActiveImage((index) => index + 1);
+      setActiveImage(
+        (index) => (index + 1) % validImages.length
+      );
     }, 3000);
 
     return () => window.clearInterval(timer);
   }, [isPaused, lightbox, validImages.length]);
 
-  // Keep index valid when broken images are removed.
-  useEffect(() => {
-    if (activeImage >= validImages.length && validImages.length > 0) {
-      setActiveImage(0);
-    }
-  }, [activeImage, validImages.length]);
-
-  // Keyboard navigation
+  // Keyboard navigation and body scroll lock
   useEffect(() => {
     if (!lightbox) return;
 
@@ -108,11 +109,16 @@ export default function GallerySection() {
       }
 
       if (event.key === "ArrowRight") {
-        nextImage();
+        setActiveImage(
+          (index) => (index + 1) % validImages.length
+        );
       }
 
       if (event.key === "ArrowLeft") {
-        previousImage();
+        setActiveImage(
+          (index) =>
+            (index - 1 + validImages.length) % validImages.length
+        );
       }
     };
 
@@ -125,12 +131,13 @@ export default function GallerySection() {
       document.body.style.overflow = oldOverflow;
       document.removeEventListener("keydown", handleKey);
     };
-  }, [lightbox, nextImage, previousImage]);
+  }, [lightbox, validImages.length]);
 
   const leftImage = getImage(-1);
   const rightImage = getImage(1);
 
-  if (!validImages.length) {
+  // Empty state
+  if (!current) {
     return (
       <section className="dd-gallery">
         <div className="dd-gallery-empty">
@@ -152,7 +159,6 @@ export default function GallerySection() {
           {/* HEADER */}
           <div className="dd-gallery-header">
             <div className="dd-gallery-heading">
-
               <span className="dd-gallery-eyebrow">
                 <Images size={17} />
                 OUR CAMPUS GALLERY
@@ -174,6 +180,7 @@ export default function GallerySection() {
               <strong>
                 {String(currentIndex + 1).padStart(2, "0")}
               </strong>
+
               <span>
                 / {String(validImages.length).padStart(2, "0")}
               </span>
@@ -204,6 +211,7 @@ export default function GallerySection() {
                     onError={() => handleImageError(leftImage.image)}
                     draggable={false}
                   />
+
                   <span>{leftImage.alt}</span>
                 </button>
               )}
@@ -249,15 +257,14 @@ export default function GallerySection() {
                     onError={() => handleImageError(rightImage.image)}
                     draggable={false}
                   />
+
                   <span>{rightImage.alt}</span>
                 </button>
               )}
-
             </div>
 
             {/* NAVIGATION */}
             <div className="dd-gallery-navigation">
-
               <button
                 type="button"
                 onClick={previousImage}
@@ -287,7 +294,6 @@ export default function GallerySection() {
               >
                 <ChevronRight size={22} />
               </button>
-
             </div>
           </div>
 
@@ -297,7 +303,6 @@ export default function GallerySection() {
             <p>Creating Memories. Building Futures.</p>
             <span />
           </div>
-
         </div>
       </section>
 
@@ -310,7 +315,6 @@ export default function GallerySection() {
           aria-modal="true"
           aria-label="Campus gallery fullscreen preview"
         >
-
           <button
             type="button"
             className="dd-gallery-close"
@@ -362,7 +366,6 @@ export default function GallerySection() {
           >
             <ChevronRight size={30} />
           </button>
-
         </div>
       )}
     </>

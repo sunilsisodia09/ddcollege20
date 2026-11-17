@@ -90,15 +90,20 @@ function CountUp({
       "(prefers-reduced-motion: reduce)"
     );
 
+    let animationFrame = 0;
+
     if (mediaQuery.matches) {
-      setCount(end);
-      return;
+      animationFrame = window.requestAnimationFrame(() => {
+        setCount(end);
+      });
+
+      return () => {
+        window.cancelAnimationFrame(animationFrame);
+      };
     }
 
     const duration = 1800;
     const startTime = performance.now();
-
-    let animationFrame = 0;
 
     const animate = (currentTime: number) => {
       const progress = Math.min(
@@ -111,16 +116,16 @@ function CountUp({
       setCount(Math.floor(end * easedProgress));
 
       if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
+        animationFrame = window.requestAnimationFrame(animate);
       } else {
         setCount(end);
       }
     };
 
-    animationFrame = requestAnimationFrame(animate);
+    animationFrame = window.requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(animationFrame);
+      window.cancelAnimationFrame(animationFrame);
     };
   }, [end, start]);
 
@@ -141,9 +146,15 @@ export default function AboutSection() {
 
     if (!section) return;
 
-    if (!("IntersectionObserver" in window)) {
-      setIsVisible(true);
-      return;
+    // Fallback for browsers without IntersectionObserver.
+    if (typeof IntersectionObserver === "undefined") {
+      const frame = window.requestAnimationFrame(() => {
+        setIsVisible(true);
+      });
+
+      return () => {
+        window.cancelAnimationFrame(frame);
+      };
     }
 
     const observer = new IntersectionObserver(
@@ -162,7 +173,9 @@ export default function AboutSection() {
 
     observer.observe(section);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -172,10 +185,8 @@ export default function AboutSection() {
       id="about"
     >
       <div className="about-container">
-
         {/* LEFT IMAGE AREA */}
         <div className="about-image-wrapper">
-
           <div className="about-image-main">
             <img
               src="/campus/build.webp"
@@ -221,12 +232,10 @@ export default function AboutSection() {
             <Sparkles size={17} />
             <span>Inspiring Excellence</span>
           </div>
-
         </div>
 
         {/* RIGHT CONTENT AREA */}
         <div className="about-content">
-
           {/* SECTION LABEL */}
           <div className="about-section-tag">
             <span className="about-tag-line" />
@@ -281,18 +290,12 @@ export default function AboutSection() {
 
           {/* ACTION BUTTONS */}
           <div className="about-actions">
-            <Link
-              href="/about"
-              className="about-read-more"
-            >
+            <Link href="/about" className="about-read-more">
               Discover Our College
               <ArrowRight size={19} />
             </Link>
 
-            <Link
-              href="/contact"
-              className="about-contact-link"
-            >
+            <Link href="/contact" className="about-contact-link">
               Contact Us
               <ArrowUpRight size={18} />
             </Link>
@@ -308,22 +311,17 @@ export default function AboutSection() {
               Creating opportunities for learning and growth.
             </p>
           </div>
-
         </div>
       </div>
 
       {/* STATISTICS SECTION */}
       <div className="about-stats">
         <div className="about-stats-container">
-
           {stats.map((stat) => {
             const Icon = stat.icon;
 
             return (
-              <div
-                className="about-stat-item"
-                key={stat.id}
-              >
+              <div className="about-stat-item" key={stat.id}>
                 <div className="about-stat-icon">
                   <Icon size={25} strokeWidth={1.8} />
                 </div>
@@ -342,7 +340,6 @@ export default function AboutSection() {
               </div>
             );
           })}
-
         </div>
       </div>
     </section>
