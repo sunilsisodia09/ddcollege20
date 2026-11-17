@@ -26,47 +26,94 @@ const galleryImages: GalleryImage[] = [
   { id: 5, image: "/images/e.jpg", alt: "Campus Memories" },
   { id: 6, image: "/images/f.jpg", alt: "College Life" },
   { id: 7, image: "/images/g.jpg", alt: "Campus Activities" },
-  { id: 8, image: "/images/h.jpg", alt: "College Facilities" },
-  { id: 9, image: "/images/hh.jpg", alt: "D.D. College Gallery" },
+  { id: 8, image: "/images/grv.JPG", alt: "College Facilities" },
+  { id: 9, image: "/images/gr.JPG", alt: "College Gallery" },
+  { id: 10, image: "/images/h.jpg", alt: "College Building" },
+  { id: 11, image: "/images/lab.JPG", alt: "College Laboratory" },
+  { id: 12, image: "/images/lb.JPG", alt: "College Library" },
+  { id: 13, image: "/images/group.JPG", alt: "College Group Photo" },
 ];
 
 export default function GallerySection() {
   const [activeImage, setActiveImage] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [lightbox, setLightbox] = useState(false);
+  const [failedImages, setFailedImages] = useState<string[]>([]);
+
+  // Only show images that have loaded successfully.
+  const validImages = galleryImages.filter(
+    (item) => !failedImages.includes(item.image)
+  );
+
+  const currentIndex =
+    validImages.length > 0
+      ? activeImage % validImages.length
+      : 0;
+
+  const current = validImages[currentIndex];
+
+  const getImage = (offset: number): GalleryImage | undefined => {
+    if (!validImages.length) return undefined;
+
+    const index =
+      (currentIndex + offset + validImages.length) %
+      validImages.length;
+
+    return validImages[index];
+  };
 
   const nextImage = useCallback(() => {
-    setActiveImage((current) => (current + 1) % galleryImages.length);
+    setActiveImage((index) => index + 1);
   }, []);
 
   const previousImage = useCallback(() => {
-    setActiveImage(
-      (current) =>
-        (current - 1 + galleryImages.length) % galleryImages.length
-    );
+    setActiveImage((index) => Math.max(0, index - 1));
   }, []);
 
-  const getImage = (offset: number): GalleryImage => {
-    return galleryImages[
-      (activeImage + offset + galleryImages.length) % galleryImages.length
-    ];
+  const handleImageError = (image: string) => {
+    setFailedImages((previous) =>
+      previous.includes(image)
+        ? previous
+        : [...previous, image]
+    );
   };
 
+  // Auto slider
   useEffect(() => {
-    if (isPaused || lightbox) return;
+    if (isPaused || lightbox || validImages.length <= 1) {
+      return;
+    }
 
-    const timer = window.setInterval(nextImage, 3000);
+    const timer = window.setInterval(() => {
+      setActiveImage((index) => index + 1);
+    }, 3000);
 
     return () => window.clearInterval(timer);
-  }, [isPaused, lightbox, nextImage]);
+  }, [isPaused, lightbox, validImages.length]);
 
+  // Keep index valid when broken images are removed.
+  useEffect(() => {
+    if (activeImage >= validImages.length && validImages.length > 0) {
+      setActiveImage(0);
+    }
+  }, [activeImage, validImages.length]);
+
+  // Keyboard navigation
   useEffect(() => {
     if (!lightbox) return;
 
     const handleKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setLightbox(false);
-      if (event.key === "ArrowRight") nextImage();
-      if (event.key === "ArrowLeft") previousImage();
+      if (event.key === "Escape") {
+        setLightbox(false);
+      }
+
+      if (event.key === "ArrowRight") {
+        nextImage();
+      }
+
+      if (event.key === "ArrowLeft") {
+        previousImage();
+      }
     };
 
     const oldOverflow = document.body.style.overflow;
@@ -80,12 +127,32 @@ export default function GallerySection() {
     };
   }, [lightbox, nextImage, previousImage]);
 
+  const leftImage = getImage(-1);
+  const rightImage = getImage(1);
+
+  if (!validImages.length) {
+    return (
+      <section className="dd-gallery">
+        <div className="dd-gallery-empty">
+          <Images size={45} />
+          <h2>Gallery Images Not Found</h2>
+          <p>
+            Please add your images inside the public/images folder.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <>
       <section className="dd-gallery">
         <div className="dd-gallery-container">
+
+          {/* HEADER */}
           <div className="dd-gallery-header">
             <div className="dd-gallery-heading">
+
               <span className="dd-gallery-eyebrow">
                 <Images size={17} />
                 OUR CAMPUS GALLERY
@@ -105,14 +172,15 @@ export default function GallerySection() {
 
             <div className="dd-gallery-count">
               <strong>
-                {String(activeImage + 1).padStart(2, "0")}
+                {String(currentIndex + 1).padStart(2, "0")}
               </strong>
               <span>
-                / {String(galleryImages.length).padStart(2, "0")}
+                / {String(validImages.length).padStart(2, "0")}
               </span>
             </div>
           </div>
 
+          {/* MAIN SLIDER */}
           <div
             className="dd-gallery-main"
             onMouseEnter={() => setIsPaused(true)}
@@ -121,33 +189,40 @@ export default function GallerySection() {
             onTouchEnd={() => setIsPaused(false)}
           >
             <div className="dd-gallery-three">
-              {/* Left Image */}
-              <button
-                type="button"
-                className="dd-gallery-side left"
-                onClick={previousImage}
-                aria-label="Previous image"
-              >
-                <img
-                  src={getImage(-1).image}
-                  alt={getImage(-1).alt}
-                />
-                <span>{getImage(-1).alt}</span>
-              </button>
 
-              {/* Center Image */}
+              {/* LEFT IMAGE */}
+              {leftImage && (
+                <button
+                  type="button"
+                  className="dd-gallery-side left"
+                  onClick={previousImage}
+                  aria-label="Previous image"
+                >
+                  <img
+                    src={leftImage.image}
+                    alt={leftImage.alt}
+                    onError={() => handleImageError(leftImage.image)}
+                    draggable={false}
+                  />
+                  <span>{leftImage.alt}</span>
+                </button>
+              )}
+
+              {/* CENTER IMAGE */}
               <div className="dd-gallery-center">
                 <img
-                  key={getImage(0).id}
-                  src={getImage(0).image}
-                  alt={getImage(0).alt}
+                  key={current.image}
+                  src={current.image}
+                  alt={current.alt}
+                  onError={() => handleImageError(current.image)}
+                  draggable={false}
                 />
 
                 <div className="dd-gallery-main-overlay" />
 
                 <div className="dd-gallery-main-caption">
                   <span>EXPLORE OUR CAMPUS</span>
-                  <h3>{getImage(0).alt}</h3>
+                  <h3>{current.alt}</h3>
                 </div>
 
                 <button
@@ -160,37 +235,44 @@ export default function GallerySection() {
                 </button>
               </div>
 
-              {/* Right Image */}
-              <button
-                type="button"
-                className="dd-gallery-side right"
-                onClick={nextImage}
-                aria-label="Next image"
-              >
-                <img
-                  src={getImage(1).image}
-                  alt={getImage(1).alt}
-                />
-                <span>{getImage(1).alt}</span>
-              </button>
+              {/* RIGHT IMAGE */}
+              {rightImage && (
+                <button
+                  type="button"
+                  className="dd-gallery-side right"
+                  onClick={nextImage}
+                  aria-label="Next image"
+                >
+                  <img
+                    src={rightImage.image}
+                    alt={rightImage.alt}
+                    onError={() => handleImageError(rightImage.image)}
+                    draggable={false}
+                  />
+                  <span>{rightImage.alt}</span>
+                </button>
+              )}
+
             </div>
 
-            {/* Navigation */}
+            {/* NAVIGATION */}
             <div className="dd-gallery-navigation">
+
               <button
                 type="button"
                 onClick={previousImage}
                 aria-label="Previous"
+                disabled={validImages.length <= 1}
               >
                 <ChevronLeft size={22} />
               </button>
 
               <div className="dd-gallery-dots">
-                {galleryImages.map((item, index) => (
+                {validImages.map((item, index) => (
                   <button
                     type="button"
                     key={item.id}
-                    className={activeImage === index ? "active" : ""}
+                    className={currentIndex === index ? "active" : ""}
                     onClick={() => setActiveImage(index)}
                     aria-label={`Show ${item.alt}`}
                   />
@@ -201,21 +283,25 @@ export default function GallerySection() {
                 type="button"
                 onClick={nextImage}
                 aria-label="Next"
+                disabled={validImages.length <= 1}
               >
                 <ChevronRight size={22} />
               </button>
+
             </div>
           </div>
 
+          {/* FOOTER */}
           <div className="dd-gallery-footer">
             <span />
             <p>Creating Memories. Building Futures.</p>
             <span />
           </div>
+
         </div>
       </section>
 
-      {/* Fullscreen Preview */}
+      {/* FULLSCREEN LIGHTBOX */}
       {lightbox && (
         <div
           className="dd-gallery-lightbox"
@@ -224,6 +310,7 @@ export default function GallerySection() {
           aria-modal="true"
           aria-label="Campus gallery fullscreen preview"
         >
+
           <button
             type="button"
             className="dd-gallery-close"
@@ -250,10 +337,18 @@ export default function GallerySection() {
             onClick={(event) => event.stopPropagation()}
           >
             <img
-              src={getImage(0).image}
-              alt={getImage(0).alt}
+              src={current.image}
+              alt={current.alt}
+              onError={() => handleImageError(current.image)}
+              draggable={false}
             />
-            <p>{getImage(0).alt}</p>
+
+            <p>
+              {current.alt}
+              <span>
+                {currentIndex + 1} / {validImages.length}
+              </span>
+            </p>
           </div>
 
           <button
@@ -267,6 +362,7 @@ export default function GallerySection() {
           >
             <ChevronRight size={30} />
           </button>
+
         </div>
       )}
     </>

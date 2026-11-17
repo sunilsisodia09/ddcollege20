@@ -1,186 +1,175 @@
 
-/* ==========================================
-   DD COLLEGE FLOATING ACTIONS
-   Icon Only | Expand Text on Hover
-========================================== */
+/* FLOATING ACTIONS */
 
 .floating-actions {
   position: fixed;
-  right: 22px;
-  bottom: 28px;
-  z-index: 9999;
+  right: 0;
+  top: 48%;
+  z-index: 9990;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 12px;
-  font-family: inherit;
 }
 
-/* BUTTON */
+/* COMMON BUTTON */
 
 .floating-action {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 49px;
-  height: 49px;
-  min-width: 49px;
-  padding: 0 12px;
-  gap: 11px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.22);
-  border-radius: 50px;
+  gap: 12px;
+  min-width: 158px;
+  min-height: 52px;
+  padding: 0 17px;
+  border-radius: 9px 0 0 9px;
   color: #fff;
   text-decoration: none;
-  white-space: nowrap;
-  box-shadow: 0 7px 22px rgba(0,0,0,.19);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
   transition:
-    width .35s ease,
-    box-shadow .3s ease,
-    transform .3s ease,
-    background .3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 /* ICON */
 
 .floating-icon {
   display: flex;
-  flex: 0 0 25px;
   align-items: center;
   justify-content: center;
-  width: 25px;
-  height: 25px;
-  font-size: 19px;
-  line-height: 1;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
 }
 
-/* TEXT - HIDDEN BY DEFAULT */
+.floating-icon svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+/* TEXT */
 
 .floating-text {
-  display: inline-block;
-  max-width: 0;
-  overflow: hidden;
-  opacity: 0;
-  font-size: 12px;
-  font-weight: 750;
-  letter-spacing: .3px;
-  transition:
-    max-width .35s ease,
-    opacity .2s ease;
-}
-
-/* SHOW TEXT ON HOVER */
-
-.floating-action:hover,
-.floating-action:focus-visible {
-  width: 165px;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0,0,0,.25);
-}
-
-.floating-action:hover .floating-text,
-.floating-action:focus-visible .floating-text {
-  max-width: 115px;
-  opacity: 1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
 /* ENQUIRY */
 
 .enquiry-action {
-  background: linear-gradient(135deg, #8b0929, #5e1028);
+  background: #8b0929;
 }
 
 .enquiry-action:hover {
-  background: linear-gradient(135deg, #a40d32, #74102d);
+  background: #a40d32;
+  transform: translateX(-7px);
+  box-shadow: 0 8px 22px rgba(139, 9, 41, 0.3);
 }
 
-/* COURSES AND FEES */
+/* BROCHURE */
 
 .brochure-action {
-  background: linear-gradient(135deg, #b58a43, #91682c);
+  background: #b68a36;
 }
 
 .brochure-action:hover {
-  background: linear-gradient(135deg, #c69a50, #a47a37);
+  background: #96702a;
+  transform: translateX(-7px);
+  box-shadow: 0 8px 22px rgba(182, 138, 54, 0.3);
 }
 
-/* FOCUS */
+/* DOWNLOAD ICON */
+
+.floating-download-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  opacity: 0.85;
+}
+
+.floating-download-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* KEYBOARD ACCESSIBILITY */
 
 .floating-action:focus-visible {
-  outline: 3px solid #d9b56e;
-  outline-offset: 4px;
+  outline: 3px solid #172033;
+  outline-offset: 3px;
 }
 
 /* TABLET */
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .floating-actions {
-    right: 16px;
-    bottom: 22px;
+    top: auto;
+    right: 0;
+    bottom: 110px;
     gap: 10px;
+  }
+
+  .floating-action {
+    min-width: 145px;
+    min-height: 48px;
+    padding: 0 14px;
+  }
+
+  .floating-text {
+    font-size: 12px;
   }
 }
 
 /* MOBILE */
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .floating-actions {
-    right: 12px;
-    bottom: 16px;
+    bottom: 95px;
     gap: 9px;
   }
 
   .floating-action {
-    width: 45px;
-    height: 45px;
-    min-width: 45px;
-    padding: 0 10px;
+    min-width: 48px;
+    width: 48px;
+    min-height: 48px;
+    justify-content: center;
+    padding: 0;
+    border-radius: 9px 0 0 9px;
+    gap: 0;
   }
 
   .floating-icon {
-    flex-basis: 24px;
-    width: 24px;
-    height: 24px;
-    font-size: 17px;
+    width: 22px;
+    height: 22px;
   }
 
-  .floating-action:hover,
-  .floating-action:focus-visible {
-    width: 155px;
+  .floating-icon svg {
+    width: 17px;
+    height: 17px;
   }
 
-  .floating-text {
-    font-size: 11px;
-  }
-}
-
-/* SMALL MOBILE */
-
-@media (max-width: 380px) {
-  .floating-actions {
-    right: 9px;
-    bottom: 12px;
+  .floating-text,
+  .floating-download-icon {
+    display: none;
   }
 
-  .floating-action {
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-    padding: 0 9px;
-  }
-
-  .floating-action:hover,
-  .floating-action:focus-visible {
-    width: 145px;
+  .floating-action:hover {
+    transform: translateX(-4px);
   }
 }
 
 /* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
-  .floating-action,
-  .floating-text {
+  .floating-action {
     transition: none;
   }
 }

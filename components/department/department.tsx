@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -12,48 +13,147 @@ import "./department.css";
 const departments = [
   {
     id: 1,
-    name: "Management & Commerce",
-    subtitle: "SCHOOL OF",
-    courses: "BBA • B.Com",
+    name: "Science",
+    subtitle: "DEPARTMENT OF",
+    courses: "B.Sc • M.Sc",
     image: "/campus/build.webp",
-    color: "management",
+    color: "science",
     description:
-      "Develop leadership, business knowledge and professional management skills.",
+      "Explore scientific knowledge through subjects like Physics, Chemistry, Mathematics, Botany and Zoology.",
+    courseList: [
+      "B.Sc (C.B.Z)",
+      "B.Sc (P.C.M)",
+      "M.Sc Physics",
+      "M.Sc Chemistry",
+      "M.Sc Mathematics",
+      "M.Sc Zoology",
+      "M.Sc Botany",
+    ],
     href: "/courses",
   },
   {
     id: 2,
-    name: "Computer Applications",
-    subtitle: "SCHOOL OF",
-    courses: "BCA & Computer Studies",
-     image: "/campus/build.webp",
-    color: "computer",
+    name: "Agro Science",
+    subtitle: "DEPARTMENT OF",
+    courses: "B.Sc Agriculture • M.Sc",
+    image: "/campus/build.webp",
+    color: "agriculture",
     description:
-      "Explore technology, programming, software development and digital innovation.",
+      "Build knowledge of agriculture, horticulture and modern agricultural practices.",
+    courseList: [
+      "B.Sc Agriculture (Hons.)",
+      "M.Sc Horticulture",
+      "M.Sc Agronomy",
+    ],
     href: "/courses",
   },
-
+  {
+    id: 3,
+    name: "Commerce & Management",
+    subtitle: "DEPARTMENT OF",
+    courses: "B.Com • BBA • M.Com",
+    image: "/campus/build.webp",
+    color: "management",
+    description:
+      "Develop business knowledge, financial understanding, leadership and management skills.",
+    courseList: [
+      "B.Com",
+      "B.Com (Hons.)",
+      "BBA",
+      "M.Com",
+    ],
+    href: "/courses",
+  },
   {
     id: 4,
-    name: "Nursing Sciences",
-    subtitle: "SCHOOL OF",
-    courses: "GNM & Nursing",
- image: "/campus/build.webp",
-    color: "nursing",
+    name: "Humanities & Social Sciences",
+    subtitle: "DEPARTMENT OF",
+    courses: "B.A • M.A",
+    image: "/campus/build.webp",
+    color: "humanities",
     description:
-      "Learn patient care, clinical practices and professional nursing skills.",
+      "Understand society, history, languages and political systems through humanities education.",
+    courseList: [
+      "B.A",
+      "M.A (English)",
+      "M.A (History)",
+      "M.A (Political Science)",
+    ],
     href: "/courses",
   },
- 
+  {
+    id: 5,
+    name: "Education",
+    subtitle: "DEPARTMENT OF",
+    courses: "B.Ed",
+    image: "/campus/build.webp",
+    color: "education",
+    description:
+      "Develop teaching skills, educational understanding and professional teaching capabilities.",
+    courseList: [
+      "B.Ed",
+    ],
+    href: "/courses",
+  },
   {
     id: 6,
-    name: "Arts & Humanities",
-    subtitle: "SCHOOL OF",
-    courses: "Arts & Humanities",
+    name: "Health Sciences",
+    subtitle: "DEPARTMENT OF",
+    courses: "Nursing • Pharmacy",
     image: "/campus/build.webp",
-    color: "arts",
+    color: "nursing",
     description:
-      "Develop creativity, communication, critical thinking and social understanding.",
+      "Prepare for healthcare careers through nursing education and pharmaceutical studies.",
+    courseList: [
+      "GNM Nursing",
+      "D.Pharm",
+    ],
+    href: "/courses",
+  },
+  {
+    id: 7,
+    name: "Computer Science",
+    subtitle: "DEPARTMENT OF",
+    courses: "BCA • B.Sc Computer Science",
+    image: "/campus/build.webp",
+    color: "computer",
+    description:
+      "Explore programming, computer applications, information technology and digital innovation.",
+    courseList: [
+      "B.Sc Computer Science",
+      "BCA",
+      "B.Sc IT",
+    ],
+    href: "/courses",
+  },
+  {
+    id: 8,
+    name: "Law",
+    subtitle: "DEPARTMENT OF",
+    courses: "LL.B • B.A LL.B",
+    image: "/campus/build.webp",
+    color: "law",
+    description:
+      "Build a foundation in legal studies, constitutional knowledge and professional law practice.",
+    courseList: [
+      "B.A LL.B",
+      "LL.B",
+    ],
+    href: "/courses",
+  },
+  {
+    id: 9,
+    name: "Yoga",
+    subtitle: "DEPARTMENT OF",
+    courses: "B.A Yoga • Yoga Studies",
+    image: "/campus/build.webp",
+    color: "yoga",
+    description:
+      "Explore yoga, wellness, traditional practices and holistic approaches to health.",
+    courseList: [
+      "B.A (Yoga)",
+      "P.G Diploma in Yoga",
+    ],
     href: "/courses",
   },
 ];
@@ -61,7 +161,6 @@ const departments = [
 export default function Departments() {
   return (
     <section className="dd-departments">
-
       <div className="dd-departments-container">
 
         <div className="dd-departments-grid">
@@ -69,7 +168,6 @@ export default function Departments() {
           {/* INTRODUCTION CARD */}
 
           <div className="dd-department-intro">
-
             <div className="dd-intro-icon">
               <GraduationCap size={65} strokeWidth={1.2} />
             </div>
@@ -90,15 +188,12 @@ export default function Departments() {
             </div>
 
             <p>
-              Shaping future professionals through quality
-              education, practical learning and industry-focused
-              academic programs.
+              Discover diverse academic opportunities across
+              science, management, law, healthcare, education
+              and other professional fields at DD College.
             </p>
 
-            <Link
-              href="/courses"
-              className="dd-intro-link"
-            >
+            <Link href="/courses" className="dd-intro-link">
               Explore All Programs
               <ArrowRight size={17} />
             </Link>
@@ -106,13 +201,11 @@ export default function Departments() {
             <div className="dd-intro-watermark">
               D.D.
             </div>
-
           </div>
 
-          {/* DEPARTMENT CARDS */}
+          {/* ALL DEPARTMENT CARDS */}
 
           {departments.map((department) => (
-
             <article
               className={`dd-department-card ${department.color}`}
               key={department.id}
@@ -120,7 +213,6 @@ export default function Departments() {
                 backgroundImage: `url("${department.image}")`,
               }}
             >
-
               <div className="dd-department-overlay"></div>
 
               <div className="dd-department-content">
@@ -129,9 +221,7 @@ export default function Departments() {
                   {department.subtitle}
                 </span>
 
-                <h3>
-                  {department.name}
-                </h3>
+                <h3>{department.name}</h3>
 
                 <span className="dd-department-courses">
                   {department.courses}
@@ -141,6 +231,14 @@ export default function Departments() {
                   {department.description}
                 </p>
 
+                <div className="dd-department-course-list">
+                  {department.courseList.map((course) => (
+                    <span key={course}>
+                      {course}
+                    </span>
+                  ))}
+                </div>
+
                 <Link
                   href={department.href}
                   className="dd-department-button"
@@ -148,15 +246,12 @@ export default function Departments() {
                   Explore Programs
                   <ArrowUpRight size={17} />
                 </Link>
-
               </div>
 
               <span className="dd-department-number">
-                0{department.id}
+                {String(department.id).padStart(2, "0")}
               </span>
-
             </article>
-
           ))}
 
         </div>
@@ -164,7 +259,6 @@ export default function Departments() {
         {/* BOTTOM LINK */}
 
         <div className="dd-departments-bottom">
-
           <p>
             Find the right academic path and take the first step
             towards your dream career.
@@ -174,11 +268,9 @@ export default function Departments() {
             View All Courses
             <ArrowRight size={18} />
           </Link>
-
         </div>
 
       </div>
-
     </section>
   );
 }

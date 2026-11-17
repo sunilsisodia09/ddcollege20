@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+
 import {
   ArrowRight,
   ArrowUpRight,
@@ -10,6 +11,8 @@ import {
   BookOpen,
   GraduationCap,
   Users,
+  CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 
 import "./AboutSection.css";
@@ -45,6 +48,30 @@ const stats = [
   },
 ];
 
+const highlights = [
+  {
+    id: 1,
+    icon: BookOpen,
+    title: "Quality Education",
+    description:
+      "Academic excellence supported by practical learning and knowledge.",
+  },
+  {
+    id: 2,
+    icon: Users,
+    title: "Student Development",
+    description:
+      "A supportive environment to develop skills, confidence and personality.",
+  },
+  {
+    id: 3,
+    icon: GraduationCap,
+    title: "Career Opportunities",
+    description:
+      "Learning experiences that help students prepare for their future.",
+  },
+];
+
 function CountUp({
   end,
   suffix = "",
@@ -58,6 +85,15 @@ function CountUp({
 
   useEffect(() => {
     if (!start) return;
+
+    const mediaQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    if (mediaQuery.matches) {
+      setCount(end);
+      return;
+    }
 
     const duration = 1800;
     const startTime = performance.now();
@@ -105,79 +141,105 @@ export default function AboutSection() {
 
     if (!section) return;
 
+    if (!("IntersectionObserver" in window)) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
+        const entry = entries[0];
+
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
       {
-        threshold: 0.2,
+        threshold: 0.15,
       }
     );
 
     observer.observe(section);
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
     <section
-      className="about-section"
+      className={`about-section ${isVisible ? "about-visible" : ""}`}
       ref={sectionRef}
       id="about"
     >
       <div className="about-container">
 
-        {/* LEFT IMAGE SECTION */}
+        {/* LEFT IMAGE AREA */}
         <div className="about-image-wrapper">
+
           <div className="about-image-main">
             <img
               src="/campus/build.webp"
-              alt="D.D. College Dehradun Campus"
+              alt="D.D. College campus in Dehradun"
               loading="lazy"
             />
+
+            <div className="about-image-overlay" />
           </div>
 
-          <div className="about-image-decoration" />
+          <div className="about-image-decoration">
+            <span />
+            <span />
+            <span />
+          </div>
 
           {/* EXPERIENCE CARD */}
           <div className="about-experience-card">
             <div className="about-experience-icon">
-              <Award size={27} />
+              <Award size={27} strokeWidth={1.8} />
             </div>
 
-            <div>
+            <div className="about-experience-content">
               <strong>20+</strong>
               <span>Years of Excellence</span>
             </div>
           </div>
 
-          {/* CAMPUS LABEL */}
+          {/* IMAGE LABEL */}
           <div className="about-image-label">
-            <GraduationCap size={20} />
-            <span>Building Future Leaders</span>
+            <div className="about-image-label-icon">
+              <GraduationCap size={21} />
+            </div>
+
+            <div>
+              <strong>Learn. Grow. Succeed.</strong>
+              <span>Building Future Leaders</span>
+            </div>
           </div>
+
+          {/* DECORATIVE BADGE */}
+          <div className="about-image-badge">
+            <Sparkles size={17} />
+            <span>Inspiring Excellence</span>
+          </div>
+
         </div>
 
-        {/* RIGHT CONTENT SECTION */}
+        {/* RIGHT CONTENT AREA */}
         <div className="about-content">
 
+          {/* SECTION LABEL */}
           <div className="about-section-tag">
-            <span />
-            ABOUT D.D. COLLEGE
+            <span className="about-tag-line" />
+            <span>ABOUT D.D. COLLEGE</span>
           </div>
 
+          {/* HEADING */}
           <h2 className="about-heading">
             Empowering Minds,
-            <span> Building Futures</span>
+            <span> Building Futures.</span>
           </h2>
 
+          {/* DESCRIPTION */}
           <p className="about-description">
             D.D. College, Dehradun, is committed to providing
             quality education and creating an environment where
@@ -194,41 +256,37 @@ export default function AboutSection() {
 
           {/* HIGHLIGHTS */}
           <div className="about-highlights">
-            <div className="about-highlight">
-              <div className="about-highlight-icon">
-                <BookOpen size={21} />
-              </div>
+            {highlights.map((item) => {
+              const Icon = item.icon;
 
-              <div>
-                <h4>Quality Education</h4>
-                <p>
-                  Academic excellence with practical learning.
-                </p>
-              </div>
-            </div>
+              return (
+                <div className="about-highlight" key={item.id}>
+                  <div className="about-highlight-icon">
+                    <Icon size={22} strokeWidth={1.8} />
+                  </div>
 
-            <div className="about-highlight">
-              <div className="about-highlight-icon">
-                <Users size={21} />
-              </div>
+                  <div className="about-highlight-content">
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                  </div>
 
-              <div>
-                <h4>Student Development</h4>
-                <p>
-                  Opportunities to grow skills and confidence.
-                </p>
-              </div>
-            </div>
+                  <CheckCircle2
+                    className="about-highlight-check"
+                    size={19}
+                  />
+                </div>
+              );
+            })}
           </div>
 
-          {/* BUTTON */}
+          {/* ACTION BUTTONS */}
           <div className="about-actions">
             <Link
               href="/about"
               className="about-read-more"
             >
               Discover Our College
-              <ArrowRight size={18} />
+              <ArrowRight size={19} />
             </Link>
 
             <Link
@@ -236,15 +294,28 @@ export default function AboutSection() {
               className="about-contact-link"
             >
               Contact Us
-              <ArrowUpRight size={17} />
+              <ArrowUpRight size={18} />
             </Link>
           </div>
+
+          {/* BOTTOM NOTE */}
+          <div className="about-bottom-note">
+            <span className="about-bottom-note-icon">
+              <CheckCircle2 size={17} />
+            </span>
+
+            <p>
+              Creating opportunities for learning and growth.
+            </p>
+          </div>
+
         </div>
       </div>
 
-      {/* STATISTICS */}
+      {/* STATISTICS SECTION */}
       <div className="about-stats">
         <div className="about-stats-container">
+
           {stats.map((stat) => {
             const Icon = stat.icon;
 
@@ -254,7 +325,7 @@ export default function AboutSection() {
                 key={stat.id}
               >
                 <div className="about-stat-icon">
-                  <Icon size={25} />
+                  <Icon size={25} strokeWidth={1.8} />
                 </div>
 
                 <div className="about-stat-content">
@@ -271,6 +342,7 @@ export default function AboutSection() {
               </div>
             );
           })}
+
         </div>
       </div>
     </section>

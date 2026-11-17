@@ -213,19 +213,7 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="dd-footer-contact-item">
-                <div className="dd-footer-contact-icon">
-                  <Clock3 size={19} />
-                </div>
-                <div>
-                  <strong>Office Hours</strong>
-                  <span>
-                    Monday – Saturday
-                    <br />
-                    9:00 AM – 5:00 PM
-                  </span>
-                </div>
-              </div>
+             
 
               <Link
                 href="/contact"
