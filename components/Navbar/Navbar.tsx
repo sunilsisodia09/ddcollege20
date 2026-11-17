@@ -49,7 +49,7 @@ const menuGroups: MenuGroup[] = [
         href: "/about/chairman-message",
         description:
           "Read the chairman's message and our commitment to creating opportunities for every student.",
-        image: "/gallery/chairmansira.jpg",
+    image: "C:\Users\sunil\Downloads\dd-college\public\gallery\chairmansira.jpg",
       },
       {
         label: "Principal's Message",

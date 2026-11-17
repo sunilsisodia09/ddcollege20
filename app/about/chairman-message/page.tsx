@@ -108,7 +108,7 @@ export default function ChairmanMessagePage() {
         <aside className="dd-chairman-profile">
           <div className="dd-chairman-image-frame">
             <Image
-             src="/gallery/chairmansir.JPG"
+             src="/gallery/chairmansira.JPG"
               alt="Chairman of D.D. College, Dehradun"
               width={650}
               height={820}
