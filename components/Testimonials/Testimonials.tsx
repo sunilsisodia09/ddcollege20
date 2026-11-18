@@ -33,15 +33,15 @@ const alumni: Alumni[] = [
     description:
       "My journey at DD College helped me develop creative thinking, practical skills, and confidence. The learning environment and guidance helped me move towards my professional goals.",
   },
-  {
-    id: 2,
-    name: "Lavanya Arora",
-    company: "Indigo",
-    course: "B.Com",
-      image: "/gallery/Lavn.png",
-    description:
-      "My college experience helped me strengthen my technical knowledge and problem-solving skills. The support of my teachers encouraged me to keep learning and growing.",
-  },
+ {
+  id: 2,
+  name: "Lavanya Arora",
+  company: "Indigo",
+  course: "B.Com",
+  image: "/gallery/lavn.png",
+  description:
+    "My college experience helped me strengthen my technical knowledge and problem-solving skills. The support of my teachers encouraged me to keep learning and growing.",
+},
   {
     id: 3,
     name: "Shradha Gurung",
