@@ -56,7 +56,7 @@ const menuGroups: MenuGroup[] = [
         href: "/about/principal-message",
         description:
           "A message from our principal about academic excellence, discipline and student development.",
-        image: "/campus/prin.jpg",
+        image: "C:\Users\sunil\Downloads\dd-college\public\campus\prin.JPG",
       },
       {
         label: "Management",

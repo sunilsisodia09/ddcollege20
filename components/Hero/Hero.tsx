@@ -9,8 +9,8 @@ import "./Hero.css";
 const images = [
   "/campus/dd.png",
   "/campus/build.webp",
-  "/images/f.jpg",
-  "/images/hh.jpg",
+  "/gallery/grv.png",
+  "/gallery/rmp.png",
 ];
 
 export default function Hero() {
