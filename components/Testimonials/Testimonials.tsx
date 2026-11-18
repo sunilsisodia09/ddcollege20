@@ -1,279 +1,198 @@
 
-"use client";
-
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
-  X,
+  ArrowUpRight,
   GraduationCap,
-  BriefcaseBusiness,
   Quote,
+  Star,
+  MessageCircle,
   Sparkles,
+  Users,
+  Heart,
 } from "lucide-react";
 
 import "./Testimonials.css";
 
-interface Alumni {
-  id: number;
-  name: string;
-  company: string;
-  course: string;
-  image: string;
-  description: string;
-}
-
-const alumni: Alumni[] = [
+const testimonials = [
   {
-    id: 1,
-    name: "Khusboo Gautam",
-    company: "Skywings",
-    course: "BBA",
-   image: "/gallery/Khusboo.png",
-    description:
-      "My journey at DD College helped me develop creative thinking, practical skills, and confidence. The learning environment and guidance helped me move towards my professional goals.",
+    name: "Aarushi Sharma",
+    course: "Bachelor of Computer Applications",
+    shortCourse: "BCA",
+    year: "2025",
+    initials: "AS",
+    color: "green",
+    review:
+      "My journey at D.D. College has been truly wonderful. The teachers are supportive, the learning environment is positive, and I have gained confidence in both academics and practical skills.",
   },
- {
-  id: 2,
-  name: "Lavanya Arora",
-  company: "Indigo",
-  course: "B.Com",
-image: "/gallery/Khusboo.png",
-  description:
-    "My college experience helped me strengthen my technical knowledge and problem-solving skills. The support of my teachers encouraged me to keep learning and growing.",
-},
   {
-    id: 3,
-    name: "Shradha Gurung",
-    company: "AXIS Bank",
-    course: "BBA",
-   image: "/gallery/Khusboo.png",
-    description:
-      "The practical learning experience and academic support at DD College helped me build confidence and prepare for professional opportunities.",
+    name: "Rahul Kumar",
+    course: "Bachelor of Business Administration",
+    shortCourse: "BBA",
+    year: "2025",
+    initials: "RK",
+    color: "orange",
+    review:
+      "D.D. College helped me develop my communication and leadership skills. The activities, presentations, and practical learning opportunities made my college experience memorable.",
   },
-    {
-    id: 4,
-    name: "Megha Suyal",
-    company: "Bajaj Capital",
-    course: "B.Sc Science",
-image: "/gallery/Khusboo.png",
-    description:
-      "The practical learning experience and academic support at DD College helped me build confidence and prepare for professional opportunities.",
+  {
+    name: "Priya Verma",
+    course: "Bachelor of Commerce",
+    shortCourse: "B.Com",
+    year: "2024",
+    initials: "PV",
+    color: "purple",
+    review:
+      "The faculty members always encouraged me to do better. I am grateful for the guidance, friendly atmosphere, and opportunities I received throughout my college life.",
+  },
+  {
+    name: "Ankit Rawat",
+    course: "Bachelor of Science",
+    shortCourse: "B.Sc",
+    year: "2025",
+    initials: "AR",
+    color: "blue",
+    review:
+      "I have had a great learning experience at D.D. College. The academic support and practical exposure helped me improve my knowledge and prepare for future opportunities.",
+  },
+  {
+    name: "Neha Singh",
+    course: "Bachelor of Arts",
+    shortCourse: "B.A.",
+    year: "2024",
+    initials: "NS",
+    color: "pink",
+    review:
+      "College life here has helped me grow as a person. I appreciate the teachers, campus environment, and the different activities that encouraged me to explore my interests.",
+  },
+  {
+    name: "Vikas Chauhan",
+    course: "Master of Business Administration",
+    shortCourse: "MBA",
+    year: "2025",
+    initials: "VC",
+    color: "teal",
+    review:
+      "The learning environment at D.D. College has been very encouraging. The faculty guided us with practical knowledge and helped us build skills for our professional journey.",
   },
 ];
 
-const companies = [
-  { name: "Google", logo: "/gallery/axis.jpeg" },
-  { name: "Microsoft", logo: "/gallery/tr.jpeg" },
-  { name: "Amazon", logo: "/gallery/ind.jpeg" },
-  { name: "Infosys", logo: "/gallery/baj.jpeg" },
-  { name: "Wipro", logo: "/gallery/wi.jpeg" },
+const stats = [
+  { number: "5000+", label: "Students Guided" },
+  { number: "50+", label: "Academic Programs" },
+  { number: "20+", label: "Years of Excellence" },
 ];
 
-export default function Testimonials() {
-  const [selectedAlumni, setSelectedAlumni] = useState<Alumni | null>(null);
-
-  useEffect(() => {
-    if (!selectedAlumni) return;
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedAlumni(null);
-      }
-    };
-
-    document.addEventListener("keydown", handleEscape);
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "";
-    };
-  }, [selectedAlumni]);
-
+export default function TestimonialsPage() {
   return (
-    <section className="dd-alumni-section">
-      <div className="dd-alumni-container">
+    <main className="dd-testimonials">
+      {/* HERO SECTION */}
+      <section className="dd-testimonial-hero">
+        <div className="dd-testimonial-hero-overlay" />
 
-        {/* Heading */}
-        <div className="dd-alumni-heading">
-          <div className="dd-alumni-eyebrow">
-            <Sparkles size={16} />
-            <span>OUR SUCCESS STORIES</span>
+        <div className="dd-testimonial-hero-content">
+          <div className="dd-testimonial-hero-tag">
+            <Sparkles size={15} />
+            <span>STUDENT EXPERIENCES</span>
           </div>
 
-          <h2>
-            Our Alumni, <span>Our Pride</span>
-          </h2>
+          <h1>
+            Stories That
+            <span> Inspire Us</span>
+          </h1>
 
           <p>
-            Meet our graduates who are building successful careers and making
-            their mark in leading organisations.
+            Every student has a story. Discover the experiences, achievements,
+            and memories that make D.D. College special.
+          </p>
+
+          <div className="dd-testimonial-breadcrumb">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <span>Testimonials</span>
+          </div>
+        </div>
+
+        <div className="dd-testimonial-hero-bottom">
+          <span>REAL STORIES. REAL EXPERIENCES.</span>
+          <span className="dd-testimonial-scroll">
+            SCROLL TO EXPLORE <ArrowRight size={15} />
+          </span>
+        </div>
+      </section>
+
+
+    
+
+      {/* TESTIMONIAL CARDS */}
+      <section className="dd-testimonial-grid-section">
+        <div className="dd-testimonial-section-heading">
+          <div>
+            <span className="dd-testimonial-eyebrow">
+              <span /> STUDENT VOICES
+            </span>
+            <h2>
+              Hear It From <span>Our Students</span>
+            </h2>
+          </div>
+
+          <p>
+            Experiences that reflect our commitment to learning, growth, and
+            student success.
           </p>
         </div>
 
-        {/* Alumni Slider */}
-        <div className="dd-alumni-slider">
-          <div className="dd-alumni-track">
-            {[...alumni, ...alumni].map((person, index) => (
-              <article
-                className="dd-alumni-card"
-                key={`${person.id}-${index}`}
-              >
-                <div className="dd-alumni-image-wrapper">
-                  <Image
-                    src={person.image}
-                    alt={`${person.name} - DD College Alumni`}
-                    fill
-                    sizes="(max-width: 600px) 260px, 290px"
-                    className="dd-alumni-image"
-                    priority={index < 2}
-                  />
-                  <span className="dd-alumni-image-label">
-                    DD COLLEGE ALUMNI
-                  </span>
-                </div>
-
-                <div className="dd-alumni-content">
-                  <div className="dd-alumni-name-area">
-                    <h3>{person.name}</h3>
-                  </div>
-
-                  <div className="dd-alumni-company-name">
-                    <span>PLACED AT</span>
-                    <strong>{person.company}</strong>
-                  </div>
-
-                  <div className="dd-alumni-course">
-                    <GraduationCap size={18} />
-                    <span>{person.course}</span>
-                  </div>
-
-                  <button
-                    type="button"
-                    className="dd-alumni-read-more"
-                    onClick={() => setSelectedAlumni(person)}
-                    aria-label={`Read success story of ${person.name}`}
-                  >
-                    <span>Read Success Story</span>
-                    <span className="dd-alumni-button-icon">
-                      <ArrowRight size={17} />
-                    </span>
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        {/* Company Logos */}
-        <div className="dd-company-section">
-          <div className="dd-company-heading">
-            <span />
-            <p>OUR ALUMNI ARE BUILDING CAREERS AT</p>
-            <span />
-          </div>
-
-          <div className="dd-company-slider">
-            <div className="dd-company-track">
-              {[...companies, ...companies, ...companies].map(
-                (company, index) => (
-                  <div
-                    className="dd-company-logo-card"
-                    key={`${company.name}-${index}`}
-                    title={company.name}
-                  >
-                    <Image
-                      src={company.logo}
-                      alt={`${company.name} logo`}
-                      width={160}
-                      height={65}
-                      sizes="160px"
-                      className="dd-company-logo"
-                    />
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Alumni Success Story Modal */}
-      {selectedAlumni && (
-        <div
-          className="dd-alumni-modal-overlay"
-          onClick={() => setSelectedAlumni(null)}
-        >
-          <div
-            className="dd-alumni-modal"
-            onClick={(event) => event.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="dd-alumni-modal-title"
-          >
-            <button
-              type="button"
-              className="dd-alumni-modal-close"
-              onClick={() => setSelectedAlumni(null)}
-              aria-label="Close success story"
-            >
-              <X size={21} />
-            </button>
-
-            <div className="dd-alumni-modal-image">
-              <Image
-                src={selectedAlumni.image}
-                alt={selectedAlumni.name}
-                fill
-                sizes="200px"
-                className="dd-alumni-modal-photo"
-              />
-            </div>
-
-            <div className="dd-alumni-modal-info">
-              <div className="dd-alumni-modal-label">
-                <Sparkles size={14} />
-                ALUMNI SUCCESS STORY
+        <div className="dd-testimonial-grid">
+          {testimonials.map((item, index) => (
+            <article className="dd-testimonial-card" key={item.name}>
+              <div className="dd-testimonial-card-top">
+                <span className="dd-testimonial-number">
+                  0{index + 1}
+                </span>
+                <Quote className="dd-testimonial-quote-icon" size={38} />
               </div>
 
-              <h2 id="dd-alumni-modal-title">
-                {selectedAlumni.name}
-              </h2>
+              <div
+                className="dd-testimonial-stars"
+                aria-label="Five out of five stars"
+              >
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star key={star} size={16} fill="currentColor" />
+                ))}
+              </div>
 
-              <p className="dd-alumni-modal-role">
-                Working at <strong>{selectedAlumni.company}</strong>
+              <p className="dd-testimonial-review">
+                &ldquo;{item.review}&rdquo;
               </p>
 
-              <div className="dd-alumni-modal-details">
-                <div>
-                  <GraduationCap size={19} />
-                  <span>{selectedAlumni.course}</span>
+              <div className="dd-testimonial-card-divider" />
+
+              <div className="dd-testimonial-student">
+                <div
+                  className={`dd-testimonial-avatar ${item.color}`}
+                  aria-hidden="true"
+                >
+                  {item.initials}
                 </div>
 
-                <div>
-                  <BriefcaseBusiness size={19} />
-                  <span>{selectedAlumni.company}</span>
+                <div className="dd-testimonial-student-info">
+                  <h3>{item.name}</h3>
+                  <p>{item.course}</p>
+                  <span>Batch of {item.year}</span>
+                </div>
+
+                <div className="dd-testimonial-course-badge">
+                  {item.shortCourse}
                 </div>
               </div>
-
-              <div className="dd-alumni-modal-quote">
-                <Quote size={27} />
-                <p>{selectedAlumni.description}</p>
-              </div>
-
-              <button
-                type="button"
-                className="dd-alumni-modal-button"
-                onClick={() => setSelectedAlumni(null)}
-              >
-                Close Story
-                <X size={16} />
-              </button>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
-      )}
-    </section>
+      </section>
+
+   
+
+    
+    </main>
   );
 }
