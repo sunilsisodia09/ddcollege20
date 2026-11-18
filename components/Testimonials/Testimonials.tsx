@@ -29,7 +29,7 @@ const alumni: Alumni[] = [
     name: "Khusboo Gautam",
     company: "Skywings",
     course: "BBA",
-    image: "/gallery/Khusboo.png",
+   image: "/gallery/Khusboo.png",
     description:
       "My journey at DD College helped me develop creative thinking, practical skills, and confidence. The learning environment and guidance helped me move towards my professional goals.",
   },
@@ -38,7 +38,7 @@ const alumni: Alumni[] = [
   name: "Lavanya Arora",
   company: "Indigo",
   course: "B.Com",
-  image: "/gallery/lavn.png",
+image: "/gallery/Khusboo.png",
   description:
     "My college experience helped me strengthen my technical knowledge and problem-solving skills. The support of my teachers encouraged me to keep learning and growing.",
 },
@@ -47,7 +47,7 @@ const alumni: Alumni[] = [
     name: "Shradha Gurung",
     company: "AXIS Bank",
     course: "BBA",
-    image: "/gallery/Khusboo.png",
+   image: "/gallery/Khusboo.png",
     description:
       "The practical learning experience and academic support at DD College helped me build confidence and prepare for professional opportunities.",
   },
