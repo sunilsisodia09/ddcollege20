@@ -56,7 +56,7 @@ const alumni: Alumni[] = [
     name: "Megha Suyal",
     company: "Bajaj Capital",
     course: "B.Sc Science",
-   image: "/gallery/ff.png",
+image: "/gallery/Khusboo.png",
     description:
       "The practical learning experience and academic support at DD College helped me build confidence and prepare for professional opportunities.",
   },
