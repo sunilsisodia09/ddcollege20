@@ -24,13 +24,13 @@ const galleryImages: GalleryImage[] = [
   { id: 4, image: "/images/d.jpg", alt: "College Events" },
   { id: 5, image: "/images/e.jpg", alt: "Campus Memories" },
   { id: 6, image: "/images/f.jpg", alt: "College Life" },
-  { id: 7, image: "/gallery/g.JPG", alt: "Campus Activities" },
-  { id: 8, image: "/gallery/grv.JPG", alt: "College Facilities" },
-  { id: 9, image: "/images/gr.JPG", alt: "College Gallery" },
-  { id: 10, image: "/images/h.jpg", alt: "College Building" },
-  { id: 11, image: "/gallery/lab.JPG", alt: "College Laboratory" },
-  { id: 12, image: "/gallery/lb.JPG", alt: "College Library" },
-  { id: 13, image: "/gallery/group.JPG", alt: "College Group Photo" },
+  { id: 7, image: "/gallery/g.png", alt: "Campus Activities" },
+  { id: 8, image: "/gallery/grv.png", alt: "College Facilities" },
+  { id: 9, image: "/images/gr.png", alt: "College Gallery" },
+  { id: 10, image: "/images/h.png", alt: "College Building" },
+  { id: 11, image: "/gallery/lab.png", alt: "College Laboratory" },
+  { id: 12, image: "/gallery/lb.png", alt: "College Library" },
+  { id: 13, image: "/gallery/group.png", alt: "College Group Photo" },
 ];
 
 export default function GallerySection() {

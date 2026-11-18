@@ -41,30 +41,28 @@ const menuGroups: MenuGroup[] = [
         href: "/about/vision-mission",
         description:
           "Our vision and mission guide us towards quality education, innovation and holistic development.",
-        image:
-          "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1000&q=85",
+       image: "/campus/build.webp",
       },
       {
         label: "Chairman's Message",
         href: "/about/chairman-message",
         description:
           "Read the chairman's message and our commitment to creating opportunities for every student.",
-  image: "/campus/chairmansira.png",
+      image: "/campus/build.webp",
       },
       {
         label: "Principal's Message",
         href: "/about/principal-message",
         description:
           "A message from our principal about academic excellence, discipline and student development.",
-        image: "C:\Users\sunil\Downloads\dd-college\public\campus\prin.JPG",
+  image: "/campus/build.webp",
       },
       {
         label: "Management",
         href: "/about/management",
         description:
           "Meet the leadership and management team working to strengthen the college community.",
-        image:
-          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&q=85",
+        image: "/campus/build.webp",
       },
     ],
   },
