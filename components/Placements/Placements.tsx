@@ -3,6 +3,14 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  BriefcaseBusiness,
+  GraduationCap,
+  Sparkles,
+} from "lucide-react";
 import "./Placements.css";
 
 type Student = {
@@ -11,8 +19,6 @@ type Student = {
   course: string;
   batch: string;
   company: string;
-  // companyLogo: string;
-  
   image: string;
 };
 
@@ -23,9 +29,7 @@ const students: Student[] = [
     course: "BSc IT",
     batch: "2026",
     company: "WIPRO WILP",
-    // companyLogo: "/images/google-logo.png",
-    
-   image: "/gallery/af.png",
+    image: "/gallery/aa.png",
   },
   {
     id: 2,
@@ -33,9 +37,7 @@ const students: Student[] = [
     course: "B.Sc (CS)",
     batch: "2026",
     company: "Spectrum",
-    // companyLogo: "/images/google-logo.png",
-   
-       image: "/gallery/Rajeev.png",
+    image: "/gallery/kl.png",
   },
   {
     id: 3,
@@ -43,19 +45,15 @@ const students: Student[] = [
     course: "B.Sc Science",
     batch: "2025",
     company: "Bajaj Capital",
-    // companyLogo: "/images/microsoft-logo.png",
-  
-    image: "/gallery/Megha.png",
+    image: "/gallery/ff.png",
   },
   {
     id: 4,
     name: "Amrita Kothari",
-    course: "Bsc (CS)",
+    course: "B.Sc (CS)",
     batch: "2026",
     company: "Talent IQ",
-    // companyLogo: "/images/infosys-logo.png",
-  
-    image: "/gallery/Amrita.png",
+    image: "/gallery/ax.png",
   },
   {
     id: 5,
@@ -63,9 +61,7 @@ const students: Student[] = [
     course: "BBA",
     batch: "2026",
     company: "AXIS Bank",
-    // companyLogo: "/images/amazon-logo.png",
-    
-    image: "/gallery/Shradha.png",
+    image: "/gallery/am.png",
   },
   {
     id: 6,
@@ -73,9 +69,7 @@ const students: Student[] = [
     course: "B.Com",
     batch: "2025",
     company: "Indigo",
-    // companyLogo: "/images/tcs-logo.png",
-   
-    image: "/gallery/Lavanya.png",
+    image: "/gallery/Lavn.png",
   },
 ];
 
@@ -84,79 +78,60 @@ const groups = [
   students.slice(3, 6),
 ];
 
-function PlacementCard({
-  student,
-  center = false,
-}: {
-  student: Student;
-  center?: boolean;
-}) {
+function PlacementCard({ student }: { student: Student }) {
   return (
-    <article
-      className={`placement-card ${
-        center ? "placement-card-center" : ""
-      }`}
-    >
-      <div className="student-visual">
-        <div className="student-glow" />
+    <article className="placement-card">
+      <div className="placement-card-top">
+        <span className="placement-batch">
+          <GraduationCap size={15} />
+          Batch {student.batch}
+        </span>
+        <span className="placement-card-number">
+          {String(student.id).padStart(2, "0")}
+        </span>
+      </div>
 
-        <div className="student-image">
+      <div className="placement-photo-wrap">
+        <div className="placement-photo-bg" />
+        <div className="placement-photo">
           <Image
             src={student.image}
-            alt={student.name}
+            alt={`${student.name}, placed student`}
             fill
-            sizes="(max-width: 760px) 80vw, 30vw"
+            sizes="(max-width: 700px) 85vw, (max-width: 1100px) 40vw, 30vw"
             className="placement-student-image"
           />
         </div>
-
-        <div className="image-ring" />
+        <span className="placement-photo-tag">
+          <Sparkles size={13} />
+          Career achieved
+        </span>
       </div>
 
-      <div className="placement-batch">
-        Batch {student.batch}
-      </div>
-
-      <div className="placement-card-content">
-
-        <div className="student-heading">
+      <div className="placement-card-info">
+        <div className="placement-student-heading">
           <div>
             <h3>{student.name}</h3>
             <p>{student.course}</p>
           </div>
-
-          <div className="verified">✓</div>
+          <span className="placement-verified" aria-label="Placement profile">
+            ✓
+          </span>
         </div>
 
-        <div className="placement-company">
-          <div className="company-label">
-            <span>PLACED AT</span>
+        <div className="placement-company-info">
+          <div className="placement-company-icon">
+            <BriefcaseBusiness size={19} />
+          </div>
+          <div>
+            <span className="placement-small-label">PLACED AT</span>
             <strong>{student.company}</strong>
           </div>
-
-          <div className="company-logo-box">
-            {/* <Image
-              src={student.companyLogo}
-              alt={`${student.company} logo`}
-              width={100}
-              height={50}
-              className="placement-company-logo"
-            /> */}
-          </div>
+          <ArrowUpRight className="placement-company-arrow" size={20} />
         </div>
-
-        <div className="placement-package">
-          <div>
-            <span>ANNUAL PACKAGE</span>
-            {/* <strong>{student.package}</strong> */}
-          </div>
-
-          <div className="package-arrow">↗</div>
-        </div>
-
-        <div className="card-bottom-line" />
-
       </div>
+
+      <div className="placement-card-accent" />
     </article>
   );
 }
@@ -179,71 +154,69 @@ export default function PlacementSection() {
   };
 
   const nextMobile = () => {
-    setMobileActive(
-      (current) => (current + 1) % students.length
-    );
+    setMobileActive((current) => (current + 1) % students.length);
   };
 
   const previousMobile = () => {
     setMobileActive(
-      (current) =>
-        (current - 1 + students.length) % students.length
+      (current) => (current - 1 + students.length) % students.length
     );
   };
 
   useEffect(() => {
     if (paused) return;
 
-    const timer = setInterval(() => {
+    const timer = window.setInterval(() => {
       setActiveGroup((current) => (current + 1) % totalGroups);
-
-      setMobileActive(
-        (current) => (current + 1) % students.length
-      );
+      setMobileActive((current) => (current + 1) % students.length);
     }, 4500);
 
-    return () => clearInterval(timer);
+    return () => window.clearInterval(timer);
   }, [paused, totalGroups]);
 
   return (
-    <section
-      className="placement-section"
-      id="placements"
-    >
+    <section className="placement-section" id="placements">
       <div className="placement-container">
-
-        {/* =====================================
-            HEADING
-        ===================================== */}
-
+        {/* Heading */}
         <div className="placement-heading">
+          <div className="placement-eyebrow">
+            <span className="placement-eyebrow-line" />
+            <span>OUR PLACEMENT STORIES</span>
+          </div>
 
-         
+          <div className="placement-heading-row">
+            <div>
+              <h2>
+                Dreams into <span>Destinations.</span>
+              </h2>
+              <p>
+                Every achievement tells a story of hard work, determination,
+                and the right opportunities. Meet our students who are
+                building their careers.
+              </p>
+            </div>
 
-          <h2>
-            Building
-            <strong> Bright Futures</strong>
-          </h2>
-
-          <p>
-            Our students get placed in leading companies,
-            turning their knowledge, skills and ambition
-            into successful careers.
-          </p>
-
+            <div className="placement-heading-decoration">
+              <span>DD</span>
+              <Sparkles size={25} />
+            </div>
+          </div>
         </div>
 
-
-        {/* =====================================
-            DESKTOP CAROUSEL
-            3 CARDS
-        ===================================== */}
-
+        {/* Desktop carousel */}
         <div
           className="placement-desktop-carousel"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
         >
+          <div className="placement-carousel-topline">
+            <span>OUR SUCCESS STORIES</span>
+            <span>
+              0{activeGroup + 1} <i /> 0{totalGroups}
+            </span>
+          </div>
 
           <button
             type="button"
@@ -251,36 +224,22 @@ export default function PlacementSection() {
             onClick={previousDesktop}
             aria-label="Previous placements"
           >
-            ‹
+            <ArrowLeft size={19} />
           </button>
 
           <div className="placement-cards-window">
-
             <div
-              className={`placement-cards ${
-                activeGroup === 1 ? "group-two" : ""
-              }`}
+              className="placement-cards-track"
+              style={{ transform: `translateX(-${activeGroup * 100}%)` }}
             >
-
               {groups.map((group, groupIndex) => (
-                <div
-                  className="placement-group"
-                  key={groupIndex}
-                >
-
-                  {group.map((student, index) => (
-                    <PlacementCard
-                      key={student.id}
-                      student={student}
-                      center={index === 1}
-                    />
+                <div className="placement-group" key={groupIndex}>
+                  {group.map((student) => (
+                    <PlacementCard key={student.id} student={student} />
                   ))}
-
                 </div>
               ))}
-
             </div>
-
           </div>
 
           <button
@@ -289,124 +248,94 @@ export default function PlacementSection() {
             onClick={nextDesktop}
             aria-label="Next placements"
           >
-            ›
+            <ArrowRight size={19} />
           </button>
-
         </div>
 
-
-        {/* =====================================
-            MOBILE CAROUSEL
-            1 CARD ONLY
-        ===================================== */}
-
+        {/* Mobile carousel */}
         <div
           className="placement-mobile-carousel"
           onTouchStart={() => setPaused(true)}
           onTouchEnd={() => setPaused(false)}
         >
-
-          <button
-            type="button"
-            className="placement-arrow placement-arrow-left"
-            onClick={previousMobile}
-            aria-label="Previous placement"
-          >
-            ‹
-          </button>
+          <div className="placement-mobile-counter">
+            <span>STUDENT SPOTLIGHT</span>
+            <span>
+              {String(mobileActive + 1).padStart(2, "0")} /{" "}
+              {String(students.length).padStart(2, "0")}
+            </span>
+          </div>
 
           <div className="placement-mobile-window">
-
             <div
               className="placement-mobile-track"
               style={{
-                transform: `translateX(-${
-                  mobileActive * 100
-                }%)`,
+                transform: `translateX(-${mobileActive * 100}%)`,
               }}
             >
-
               {students.map((student) => (
-                <div
-                  className="placement-mobile-slide"
-                  key={student.id}
-                >
+                <div className="placement-mobile-slide" key={student.id}>
                   <PlacementCard student={student} />
                 </div>
               ))}
-
             </div>
-
           </div>
 
-          <button
-            type="button"
-            className="placement-arrow placement-arrow-right"
-            onClick={nextMobile}
-            aria-label="Next placement"
-          >
-            ›
-          </button>
-
-        </div>
-
-
-        {/* =====================================
-            DESKTOP DOTS
-        ===================================== */}
-
-        <div className="placement-dots placement-desktop-dots">
-
-          {groups.map((_, index) => (
+          <div className="placement-mobile-controls">
             <button
-              key={index}
               type="button"
-              className={`placement-dot ${
-                activeGroup === index ? "active" : ""
-              }`}
-              onClick={() => setActiveGroup(index)}
-              aria-label={`Show placement group ${
-                index + 1
-              }`}
-            />
-          ))}
+              className="placement-arrow"
+              onClick={previousMobile}
+              aria-label="Previous placement"
+            >
+              <ArrowLeft size={19} />
+            </button>
 
-        </div>
+            <div className="placement-mobile-dots">
+              {students.map((student, index) => (
+                <button
+                  key={student.id}
+                  type="button"
+                  className={`placement-dot ${
+                    mobileActive === index ? "active" : ""
+                  }`}
+                  onClick={() => setMobileActive(index)}
+                  aria-label={`Show ${student.name}`}
+                />
+              ))}
+            </div>
 
-
-        {/* =====================================
-            MOBILE DOTS
-        ===================================== */}
-
-        <div className="placement-dots placement-mobile-dots">
-
-          {students.map((student, index) => (
             <button
-              key={student.id}
               type="button"
-              className={`placement-dot ${
-                mobileActive === index ? "active" : ""
-              }`}
-              onClick={() => setMobileActive(index)}
-              aria-label={`Show ${student.name}`}
-            />
-          ))}
-
+              className="placement-arrow"
+              onClick={nextMobile}
+              aria-label="Next placement"
+            >
+              <ArrowRight size={19} />
+            </button>
+          </div>
         </div>
 
-
-        {/* =====================================
-            BOTTOM
-        ===================================== */}
-
-        <div className="placement-bottom">
-          <span className="bottom-line" />
-          <span>Where Dreams Meet Opportunities</span>
-          <span className="bottom-line" />
+        {/* Desktop pagination */}
+        <div className="placement-desktop-pagination">
+          <div className="placement-desktop-dots">
+            {groups.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`placement-dot ${
+                  activeGroup === index ? "active" : ""
+                }`}
+                onClick={() => setActiveGroup(index)}
+                aria-label={`Show placement group ${index + 1}`}
+              />
+            ))}
+          </div>
+          <span>Explore our students' success stories</span>
         </div>
 
+     
       </div>
     </section>
   );
 }
-

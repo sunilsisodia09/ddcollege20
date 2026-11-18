@@ -1,614 +1,620 @@
 
 "use client";
 
-import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
-import {
-  ArrowDownRight,
-  ArrowRight,
-  Award,
-  BookOpen,
-  BriefcaseBusiness,
-  Building2,
-  CheckCircle2,
-  GraduationCap,
-  Laptop,
-  MessageCircle,
-  Target,
-  TrendingUp,
-  Users,
-  UserRound,
-  Sparkles,
-  MoveUpRight,
-} from "lucide-react";
 import "./placements.css";
 
-const stats = [
-  { value: "Career", label: "Focused Learning", icon: Target },
-  { value: "Industry", label: "Career Awareness", icon: Building2 },
-  { value: "Practical", label: "Skill Development", icon: Laptop },
-  { value: "Personal", label: "Career Guidance", icon: Users },
+const students = [
+  {
+    name: "Shweta Kapr",
+    course: "B.Sc IT",
+    year: "2026",
+    company: "WIPRO WILP",
+    image: "/gallery/photo.png",
+  },
+  {
+    name: "Rajeev Selwan",
+    course: "B.Sc Computer Science",
+    year: "2026",
+    company: "Spectrum",
+    image: "/gallery/kl.png",
+  },
+  {
+    name: "Megha Suyal",
+    course: "B.Sc Science",
+    year: "2025",
+    company: "Bajaj Capital",
+    image: "/gallery/ff.png",
+  },
+  {
+    name: "Amrita Kothari",
+    course: "B.Sc Computer Science",
+    year: "2026",
+    company: "Talent IQ",
+    image: "/gallery/ax.png",
+  },
+  {
+    name: "Shradha Gurung",
+    course: "BBA",
+    year: "2026",
+    company: "AXIS Bank",
+    image: "/gallery/am.png",
+  },
+  {
+    name: "Lavanya Arora",
+    course: "B.Com",
+    year: "2025",
+    company: "Indigo",
+    image: "/gallery/Lavn.png",
+  },
 ];
 
-const recruiters = [
-  { name: "TCS", type: "Information Technology" },
-  { name: "Infosys", type: "Technology & Consulting" },
-  { name: "Wipro", type: "Technology Services" },
-  { name: "Accenture", type: "Consulting & Technology" },
-  { name: "HCLTech", type: "Technology Services" },
-  { name: "ICICI Bank", type: "Banking & Finance" },
+const companies = [
+  "WIPRO",
+  "TCS",
+  "Infosys",
+  "HCL",
+  "AXIS BANK",
+  "BAJAJ CAPITAL",
+  "INDIGO",
+  "SPECTRUM",
 ];
 
-const placementServices = [
+const placementSteps = [
   {
     number: "01",
-    title: "Career Planning",
+    title: "Registration & Profile Building",
     description:
-      "Understand your interests, identify your strengths and explore suitable career pathways.",
-    icon: Target,
+      "Students register with the placement team and prepare their resumes, academic profiles and professional portfolios.",
   },
   {
     number: "02",
-    title: "Resume Development",
+    title: "Career Guidance",
     description:
-      "Learn to present your academic background, skills, projects and experience professionally.",
-    icon: BookOpen,
+      "Students receive guidance on career opportunities, suitable job roles and the skills expected by employers.",
   },
   {
     number: "03",
-    title: "Interview Preparation",
+    title: "Skill Development",
     description:
-      "Improve your confidence with interview practice, aptitude preparation and communication.",
-    icon: MessageCircle,
+      "Training focuses on communication, aptitude, technical knowledge, teamwork and problem-solving.",
   },
   {
     number: "04",
-    title: "Industry Readiness",
+    title: "Company Assessment",
     description:
-      "Build workplace awareness and develop the professional skills needed for future opportunities.",
-    icon: BriefcaseBusiness,
+      "Students participate in aptitude tests, technical assessments and other recruitment activities.",
+  },
+  {
+    number: "05",
+    title: "Interview Preparation",
+    description:
+      "Mock interviews and practice sessions help students prepare for HR and technical interview rounds.",
+  },
+  {
+    number: "06",
+    title: "Selection & Career Support",
+    description:
+      "Selected students receive guidance through the recruitment process and their next career steps.",
   },
 ];
 
-const studentStories = [
+const preparationCards = [
   {
-    name: "Student Profile 01",
-    course: "Add verified course name",
-    company: "Add verified employer",
-    image: "/gallery/af.jpeg",
-    quote:
-      "Add an authentic student testimonial describing their learning experience and career journey.",
+    icon: "01",
+    title: "Resume Development",
+    description:
+      "Build a clear, professional resume highlighting education, projects, internships, skills and achievements.",
   },
   {
-    name: "Student Profile 02",
-    course: "Add verified course name",
-    company: "Add verified employer",
-    image: "/images/placements/student-2.jpg",
-    quote:
-      "Share a verified experience about career preparation, skill development and professional growth.",
+    icon: "02",
+    title: "Communication Skills",
+    description:
+      "Improve spoken English, confidence, presentation skills and professional communication.",
   },
   {
-    name: "Student Profile 03",
-    course: "Add verified course name",
-    company: "Add verified employer",
-    image: "/images/placements/student-3.jpg",
-    quote:
-      "Highlight a real student&apos;s journey, achievements and experience at D.D. College.",
+    icon: "03",
+    title: "Aptitude Training",
+    description:
+      "Practice quantitative aptitude, logical reasoning, verbal ability and problem-solving questions.",
+  },
+  {
+    icon: "04",
+    title: "Technical Preparation",
+    description:
+      "Revise subject fundamentals, programming concepts, practical knowledge and project explanations.",
   },
 ];
 
-const supportCards = [
+const interviewQuestions = [
   {
-    title: "Professional Skills",
-    description:
-      "Develop communication, teamwork, problem-solving and workplace readiness.",
-    icon: Users,
+    category: "Personal",
+    question: "Tell me about yourself.",
+    answer:
+      "Introduce your education, skills, projects, achievements and career interests in a clear and confident way.",
   },
   {
-    title: "Digital Skills",
-    description:
-      "Explore relevant digital tools and practical skills for today's professional environment.",
-    icon: Laptop,
+    category: "Personal",
+    question: "What are your strengths and weaknesses?",
+    answer:
+      "Share genuine strengths with examples and explain how you are actively improving your weaknesses.",
   },
   {
-    title: "Career Exploration",
-    description:
-      "Learn about different industries, job roles and opportunities related to your studies.",
-    icon: TrendingUp,
+    category: "Career",
+    question: "Why should we hire you?",
+    answer:
+      "Connect your skills, willingness to learn and relevant experience with the requirements of the role.",
   },
   {
-    title: "Academic Growth",
-    description:
-      "Connect classroom learning with practical knowledge and long-term career goals.",
-    icon: GraduationCap,
+    category: "Career",
+    question: "Where do you see yourself in five years?",
+    answer:
+      "Talk about developing expertise, taking responsibility and contributing meaningfully to your organisation.",
+  },
+  {
+    category: "Technical",
+    question: "Explain your final-year project.",
+    answer:
+      "Describe the problem, technologies used, your contribution, challenges and the final outcome.",
+  },
+  {
+    category: "Technical",
+    question: "How do you handle a difficult problem?",
+    answer:
+      "Explain how you understand the issue, break it into smaller tasks, explore solutions and evaluate the result.",
+  },
+];
+
+const roadmap = [
+  {
+    week: "WEEK 01",
+    title: "Build Your Foundation",
+    tasks: [
+      "Prepare your updated resume",
+      "Identify your career interests",
+      "Improve communication basics",
+      "Create or update your LinkedIn profile",
+    ],
+  },
+  {
+    week: "WEEK 02",
+    title: "Improve Your Skills",
+    tasks: [
+      "Practice aptitude questions",
+      "Revise subject fundamentals",
+      "Work on technical skills",
+      "Prepare your project explanation",
+    ],
+  },
+  {
+    week: "WEEK 03",
+    title: "Practice Interviews",
+    tasks: [
+      "Practice common HR questions",
+      "Attend mock interviews",
+      "Improve body language",
+      "Practice group discussions",
+    ],
+  },
+  {
+    week: "WEEK 04",
+    title: "Get Interview Ready",
+    tasks: [
+      "Research potential employers",
+      "Prepare role-specific questions",
+      "Review your resume thoroughly",
+      "Practice a complete interview",
+    ],
+  },
+];
+
+const faqs = [
+  {
+    question: "Does the college provide placement assistance?",
+    answer:
+      "The placement and career guidance team helps students prepare for employment opportunities through career guidance, skill development and recruitment-related activities.",
+  },
+  {
+    question: "How can students prepare for campus placements?",
+    answer:
+      "Students should focus on communication, aptitude, technical knowledge, resume preparation, projects and regular mock interview practice.",
+  },
+  {
+    question: "Are students from all departments eligible?",
+    answer:
+      "Placement opportunities depend on the eligibility criteria and requirements of individual employers. Students should check the details shared for each opportunity.",
+  },
+  {
+    question: "Does the college help students prepare for interviews?",
+    answer:
+      "Interview preparation can include resume guidance, mock interviews, communication practice and support in understanding recruitment processes.",
+  },
+  {
+    question: "How can companies connect with the placement team?",
+    answer:
+      "Companies interested in recruitment and campus engagement can contact the college through its official contact or enquiry channels.",
   },
 ];
 
 export default function PlacementsPage() {
+  const [activeFaq, setActiveFaq] = useState<number | null>(0);
+
   return (
-    <main className="placements-page">
-      {/* HERO */}
-      <section className="placement-hero">
-        <div className="placement-hero-bg" />
+    <main className="ddp-page">
+      {/* HERO SECTION */}
+      <section className="ddp-hero">
+        <div className="ddp-hero-overlay" />
 
-        <div className="placement-hero-inner">
-          <div className="placement-hero-copy">
-            <div className="placement-eyebrow placement-eyebrow-light">
-              <span className="placement-eyebrow-dot" />
-              D.D. COLLEGE · DEHRADUN
-            </div>
+        <div className="ddp-container ddp-hero-content">
+          <span className="ddp-eyebrow">
+            CAREER & PLACEMENT CELL
+          </span>
 
-            <h1>
-              Your Ambition.
-              <br />
-              Your Skills.
-              <br />
-              <span>Your Future.</span>
-            </h1>
+          <h1>
+            Your Future.
+            <br />
+            <span>Our Commitment.</span>
+          </h1>
 
-            <p className="placement-hero-description">
-              Education is the beginning. Skills, confidence and
-              opportunities help you move forward. Discover how D.D.
-              College supports your professional journey.
-            </p>
-
-            <div className="placement-hero-actions">
-              <a href="#career-support" className="placement-btn-primary">
-                Explore Career Support
-                <ArrowRight size={18} />
-              </a>
-
-              <Link href="/contact" className="placement-btn-ghost">
-                Talk to Our Team
-                <MoveUpRight size={17} />
-              </Link>
-            </div>
-
-            <div className="placement-hero-trust">
-              <div className="placement-avatar-stack">
-                <span><Users size={17} /></span>
-                <span><GraduationCap size={17} /></span>
-                <span><Award size={17} /></span>
-              </div>
-              <div>
-                <strong>Learn. Prepare. Progress.</strong>
-                <p>Building confidence for the next step.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="placement-hero-visual">
-            <div className="placement-hero-photo">
-              <Image
-                src="/images/placements/placement-hero.jpg"
-                alt="College students preparing for their professional careers"
-                fill
-                priority
-                sizes="(max-width: 800px) 100vw, 52vw"
-                className="placement-cover-image"
-              />
-
-              <div className="placement-photo-gradient" />
-
-              <div className="placement-photo-caption">
-                <span className="placement-caption-icon">
-                  <GraduationCap size={24} />
-                </span>
-                <div>
-                  <span>YOUR JOURNEY STARTS HERE</span>
-                  <strong>Prepare for what&apos;s next.</strong>
-                </div>
-              </div>
-            </div>
-
-            <div className="placement-floating-card">
-              <span className="placement-floating-icon">
-                <Sparkles size={22} />
-              </span>
-              <div>
-                <strong>Discover your potential</strong>
-                <p>Skills for a changing world</p>
-              </div>
-              <ArrowDownRight size={21} />
-            </div>
-
-            <div className="placement-hero-orbit" />
-          </div>
-        </div>
-
-        <a href="#placement-overview" className="placement-scroll">
-          <span>SCROLL TO EXPLORE</span>
-          <ArrowDownRight size={16} />
-        </a>
-      </section>
-
-      {/* OVERVIEW */}
-      <section
-        className="placement-overview section-padding"
-        id="placement-overview"
-      >
-        <div className="placement-container">
-          <div className="placement-overview-heading">
-            <div>
-              <div className="placement-eyebrow">
-                <span className="placement-eyebrow-dot" />
-                CAREER & PLACEMENT
-              </div>
-
-              <h2 className="placement-heading">
-                Preparing students for
-                <br />
-                <span>what comes next.</span>
-              </h2>
-            </div>
-
-            <p className="placement-overview-description">
-              At D.D. College, Dehradun, we believe career preparation
-              goes beyond a degree. We encourage students to build
-              practical skills, explore professional pathways and
-              approach their future with confidence.
-            </p>
-          </div>
-
-          <div className="placement-stat-grid">
-            {stats.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <article className="placement-stat-card" key={item.label}>
-                  <div className="placement-stat-top">
-                    <span className="placement-stat-icon">
-                      <Icon size={23} strokeWidth={1.8} />
-                    </span>
-                    <span className="placement-stat-arrow">
-                      <ArrowDownRight size={20} />
-                    </span>
-                  </div>
-
-                  <h3>{item.value}</h3>
-                  <p>{item.label}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* CAREER PROCESS */}
-      <section className="placement-journey section-padding">
-        <div className="placement-container placement-journey-layout">
-          <div className="placement-journey-visual">
-            <div className="placement-journey-image">
-              <Image
-                src="/images/placements/career-guidance.jpg"
-                alt="Career guidance and professional development"
-                fill
-                sizes="(max-width: 800px) 100vw, 45vw"
-                className="placement-cover-image"
-              />
-            </div>
-
-            <div className="placement-journey-note">
-              <span className="placement-journey-note-icon">
-                <Award size={25} />
-              </span>
-              <div>
-                <strong>Growth starts with preparation.</strong>
-                <p>Build skills. Discover opportunities.</p>
-              </div>
-            </div>
-
-            <div className="placement-image-index">
-              <span>01</span>
-              <span>CAREER DEVELOPMENT</span>
-            </div>
-          </div>
-
-          <div className="placement-journey-content">
-            <div className="placement-eyebrow">
-              <span className="placement-eyebrow-dot" />
-              YOUR CAREER JOURNEY
-            </div>
-
-            <h2 className="placement-heading">
-              Small steps.
-              <br />
-              <span>Big possibilities.</span>
-            </h2>
-
-            <p className="placement-journey-intro">
-              Develop the knowledge, confidence and professional
-              mindset that can help you navigate your career journey.
-            </p>
-
-            <div className="placement-service-list">
-              {placementServices.map((service) => {
-                const Icon = service.icon;
-
-                return (
-                  <article
-                    className="placement-service-item"
-                    key={service.number}
-                  >
-                    <div className="placement-service-number">
-                      {service.number}
-                    </div>
-
-                    <div className="placement-service-icon">
-                      <Icon size={23} strokeWidth={1.7} />
-                    </div>
-
-                    <div className="placement-service-copy">
-                      <h3>{service.title}</h3>
-                      <p>{service.description}</p>
-                    </div>
-
-                    <CheckCircle2
-                      className="placement-service-check"
-                      size={20}
-                    />
-                  </article>
-                );
-              })}
-            </div>
-
-            <Link href="/contact" className="placement-inline-link">
-              Enquire About Career Support
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* INDUSTRY EXPOSURE */}
-      <section className="placement-industry section-padding">
-        <div className="placement-container">
-          <div className="placement-industry-heading">
-            <div>
-              <div className="placement-eyebrow">
-                <span className="placement-eyebrow-dot" />
-                INDUSTRY EXPOSURE
-              </div>
-
-              <h2 className="placement-heading">
-                Explore the world
-                <br />
-                <span>of opportunities.</span>
-              </h2>
-            </div>
-
-            <p>
-              Learn about different industries and the professional
-              skills they value. The organizations below are examples
-              of employers across various sectors, not confirmed
-              placement partners.
-            </p>
-          </div>
-
-          <div className="placement-recruiter-grid">
-            {recruiters.map((company, index) => (
-              <article className="placement-recruiter-card" key={company.name}>
-                <div className="placement-recruiter-number">
-                  0{index + 1}
-                </div>
-
-                <div className="placement-recruiter-logo">
-                  <Building2 size={24} strokeWidth={1.6} />
-                </div>
-
-                <h3>{company.name}</h3>
-                <p>{company.type}</p>
-
-                <span className="placement-recruiter-arrow">
-                  <ArrowRight size={18} />
-                </span>
-              </article>
-            ))}
-          </div>
-
-          <p className="placement-industry-disclaimer">
-            <Building2 size={15} />
-            Illustrative company list only. No recruitment partnership
-            or hiring relationship is implied.
+          <p>
+            Discover opportunities, develop professional skills and take
+            confident steps towards a successful career.
           </p>
+
+          <div className="ddp-hero-actions">
+            <Link href="/contact" className="ddp-btn ddp-btn-primary">
+              Connect With Us <span>↗</span>
+            </Link>
+
+            <a href="#placement-process" className="ddp-btn ddp-btn-outline">
+              Explore Placement Process <span>↓</span>
+            </a>
+          </div>
+
+          <div className="ddp-hero-note">
+            <span className="ddp-live-dot" />
+            Building skills. Creating opportunities. Shaping careers.
+          </div>
+        </div>
+
+        <div className="ddp-hero-bottom">
+          <span>DD COLLEGE DEHRADUN</span>
+          <span>CAREER DEVELOPMENT</span>
         </div>
       </section>
 
-      {/* STUDENT STORIES */}
-      <section className="placement-stories section-padding">
-        <div className="placement-container">
-          <div className="placement-stories-heading">
-            <div>
-              <div className="placement-eyebrow">
-                <span className="placement-eyebrow-dot" />
-                STUDENT SPOTLIGHT
-              </div>
+      {/* INTRODUCTION */}
+      <section className="ddp-section ddp-intro">
+        <div className="ddp-container ddp-intro-grid">
+          <div>
+            <span className="ddp-section-label">OUR PLACEMENT APPROACH</span>
+            <h2>
+              Turning Education Into
+              <span> Career Opportunities</span>
+            </h2>
+          </div>
 
-              <h2 className="placement-heading">
-                Every journey
-                <br />
-                <span>has a story.</span>
-              </h2>
-            </div>
+          <div className="ddp-intro-content">
+            <p>
+              At DD College Dehradun, we believe that education is the
+              foundation of a successful professional journey. Our career
+              development approach focuses on helping students identify their
+              strengths, improve their abilities and prepare for the
+              professional world.
+            </p>
 
             <p>
-              Celebrate student achievements, academic progress and
-              career milestones through authentic stories from the
-              D.D. College community.
+              Through career guidance, skill development and placement-related
+              activities, we encourage students to move forward with confidence
+              and purpose.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SUPPORT CARDS */}
+      <section className="ddp-support-section">
+        <div className="ddp-container">
+          <div className="ddp-section-heading">
+            <span className="ddp-section-label">STUDENT DEVELOPMENT</span>
+            <h2>More Than Just Placement</h2>
+            <p>
+              Helping students develop the skills and confidence needed for
+              long-term professional growth.
             </p>
           </div>
 
-          <div className="placement-student-grid">
-            {studentStories.map((student, index) => (
-              <article className="placement-student-card" key={student.name}>
-                <div className="placement-student-photo">
-                  <Image
+          <div className="ddp-support-grid">
+            <article className="ddp-support-card">
+              <div className="ddp-support-icon">✦</div>
+              <span className="ddp-card-number">01</span>
+              <h3>Career Guidance</h3>
+              <p>
+                Understand career paths, explore opportunities and make
+                informed professional decisions.
+              </p>
+            </article>
+
+            <article className="ddp-support-card">
+              <div className="ddp-support-icon">↗</div>
+              <span className="ddp-card-number">02</span>
+              <h3>Skill Development</h3>
+              <p>
+                Strengthen technical, communication and interpersonal skills
+                through focused preparation.
+              </p>
+            </article>
+
+            <article className="ddp-support-card">
+              <div className="ddp-support-icon">◎</div>
+              <span className="ddp-card-number">03</span>
+              <h3>Interview Readiness</h3>
+              <p>
+                Prepare for recruitment rounds with interview practice,
+                confidence-building and guidance.
+              </p>
+            </article>
+
+            <article className="ddp-support-card">
+              <div className="ddp-support-icon">◇</div>
+              <span className="ddp-card-number">04</span>
+              <h3>Industry Exposure</h3>
+              <p>
+                Understand workplace expectations and learn about evolving
+                professional opportunities.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* RECRUITER / COMPANY NAMES */}
+      <section className="ddp-section ddp-companies">
+        <div className="ddp-container">
+          <div className="ddp-section-heading">
+            <span className="ddp-section-label">CAREER OPPORTUNITIES</span>
+            <h2>Organisations & Opportunities</h2>
+            <p>
+              Examples of organisations represented in the student placement
+              information.
+            </p>
+          </div>
+
+          <div className="ddp-company-grid">
+            {companies.map((company, index) => (
+              <div className="ddp-company-card" key={company}>
+                <span className="ddp-company-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <strong>{company}</strong>
+                <span className="ddp-company-arrow">↗</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* STUDENT PLACEMENTS */}
+      <section className="ddp-section ddp-students">
+        <div className="ddp-container">
+          <div className="ddp-section-heading">
+            <span className="ddp-section-label">STUDENT JOURNEYS</span>
+            <h2>Celebrating Student Achievements</h2>
+            <p>
+              Recognising students and the career opportunities represented in
+              our placement records.
+            </p>
+          </div>
+
+          <div className="ddp-student-grid">
+            {students.map((student, index) => (
+              <article className="ddp-student-card" key={student.name}>
+                <div className="ddp-student-image">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={student.image}
-                    alt={`Student portrait for ${student.name}`}
-                    fill
-                    sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
-                    className="placement-cover-image"
+                    alt={`${student.name} placement`}
+                    onError={(event) => {
+                      event.currentTarget.style.display = "none";
+                    }}
                   />
-
-                  <div className="placement-student-photo-overlay" />
-
-                  <span className="placement-student-index">
-                    STUDENT STORY · 0{index + 1}
-                  </span>
-
-                  <span className="placement-student-badge">
-                    <GraduationCap size={17} />
-                  </span>
+                  <span className="ddp-student-year">{student.year}</span>
                 </div>
 
-                <div className="placement-student-content">
-                  <div className="placement-student-course">
-                    {student.course}
-                  </div>
-
+                <div className="ddp-student-info">
+                  <span className="ddp-student-number">
+                    STUDENT {String(index + 1).padStart(2, "0")}
+                  </span>
                   <h3>{student.name}</h3>
+                  <p>{student.course}</p>
 
-                  <p className="placement-student-quote">
-                    “{student.quote}”
-                  </p>
-
-                  <div className="placement-student-company">
-                    <BriefcaseBusiness size={17} />
-                    <span>{student.company}</span>
+                  <div className="ddp-student-company">
+                    <span>Organisation</span>
+                    <strong>{student.company}</strong>
                   </div>
-
-                  <div className="placement-student-divider" />
-
-                  <p className="placement-student-disclaimer">
-                    Profile placeholder — replace with verified
-                    student details, a genuine photo and an
-                    authorized testimonial.
-                  </p>
                 </div>
               </article>
             ))}
           </div>
-
-          <div className="placement-stories-footer">
-            <div className="placement-stories-footer-icon">
-              <UserRound size={23} />
-            </div>
-            <div>
-              <strong>Your story could be next.</strong>
-              <p>Explore your academic and career opportunities with us.</p>
-            </div>
-            <Link href="/contact" className="placement-stories-cta">
-              Connect With Us <ArrowRight size={17} />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* CAREER SUPPORT */}
+      {/* PLACEMENT PROCESS */}
       <section
-        className="placement-support section-padding"
-        id="career-support"
+        className="ddp-section ddp-process"
+        id="placement-process"
       >
-        <div className="placement-container">
-          <div className="placement-support-heading">
-            <div className="placement-eyebrow placement-eyebrow-light">
-              <span className="placement-eyebrow-dot" />
-              SKILLS FOR YOUR FUTURE
-            </div>
-
-            <h2>
-              More than a degree.
-              <br />
-              <span>Ready for what&apos;s next.</span>
-            </h2>
-
+        <div className="ddp-container">
+          <div className="ddp-section-heading">
+            <span className="ddp-section-label">HOW IT WORKS</span>
+            <h2>Your Journey Towards a Career</h2>
             <p>
-              Focus on the skills, knowledge and professional habits
-              that support lifelong learning and career development.
+              A structured approach to help students prepare for professional
+              opportunities.
             </p>
           </div>
 
-          <div className="placement-support-grid">
-            {supportCards.map((card, index) => {
-              const Icon = card.icon;
+          <div className="ddp-process-grid">
+            {placementSteps.map((step) => (
+              <article className="ddp-process-card" key={step.number}>
+                <span className="ddp-process-number">{step.number}</span>
+                <div className="ddp-process-line" />
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              return (
-                <article className="placement-support-card" key={card.title}>
-                  <div className="placement-support-card-top">
-                    <span className="placement-support-number">
-                      0{index + 1}
-                    </span>
-                    <span className="placement-support-icon">
-                      <Icon size={25} strokeWidth={1.7} />
-                    </span>
+      {/* INTERVIEW PREPARATION */}
+      <section className="ddp-section ddp-preparation">
+        <div className="ddp-container">
+          <div className="ddp-preparation-heading">
+            <div>
+              <span className="ddp-section-label">BE PREPARED</span>
+              <h2>Prepare Today. Perform Tomorrow.</h2>
+            </div>
+
+            <p>
+              A successful interview starts with preparation. Build your
+              confidence with these important areas.
+            </p>
+          </div>
+
+          <div className="ddp-preparation-grid">
+            {preparationCards.map((card) => (
+              <article className="ddp-preparation-card" key={card.icon}>
+                <span className="ddp-preparation-icon">{card.icon}</span>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+                <span className="ddp-preparation-arrow">↗</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INTERVIEW QUESTIONS */}
+      <section className="ddp-section ddp-questions">
+        <div className="ddp-container">
+          <div className="ddp-section-heading">
+            <span className="ddp-section-label">PRACTICE CORNER</span>
+            <h2>Common Interview Questions</h2>
+            <p>
+              Start preparing with these commonly asked interview questions
+              and useful answer guidelines.
+            </p>
+          </div>
+
+          <div className="ddp-question-grid">
+            {interviewQuestions.map((item, index) => (
+              <article className="ddp-question-card" key={item.question}>
+                <div className="ddp-question-top">
+                  <span>QUESTION {String(index + 1).padStart(2, "0")}</span>
+                  <span className="ddp-question-category">
+                    {item.category}
+                  </span>
+                </div>
+
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FOUR WEEK ROADMAP */}
+      <section className="ddp-section ddp-roadmap">
+        <div className="ddp-container">
+          <div className="ddp-section-heading">
+            <span className="ddp-section-label">YOUR ACTION PLAN</span>
+            <h2>A 4-Week Career Preparation Roadmap</h2>
+            <p>
+              Follow a consistent preparation routine to become more confident
+              and interview-ready.
+            </p>
+          </div>
+
+          <div className="ddp-roadmap-grid">
+            {roadmap.map((item, index) => (
+              <article className="ddp-roadmap-card" key={item.week}>
+                <span className="ddp-roadmap-week">{item.week}</span>
+                <h3>{item.title}</h3>
+
+                <ul>
+                  {item.tasks.map((task) => (
+                    <li key={task}>
+                      <span>✓</span>
+                      {task}
+                    </li>
+                  ))}
+                </ul>
+
+                <span className="ddp-roadmap-count">
+                  0{index + 1}
+                </span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="ddp-section ddp-faq">
+        <div className="ddp-container ddp-faq-grid">
+          <div className="ddp-faq-intro">
+            <span className="ddp-section-label">HAVE QUESTIONS?</span>
+            <h2>
+              Frequently Asked
+              <span> Questions</span>
+            </h2>
+            <p>
+              Find answers to common questions about placement preparation,
+              career guidance and recruitment activities.
+            </p>
+
+            <Link href="/contact" className="ddp-faq-contact">
+              Ask Us a Question <span>↗</span>
+            </Link>
+          </div>
+
+          <div className="ddp-faq-list">
+            {faqs.map((faq, index) => (
+              <article
+                className={`ddp-faq-item ${
+                  activeFaq === index ? "active" : ""
+                }`}
+                key={faq.question}
+              >
+                <button
+                  type="button"
+                  className="ddp-faq-question"
+                  onClick={() =>
+                    setActiveFaq(activeFaq === index ? null : index)
+                  }
+                  aria-expanded={activeFaq === index}
+                >
+                  <span>{faq.question}</span>
+                  <span className="ddp-faq-toggle">
+                    {activeFaq === index ? "−" : "+"}
+                  </span>
+                </button>
+
+                {activeFaq === index && (
+                  <div className="ddp-faq-answer">
+                    <p>{faq.answer}</p>
                   </div>
-
-                  <h3>{card.title}</h3>
-                  <p>{card.description}</p>
-
-                  <span className="placement-support-line" />
-                </article>
-              );
-            })}
+                )}
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="placement-cta-section">
-        <div className="placement-container">
-          <div className="placement-cta-card">
-            <div className="placement-cta-decoration" />
-
-            <div className="placement-cta-copy">
-              <div className="placement-eyebrow placement-eyebrow-light">
-                <span className="placement-eyebrow-dot" />
-                TAKE THE NEXT STEP
-              </div>
-
-              <h2>
-                Your future
-                <br />
-                starts with a <span>conversation.</span>
-              </h2>
-
-              <p>
-                Connect with D.D. College to learn more about academic
-                programmes, career development and student support.
-              </p>
-
-              <Link href="/contact" className="placement-btn-primary">
-                Contact D.D. College
-                <ArrowRight size={18} />
-              </Link>
-            </div>
-
-            <div className="placement-cta-visual">
-              <div className="placement-cta-image">
-                <Image
-                  src="/images/placements/placement-hero.jpg"
-                  alt="Students looking ahead to their future"
-                  fill
-                  sizes="(max-width: 800px) 90vw, 40vw"
-                  className="placement-cover-image"
-                />
-              </div>
-
-              <div className="placement-cta-stamp">
-                <GraduationCap size={28} />
-                <span>LEARN</span>
-                <span>GROW</span>
-                <span>SUCCEED</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="placement-bottom-note">
-            <span>D.D. COLLEGE · DEHRADUN</span>
-            <span>Learn with purpose. Move forward with confidence.</span>
-          </div>
-        </div>
-      </section>
+     
     </main>
   );
 }

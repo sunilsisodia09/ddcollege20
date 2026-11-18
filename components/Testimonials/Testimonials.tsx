@@ -86,40 +86,7 @@ const stats = [
 export default function TestimonialsPage() {
   return (
     <main className="dd-testimonials">
-      {/* HERO SECTION */}
-      <section className="dd-testimonial-hero">
-        <div className="dd-testimonial-hero-overlay" />
-
-        <div className="dd-testimonial-hero-content">
-          <div className="dd-testimonial-hero-tag">
-            <Sparkles size={15} />
-            <span>STUDENT EXPERIENCES</span>
-          </div>
-
-          <h1>
-            Stories That
-            <span> Inspire Us</span>
-          </h1>
-
-          <p>
-            Every student has a story. Discover the experiences, achievements,
-            and memories that make D.D. College special.
-          </p>
-
-          <div className="dd-testimonial-breadcrumb">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span>Testimonials</span>
-          </div>
-        </div>
-
-        <div className="dd-testimonial-hero-bottom">
-          <span>REAL STORIES. REAL EXPERIENCES.</span>
-          <span className="dd-testimonial-scroll">
-            SCROLL TO EXPLORE <ArrowRight size={15} />
-          </span>
-        </div>
-      </section>
+   
 
 
     
