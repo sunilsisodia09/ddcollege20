@@ -331,7 +331,7 @@ export default function PlacementSection() {
               />
             ))}
           </div>
-          <span>Explore our students' success stories</span>
+          <span>Explore our students&apos; success stories</span>
         </div>
 
      
