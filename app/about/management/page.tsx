@@ -1,37 +1,33 @@
-
 import Image from "next/image";
 import "./management.css";
 
 const managementMembers = [
   {
     name: "Ms. Parul Goel",
-    designation: "HOD(Commerce and Management) ",
-     image: "/gallery/Parul.jpeg",
+    designation: "HOD (Commerce and Management)",
+    image: "/gallery/Parul.png",
     description:
       "Provides institutional oversight, supports policy decisions and guides the long-term development of the college.",
   },
   {
     name: "Dr. Divyanshi Dubey",
-    designation: "HOD(Department of Arts)",
-    image: "/gallery/div.jpeg",
+    designation: "HOD (Department of Arts)",
+    image: "/gallery/div.png",
     description:
       "Supports institutional planning, coordination and the effective implementation of college initiatives.",
   },
-  
   {
     name: "Dr. Prerna Negi",
-    designation: "HOD(Agriculture)",
-    image: "/gallery/PRENA.jpeg",
+    designation: "HOD (Agriculture)",
+    image: "/gallery/PRENA.png",
     description:
       "Supports academic planning, coordination of learning activities and communication between departments.",
   },
-  
 ];
 
 export default function ManagementPage() {
   return (
     <main className="management-page">
-  
       {/* MANAGEMENT MEMBERS */}
       <section className="management-team-section">
         <div className="management-section-heading">
@@ -39,8 +35,6 @@ export default function ManagementPage() {
             <span className="management-small-line" />
             <span>MANAGEMENT &amp; ADMINISTRATION</span>
           </div>
-
-       
 
           <p>
             Different responsibilities, one shared commitment
@@ -53,16 +47,17 @@ export default function ManagementPage() {
           {managementMembers.map((member) => (
             <article
               className="management-card"
-              key={member.designation}
+              key={member.name}
             >
               <div className="management-card-image">
                 <Image
                   src={member.image}
-                  alt={member.designation}
+                  alt={member.name}
                   width={500}
                   height={420}
                   sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
                   className="management-image"
+                  priority={false}
                 />
               </div>
 

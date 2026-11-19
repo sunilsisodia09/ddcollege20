@@ -63,14 +63,7 @@ const students: Student[] = [
     company: "AXIS Bank",
     image: "/gallery/am.png",
   },
-  {
-    id: 6,
-    name: "Lavanya Arora",
-    course: "B.Com",
-    batch: "2025",
-    company: "Indigo",
-    image: "/gallery/Lavn.png",
-  },
+
 ];
 
 const groups = [
