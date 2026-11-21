@@ -19,24 +19,22 @@ import "./Footer.css";
 const quickLinks = [
   { label: "About College", href: "/about" },
   { label: "Courses & Programs", href: "/admission/courses" },
-  { label: "Departments", href: "/Departments/SCHOOLOFCOMMERCE" },
+  // { label: "Departments", href: "/Departments/SCHOOLOFCOMMERCE" },
   { label: "Campus Overview", href: "/CampusLife/campusoverview" },
   { label: "Campus Events", href: "/CampusLife/events" },
   { label: "Clubs & Societies", href: "/CampusLife/clubs" },
   { label: "Placements", href: "/placements" },
-  { label: "Photo Gallery", href: "/CampusLife/gallery" },
-  { label: "Contact Us", href: "/contact" },
 ];
 
 const admissionLinks = [
-  { label: "Admission Process", href: "/admissions" },
+  // { label: "Admission Process", href: "/admissions" },
   { label: "How to Apply", href: "/admissions" },
-  { label: "Eligibility Criteria", href: "/admissions" },
+  // { label: "Eligibility Criteria", href: "/admissions" },
   { label: "Courses & Fees", href: "/admission/courses" },
-  { label: "Scholarships", href: "/admissions" },
-  { label: "Anti-Ragging Policy", href: "/anti-ragging" },
-  { label: "Student Syllabus", href: "/studentconer/syllabus" },
-  { label: "Student Portal", href: "/student-corner/studentportal" },
+  // { label: "Scholarships", href: "/admissions" },
+  // { label: "Anti-Ragging Policy", href: "/anti-ragging" },
+  // { label: "Student Syllabus", href: "/studentconer/syllabus" },
+  // { label: "Student Portal", href: "/student-corner/studentportal" },
 ];
 
 const programs = [

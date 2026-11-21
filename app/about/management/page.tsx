@@ -2,13 +2,13 @@ import Image from "next/image";
 import "./management.css";
 
 const managementMembers = [
-  {
-    name: "Ms. Parul Goel",
-    designation: "HOD (Commerce and Management)",
-    image: "/gallery/Parul.png",
-    description:
-      "Provides institutional oversight, supports policy decisions and guides the long-term development of the college.",
-  },
+  // {
+  //   name: "Ms. Parul Goel",
+  //   designation: "HOD (Commerce and Management)",
+  //   image: "/gallery/Parul.png",
+  //   description:
+  //     "Provides institutional oversight, supports policy decisions and guides the long-term development of the college.",
+  // },
   {
     name: "Dr. Divyanshi Dubey",
     designation: "HOD (Department of Arts)",
