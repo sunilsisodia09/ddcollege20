@@ -1,0 +1,58 @@
+
+.admission-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #8b0929;
+  color: #ffffff;
+  padding: 15px 0;
+  white-space: nowrap;
+}
+
+.admission-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: admission-scroll 22s linear infinite;
+}
+
+.admission-marquee-text {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding: 0 35px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.admission-marquee-text strong {
+  color: #fdbb24;
+  font-weight: 900;
+}
+
+.admission-marquee:hover .admission-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes admission-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 600px) {
+  .admission-marquee {
+    padding: 12px 0;
+  }
+
+  .admission-marquee-text {
+    font-size: 12px;
+    gap: 20px;
+    padding: 0 20px;
+  }
+}

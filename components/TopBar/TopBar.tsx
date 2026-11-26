@@ -46,14 +46,17 @@ export default function TopBar() {
 
         <div className="dd-topbar-actions">
 
-          <a
-            href="tel:+91 7417555666"
-            className="dd-topbar-call"
-            aria-label="Call D.D. College"
-          >
-            <Phone size={15} />
-            <span>Call Now</span>
-          </a>
+      
+<div className="dd-topbar-actions">
+  <a
+    href="tel:+917417555666"
+    className="dd-topbar-call"
+    aria-label="Call D.D. College"
+  >
+    <span>+91 74175 55666</span>
+  </a>
+</div>
+
 
           <Link
             href="/contact"
