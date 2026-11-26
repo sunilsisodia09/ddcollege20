@@ -168,16 +168,6 @@ export default function ClubsPage() {
         </div>
       </section>
 
-      <section className="clubs-footer-cta">
-        <span>MAKE THE MOST OF YOUR COLLEGE LIFE</span>
-        <h2>Explore. Participate. Grow.</h2>
-        <p>
-          Be a part of campus activities and make every college moment count.
-        </p>
-        <Link href="/admission" className="clubs-cta-btn">
-          Explore DD College <span>↗</span>
-        </Link>
-      </section>
     </main>
   );
 }

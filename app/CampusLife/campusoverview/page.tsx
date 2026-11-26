@@ -116,7 +116,7 @@ export default function CampusOverviewPage() {
       <section className="campus-experience">
         <div className="campus-experience-image">
           <img
-            src="/hero/college-hero.jpg"
+            src="/campus/build.webp"
             alt="DD College campus"
           />
         </div>
@@ -144,9 +144,16 @@ export default function CampusOverviewPage() {
           Explore academic opportunities, campus facilities and student
           activities.
         </p>
-        <Link href="/admission" className="campus-cta-btn">
-          Explore Admissions <span>↗</span>
-        </Link>
+   
+<a
+  href="https://admissions.ddcollege.in/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="campus-cta-btn"
+>
+  Explore Admissions <span>↗</span>
+</a>
+
       </section>
     </main>
   );

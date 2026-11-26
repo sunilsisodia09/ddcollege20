@@ -132,6 +132,7 @@
 
 .dd-topbar-call svg {
   color: #ffc107;
+  flex-shrink: 0;
 }
 
 .dd-topbar-call:hover {
@@ -255,14 +256,23 @@
   }
 
   .dd-topbar-call {
-    width: 34px;
-    min-width: 34px;
-    height: 32px;
-    padding: 0;
+    width: auto;
+    min-width: auto;
+    min-height: 32px;
+    height: auto;
+    padding: 0 9px;
+    font-size: 10px;
+    gap: 6px;
   }
 
   .dd-topbar-call span {
-    display: none;
+    display: inline;
+  }
+
+  .dd-topbar-call svg {
+    display: block;
+    width: 13px;
+    height: 13px;
   }
 
   .dd-topbar-enquiry {
@@ -292,6 +302,16 @@
 
   .dd-topbar-link {
     font-size: 9px;
+  }
+
+  .dd-topbar-actions {
+    gap: 5px;
+  }
+
+  .dd-topbar-call {
+    padding: 0 6px;
+    font-size: 9px;
+    gap: 4px;
   }
 
   .dd-topbar-enquiry {
