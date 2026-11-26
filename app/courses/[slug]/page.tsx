@@ -13,6 +13,8 @@ import {
   BriefcaseBusiness,
 } from "lucide-react";
 
+const ADMISSION_URL = "https://admissions.ddcollege.in/";
+
 const courses = [
   {
     slug: "bca",
@@ -203,10 +205,15 @@ export default async function CourseDetailsPage({ params }: Props) {
               </div>
             </div>
 
-            <Link href="/contact" className="course-hero-button">
+            <a
+              href={ADMISSION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="course-hero-button"
+            >
               Enquire About Admission
               <ArrowRight size={19} />
-            </Link>
+            </a>
           </div>
 
           <div className="course-hero-decoration">
@@ -326,13 +333,15 @@ export default async function CourseDetailsPage({ params }: Props) {
                   </div>
                 </div>
 
-                <Link
-                  href="/contact"
+                <a
+                  href={ADMISSION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="course-enquiry-button"
                 >
                   Enquire Now
                   <ArrowRight size={18} />
-                </Link>
+                </a>
 
                 <Link
                   href="/courses"
@@ -349,10 +358,14 @@ export default async function CourseDetailsPage({ params }: Props) {
                   programme and admission process.
                 </p>
 
-                <Link href="/contact">
+                <a
+                  href={ADMISSION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Contact College
                   <ArrowRight size={16} />
-                </Link>
+                </a>
               </div>
             </aside>
           </div>
@@ -368,11 +381,15 @@ export default async function CourseDetailsPage({ params }: Props) {
               Explore your academic opportunities at DD College.
             </p>
           </div>
-
-          <Link href="/contact">
-            Apply / Enquire Now
-            <ArrowRight size={19} />
-          </Link>
+<a
+  href="https://admissions.ddcollege.in/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="course-enquiry-button"
+>
+  Enquire Now
+  <ArrowRight size={18} />
+</a>
         </div>
       </section>
     </main>

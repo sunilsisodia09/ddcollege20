@@ -668,13 +668,15 @@ export default function CoursesPage() {
                     <p>{course.eligibility}</p>
                   </div>
 
-                  <Link
-                    href="/contact"
-                    className="course-enquire-btn"
-                  >
-                    Enquire Now
-                    <ArrowRight size={17} />
-                  </Link>
+                  <a
+  href="https://admissions.ddcollege.in/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="course-enquiry-button"
+>
+  Enquire Now
+  <ArrowRight size={18} />
+</a>
                 </article>
               );
             })}

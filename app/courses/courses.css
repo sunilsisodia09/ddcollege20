@@ -551,3 +551,52 @@
     transition: none;
   }
 }
+
+.course-enquiry-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 15px 22px;
+  background: #8b0929;
+  color: #ffffff;
+  border: 2px solid #8b0929;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.course-enquiry-button svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.course-enquiry-button:hover {
+  background: #a40d32;
+  border-color: #a40d32;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(139, 9, 41, 0.22);
+}
+
+.course-enquiry-button:hover svg {
+  transform: translateX(5px);
+}
+
+.course-enquiry-button:focus-visible {
+  outline: 3px solid #fdbb24;
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .course-enquiry-button {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+}
