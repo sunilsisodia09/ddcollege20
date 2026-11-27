@@ -313,13 +313,6 @@ export default function AboutCollegePage() {
             learning environment.
           </p>
 
-          <Link
-            href="/campus-life"
-            className="about-primary-btn"
-          >
-            Explore Campus Life
-            <ArrowRight size={18} />
-          </Link>
 
           <div className="about-campus-note">
             <ShieldCheck size={18} />
