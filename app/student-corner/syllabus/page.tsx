@@ -53,7 +53,7 @@ const syllabusCourses: SyllabusCourse[] = [
   category: "Postgraduate",
   description:
     "Advanced study of fruit and vegetable science, floriculture, plant propagation, landscaping, nursery management, horticultural crop production and post-harvest technology.",
- file: "/syb/Msc.pdf",
+ file: "/syb/MSc.pdf",
 },
   {
   id: 4,

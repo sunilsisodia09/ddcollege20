@@ -37,14 +37,7 @@ const admissionLinks = [
   // { label: "Student Portal", href: "/student-corner/studentportal" },
 ];
 
-const programs = [
-  "BBA",
-  "BCA",
-  "B.Com",
-  "B.Sc",
-  "D.Pharm",
-  "GNM",
-];
+
 
 const socialLinks = [
   {
@@ -223,24 +216,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* PROGRAMS STRIP */}
-          <div className="dd-footer-programs">
-            <div className="dd-footer-program-title">
-              <GraduationCap size={20} />
-              <span>Our Academic Programs</span>
-            </div>
-
-            <div className="dd-footer-program-list">
-              {programs.map((program) => (
-                <Link
-                  href="/admission/courses"
-                  key={program}
-                >
-                  {program}
-                </Link>
-              ))}
-            </div>
-          </div>
+       
         </div>
       </div>
 
