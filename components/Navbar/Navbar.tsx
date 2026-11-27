@@ -27,6 +27,18 @@ type MenuGroup = {
 
 const menuGroups: MenuGroup[] = [
   {
+  label: "Courses",
+  items: [
+    {
+      label: "All Courses",
+      href: "/courses",
+      description:
+        "Explore BA, B.Com, B.Sc, MA and M.Com programmes offered at DD College, Dehradun.",
+       image: "/campus/build.webp",
+    },
+  ],
+},
+  {
     label: "About Us",
     items: [
       {
@@ -127,6 +139,7 @@ const menuGroups: MenuGroup[] = [
       },
     ],
   },
+
   {
     label: "Placements",
     items: [
@@ -217,7 +230,10 @@ const menuGroups: MenuGroup[] = [
 
 const directLinks = [
   { label: "Home", href: "/" },
+   
   { label: "Contact", href: "/contact" },
+
+
 ];
 
 export default function Navbar() {

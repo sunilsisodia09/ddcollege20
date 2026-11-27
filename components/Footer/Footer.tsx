@@ -30,7 +30,7 @@ const admissionLinks = [
   // { label: "Admission Process", href: "/admissions" },
   { label: "How to Apply", href: "/admissions" },
   // { label: "Eligibility Criteria", href: "/admissions" },
-  { label: "Courses & Fees", href: "/admission/courses" },
+  { label: "Courses & Fees", href: "/courses" },
   // { label: "Scholarships", href: "/admissions" },
   // { label: "Anti-Ragging Policy", href: "/anti-ragging" },
   // { label: "Student Syllabus", href: "/studentconer/syllabus" },
@@ -58,7 +58,7 @@ const socialLinks = [
   },
   {
     name: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/ddcollege?bqrl=MXZqYmpxN3pxMjQwNQ%3D%3D&utm_source=qr",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -67,25 +67,25 @@ const socialLinks = [
       </svg>
     ),
   },
-  {
-    name: "YouTube",
-    href: "https://www.youtube.com/",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M21.5 7.2a2.8 2.8 0 0 0-2-2C17.7 4.7 12 4.7 12 4.7s-5.7 0-7.5.5a2.8 2.8 0 0 0-2 2C2 9 2 12 2 12s0 3 .5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8Z" />
-        <path d="m10 9 5 3-5 3V9Z" className="dd-youtube-play" />
-      </svg>
-    ),
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 3.5A2.5 2.5 0 1 1 5 8a2.5 2.5 0 0 1 0-4.5ZM3 9h4v12H3V9Zm6 0h3.8v1.6h.1c.5-1 1.8-2.1 3.8-2.1 4.1 0 4.9 2.7 4.9 6.2V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9V9Z" />
-      </svg>
-    ),
-  },
+  // {
+  //   name: "YouTube",
+  //   href: "https://www.youtube.com/",
+  //   icon: (
+  //     <svg viewBox="0 0 24 24" aria-hidden="true">
+  //       <path d="M21.5 7.2a2.8 2.8 0 0 0-2-2C17.7 4.7 12 4.7 12 4.7s-5.7 0-7.5.5a2.8 2.8 0 0 0-2 2C2 9 2 12 2 12s0 3 .5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8Z" />
+  //       <path d="m10 9 5 3-5 3V9Z" className="dd-youtube-play" />
+  //     </svg>
+  //   ),
+  // },
+  // {
+  //   name: "LinkedIn",
+  //   href: "https://www.linkedin.com/",
+  //   icon: (
+  //     <svg viewBox="0 0 24 24" aria-hidden="true">
+  //       <path d="M5 3.5A2.5 2.5 0 1 1 5 8a2.5 2.5 0 0 1 0-4.5ZM3 9h4v12H3V9Zm6 0h3.8v1.6h.1c.5-1 1.8-2.1 3.8-2.1 4.1 0 4.9 2.7 4.9 6.2V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9V9Z" />
+  //     </svg>
+  //   ),
+  // },
 ];
 
 export default function Footer() {

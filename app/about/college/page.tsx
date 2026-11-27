@@ -155,7 +155,7 @@ export default function AboutCollegePage() {
         <div className="about-intro-visual">
           <div className="about-intro-image-wrap">
             <Image
-              src="/campus/dd.png"
+              src="/campus/lib.jpg"
               alt="Students learning at D.D. College"
               width={850}
               height={900}
@@ -328,21 +328,11 @@ export default function AboutCollegePage() {
         </div>
 
         <div className="about-campus-gallery">
-          <div className="about-gallery-large">
-            <Image
-              src="/campus/dd.png"
-              alt="D.D. College campus"
-              width={850}
-              height={700}
-              sizes="(max-width: 768px) 100vw, 45vw"
-              className="about-gallery-image"
-            />
-            <span className="about-gallery-tag">CAMPUS LIFE</span>
-          </div>
+       
 
-          <div className="about-gallery-small">
+      
             <Image
-              src="/campus/ground.jpg"
+              src="/campus/build.webp"
               alt="D.D. College campus grounds"
               width={600}
               height={450}
@@ -355,7 +345,7 @@ export default function AboutCollegePage() {
             <span>DISCOVER YOUR POTENTIAL</span>
             <ArrowRight size={18} />
           </div>
-        </div>
+
 
       </section>
 

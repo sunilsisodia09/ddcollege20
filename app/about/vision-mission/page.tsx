@@ -1,6 +1,4 @@
 
-"use client";
-
 import Link from "next/link";
 import {
   ArrowRight,
@@ -16,6 +14,8 @@ import {
   Target,
   Users,
   Globe,
+  Award,
+  Compass,
 } from "lucide-react";
 
 import "./mission.css";
@@ -70,35 +70,42 @@ const commitments = [
 export default function MissionVisionPage() {
   return (
     <main className="mv-page">
-      {/* HERO SECTION */}
+
+      {/* HERO */}
       <section className="mv-hero">
-        <div className="mv-hero-pattern" />
+        <div className="mv-hero-bg-shape mv-shape-one" />
+        <div className="mv-hero-bg-shape mv-shape-two" />
 
         <div className="mv-container mv-hero-grid">
+
           <div className="mv-hero-content">
-            <span className="mv-eyebrow">
+            <div className="mv-eyebrow">
               <Sparkles size={16} />
               OUR PURPOSE & DIRECTION
-            </span>
+            </div>
 
             <h1>
-              Our Mission.
+              Shaping Minds.
               <br />
-              Our <span>Vision.</span>
+              <span>Building Futures.</span>
             </h1>
 
             <p>
-              At D.D. College Dehradun, we believe education is more than
-              acquiring knowledge. It is about building character, inspiring
-              ideas and empowering students to create a better future.
+              At D.D. College Dehradun, we believe education is more
+              than acquiring knowledge. It is about building character,
+              inspiring ideas and empowering students to create a
+              better future.
             </p>
 
             <div className="mv-hero-actions">
               <Link href="#our-mission" className="mv-btn mv-btn-primary">
-                Explore Our Purpose <ArrowRight size={18} />
+                Discover Our Purpose
+                <ArrowRight size={18} />
               </Link>
 
-           
+              <Link href="#core-values" className="mv-btn mv-btn-outline">
+                Our Core Values
+              </Link>
             </div>
 
             <div className="mv-hero-note">
@@ -108,38 +115,50 @@ export default function MissionVisionPage() {
           </div>
 
           <div className="mv-hero-visual">
+
             <div className="mv-visual-orbit mv-orbit-one" />
             <div className="mv-visual-orbit mv-orbit-two" />
 
             <div className="mv-visual-card">
-              <div className="mv-visual-icon">
-                <GraduationCap size={48} strokeWidth={1.6} />
+              <div className="mv-visual-top">
+                <div className="mv-visual-icon">
+                  <GraduationCap size={48} strokeWidth={1.5} />
+                </div>
+
+                <span>EST. EDUCATION WITH PURPOSE</span>
               </div>
 
-              <span className="mv-visual-label">D.D. COLLEGE DEHRADUN</span>
-
-              <h2>Education with Purpose</h2>
+              <h2>Education That Inspires.</h2>
 
               <p>
-                Knowledge, values and opportunities for a brighter tomorrow.
+                Knowledge, values and opportunities for a
+                brighter tomorrow.
               </p>
 
               <div className="mv-visual-divider" />
 
               <div className="mv-visual-bottom">
-                <span>
-                  <Target size={17} />
-                  Purpose
-                </span>
-                <span>
-                  <Eye size={17} />
-                  Vision
-                </span>
+                <div>
+                  <Target size={19} />
+                  <span>Purpose</span>
+                </div>
+
+                <div>
+                  <Eye size={19} />
+                  <span>Vision</span>
+                </div>
+
+                <div>
+                  <Award size={19} />
+                  <span>Excellence</span>
+                </div>
               </div>
             </div>
 
             <div className="mv-floating-badge mv-badge-top">
-              <Lightbulb size={22} />
+              <div className="mv-floating-icon">
+                <Lightbulb size={23} />
+              </div>
               <div>
                 <strong>Think</strong>
                 <small>Creatively</small>
@@ -147,45 +166,61 @@ export default function MissionVisionPage() {
             </div>
 
             <div className="mv-floating-badge mv-badge-bottom">
-              <BookOpen size={22} />
+              <div className="mv-floating-icon">
+                <BookOpen size={23} />
+              </div>
               <div>
                 <strong>Learn</strong>
                 <small>Continuously</small>
               </div>
             </div>
+
           </div>
         </div>
+
+        <div className="mv-hero-bottom-line" />
       </section>
 
       {/* INTRO STRIP */}
       <section className="mv-intro-strip">
         <div className="mv-container mv-intro-inner">
+          <div className="mv-intro-icon">
+            <Compass size={25} />
+          </div>
+
           <p>
-            <span>Our belief:</span> Every student deserves the opportunity
-            to learn, grow and make a meaningful difference.
+            <strong>Our belief:</strong> Every student deserves the
+            opportunity to learn, grow and make a meaningful difference.
           </p>
+
+          <span className="mv-intro-decoration">D.D. COLLEGE</span>
         </div>
       </section>
 
-      {/* MISSION AND VISION */}
+      {/* MISSION & VISION */}
       <section className="mv-section" id="our-mission">
         <div className="mv-container">
+
           <div className="mv-section-heading">
             <span className="mv-eyebrow">WHAT GUIDES US</span>
+
             <h2>
-              Purpose That Shapes <span>Our Future</span>
+              Purpose That Shapes
+              <span> Our Future</span>
             </h2>
+
             <p>
-              Our mission defines what we strive to do every day, while our
-              vision guides the future we want to help create.
+              Our mission defines what we strive to do every day,
+              while our vision guides the future we want to help create.
             </p>
           </div>
 
           <div className="mv-purpose-grid">
+
             <article className="mv-purpose-card mv-mission-card">
               <div className="mv-purpose-top">
                 <div className="mv-purpose-icon">
-                  <Target size={29} />
+                  <Target size={30} />
                 </div>
                 <span className="mv-purpose-number">01</span>
               </div>
@@ -195,23 +230,25 @@ export default function MissionVisionPage() {
               <h3>Empowering Minds Through Education</h3>
 
               <p>
-                Our mission is to provide a supportive and enriching learning
-                environment that encourages academic development, practical
-                skills, ethical values and personal growth. We aim to help
-                students become confident, responsible and capable individuals
-                who can contribute positively to society.
+                Our mission is to provide a supportive and enriching
+                learning environment that encourages academic development,
+                practical skills, ethical values and personal growth.
+                We aim to help students become confident, responsible
+                and capable individuals who can contribute positively
+                to society.
               </p>
 
               <div className="mv-card-footer">
-                <GraduationCap size={20} />
+                <GraduationCap size={21} />
                 <span>Learn with purpose</span>
+                <ArrowRight size={18} />
               </div>
             </article>
 
             <article className="mv-purpose-card mv-vision-card">
               <div className="mv-purpose-top">
                 <div className="mv-purpose-icon">
-                  <Eye size={29} />
+                  <Eye size={30} />
                 </div>
                 <span className="mv-purpose-number">02</span>
               </div>
@@ -223,16 +260,19 @@ export default function MissionVisionPage() {
               <p>
                 Our vision is to contribute to a future where education
                 empowers individuals to think independently, embrace
-                innovation and respond to real-world challenges. We aspire
-                to nurture lifelong learners and socially responsible citizens
-                who are prepared to make a meaningful impact.
+                innovation and respond to real-world challenges.
+                We aspire to nurture lifelong learners and socially
+                responsible citizens who are prepared to make a
+                meaningful impact.
               </p>
 
               <div className="mv-card-footer">
-                <Sparkles size={20} />
+                <Sparkles size={21} />
                 <span>Lead with confidence</span>
+                <ArrowRight size={18} />
               </div>
             </article>
+
           </div>
         </div>
       </section>
@@ -240,20 +280,33 @@ export default function MissionVisionPage() {
       {/* COMMITMENTS */}
       <section className="mv-commitment-section">
         <div className="mv-container mv-commitment-grid">
+
           <div className="mv-commitment-content">
             <span className="mv-eyebrow">OUR COMMITMENT</span>
 
             <h2>
-              Helping Every Student Reach Their <span>Potential</span>
+              Helping Every Student Reach Their
+              <span> Full Potential</span>
             </h2>
 
             <p>
-              We strive to make education meaningful by supporting students
-              in their academic journey, personal development and preparation
-              for the opportunities ahead.
+              We strive to make education meaningful by supporting
+              students in their academic journey, personal development
+              and preparation for the opportunities ahead.
             </p>
 
-           
+            <div className="mv-commitment-highlight">
+              <div className="mv-highlight-icon">
+                <HeartHandshake size={26} />
+              </div>
+
+              <div>
+                <strong>Student First Approach</strong>
+                <span>
+                  Supporting growth at every step of the journey.
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="mv-commitment-list">
@@ -262,24 +315,35 @@ export default function MissionVisionPage() {
                 <span className="mv-check-icon">
                   <CheckCircle2 size={20} />
                 </span>
+
                 <span>{item}</span>
+
+                <span className="mv-commitment-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
       {/* CORE VALUES */}
-      <section className="mv-values-section">
+      <section className="mv-values-section" id="core-values">
         <div className="mv-container">
+
           <div className="mv-section-heading">
             <span className="mv-eyebrow">THE VALUES WE LIVE BY</span>
+
             <h2>
-              Our Core <span>Values</span>
+              Our Core
+              <span> Values</span>
             </h2>
+
             <p>
-              The principles that shape our learning environment and guide
-              our approach to education and personal development.
+              The principles that shape our learning environment
+              and guide our approach to education and personal
+              development.
             </p>
           </div>
 
@@ -289,24 +353,48 @@ export default function MissionVisionPage() {
 
               return (
                 <article className="mv-value-card" key={value.title}>
-                  <div className="mv-value-icon">
-                    <Icon size={25} strokeWidth={1.8} />
+                  <div className="mv-value-top">
+                    <div className="mv-value-icon">
+                      <Icon size={26} strokeWidth={1.8} />
+                    </div>
+
+                    <span className="mv-value-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
 
-                  <span className="mv-value-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-
                   <h3>{value.title}</h3>
+
                   <p>{value.description}</p>
+
+                  <div className="mv-value-line" />
                 </article>
               );
             })}
           </div>
+
         </div>
       </section>
 
-  
+      {/* BOTTOM CTA */}
+      <section className="mv-bottom-cta">
+        <div className="mv-container mv-cta-inner">
+          <div>
+            <span>YOUR JOURNEY STARTS HERE</span>
+            <h2>Be Part of a Brighter Future</h2>
+            <p>
+              Discover learning opportunities and take the next step
+              towards your academic goals.
+            </p>
+          </div>
+
+          <Link href="/courses" className="mv-btn mv-btn-cta">
+            Explore Our Courses
+            <ArrowRight size={19} />
+          </Link>
+        </div>
+      </section>
+
     </main>
   );
 }

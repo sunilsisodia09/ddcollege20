@@ -9,6 +9,15 @@ const managementMembers = [
   //   description:
   //     "Provides institutional oversight, supports policy decisions and guides the long-term development of the college.",
   // },
+  
+// {
+//   name: "Dr. Divyanshi Dubey",
+//   designation: "Principal (Faculty of Law)",
+//   image: "/gallery/div.png",
+//   description:
+//     "Provides academic leadership and strategic guidance to the Faculty of Law, promoting legal education, professional ethics, practical learning and the overall development of future legal professionals.",
+// },
+
   {
     name: "Dr. Divyanshi Dubey",
     designation: "HOD (Department of Arts)",
