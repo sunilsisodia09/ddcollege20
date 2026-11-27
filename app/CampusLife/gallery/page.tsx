@@ -1,60 +1,64 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   X,
   ChevronLeft,
   ChevronRight,
   Camera,
+  ArrowRight,
+  Maximize2,
+  Image as ImageIcon,
+  Sparkles,
 } from "lucide-react";
-
 import "./gallery.css";
 
-interface GalleryPhoto {
+type Photo = {
   id: number;
+  src: string;
   title: string;
-  image: string;
-  alt: string;
   category: string;
-}
+  description: string;
+};
 
-const photos: GalleryPhoto[] = [
+const photos: Photo[] = [
   {
     id: 1,
+    src: "/images/b.jpg",
     title: "College Campus",
-    image: "/images/b.jpg",
-    alt: "DD College Campus Building",
-    category: "Campus",
+ category: "Events",
+    description: "Explore the beautiful campus of DD College.",
   },
   {
     id: 2,
+    src: "/images/f.jpg",
     title: "Learning Together",
-    image: "/images/f.jpg",
-    alt: "Students Learning Together",
-    category: "Campus",
+ category: "Events",
+    description: "A positive environment for learning and growth.",
   },
   {
     id: 3,
+    src: "/images/hh.jpg",
     title: "Campus Activities",
-    image: "/images/hh.jpg",
-    alt: "College Campus Activities",
-    category: "Campus",
+  category: "Events",
+    description: "Students participating in campus activities.",
   },
   {
     id: 4,
+    src: "/images/f.jpg",
     title: "Student Learning",
-    image: "/images/f.jpg",
-    alt: "Students Participating in Learning Activities",
-    category: "Campus",
+   category: "Events",
+    description: "Learning experiences beyond the classroom.",
   },
   {
     id: 5,
+    src: "/images/d.jpg",
     title: "Cultural Celebration",
-    image: "/images/d.jpg",
-    alt: "College Cultural Celebration",
-    category: "Campus",
+    category: "Events",
+    description: "Celebrating creativity, culture and togetherness.",
   },
 ];
 
@@ -64,271 +68,367 @@ const categories = [
   "Academic",
   "Events",
   "Student Life",
-  "Sports",
 ];
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
 
-  const filteredPhotos: GalleryPhoto[] =
+  const filteredPhotos =
     activeCategory === "All"
       ? photos
-      : photos.filter(
-          (photo) => photo.category === activeCategory
-        );
+      : photos.filter((photo) => photo.category === activeCategory);
 
-  const currentIndex = filteredPhotos.findIndex(
+  const selectedIndex = filteredPhotos.findIndex(
     (photo) => photo.id === selectedPhoto
   );
 
   const currentPhoto =
-    currentIndex >= 0 ? filteredPhotos[currentIndex] : null;
+    selectedIndex >= 0 ? filteredPhotos[selectedIndex] : null;
 
-  function showPrevious() {
-    if (currentIndex < 0 || filteredPhotos.length === 0) return;
+  const closePhoto = () => {
+    setSelectedPhoto(null);
+  };
+
+  const showNext = () => {
+    if (selectedIndex < 0 || filteredPhotos.length === 0) return;
+
+    const nextIndex = (selectedIndex + 1) % filteredPhotos.length;
+    setSelectedPhoto(filteredPhotos[nextIndex].id);
+  };
+
+  const showPrevious = () => {
+    if (selectedIndex < 0 || filteredPhotos.length === 0) return;
 
     const previousIndex =
-      (currentIndex - 1 + filteredPhotos.length) %
+      (selectedIndex - 1 + filteredPhotos.length) %
       filteredPhotos.length;
 
     setSelectedPhoto(filteredPhotos[previousIndex].id);
-  }
+  };
 
-  function showNext() {
-    if (currentIndex < 0 || filteredPhotos.length === 0) return;
+  useEffect(() => {
+    if (selectedPhoto === null) return;
 
-    const nextIndex =
-      (currentIndex + 1) % filteredPhotos.length;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedPhoto(null);
+      }
 
-    setSelectedPhoto(filteredPhotos[nextIndex].id);
-  }
+      if (event.key === "ArrowRight") {
+        setSelectedPhoto((currentId) => {
+          const index = filteredPhotos.findIndex(
+            (photo) => photo.id === currentId
+          );
+
+          if (index < 0) return currentId;
+
+          return filteredPhotos[
+            (index + 1) % filteredPhotos.length
+          ].id;
+        });
+      }
+
+      if (event.key === "ArrowLeft") {
+        setSelectedPhoto((currentId) => {
+          const index = filteredPhotos.findIndex(
+            (photo) => photo.id === currentId
+          );
+
+          if (index < 0) return currentId;
+
+          const previousIndex =
+            (index - 1 + filteredPhotos.length) %
+            filteredPhotos.length;
+
+          return filteredPhotos[previousIndex].id;
+        });
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [selectedPhoto, filteredPhotos]);
 
   return (
-    <main className="dd-gallery">
+    <main className="dd-gallery-page">
 
       {/* HERO SECTION */}
       <section className="gallery-hero">
         <div className="gallery-hero-overlay" />
 
-        <div className="gallery-hero-content">
+        <div className="gallery-container gallery-hero-content">
           <span className="gallery-eyebrow">
             <Camera size={16} />
-            MOMENTS THAT MATTER
+            LIFE AT DD COLLEGE
           </span>
 
           <h1>
-            Our College <span>Gallery</span>
+            Moments That
+            <span> Inspire.</span>
           </h1>
 
           <p>
-            A glimpse into campus life, memorable celebrations,
-            learning experiences and unforgettable moments at DD College.
+            Explore the memorable moments, academic experiences,
+            campus activities and celebrations that make life at
+            DD College special.
           </p>
 
-          <a
-            href="#gallery-photos"
-            className="gallery-hero-btn"
-          >
-            Explore Gallery <span>↗</span>
-          </a>
+          <div className="gallery-hero-buttons">
+            <a href="#college-gallery" className="gallery-primary-btn">
+              Explore Gallery
+              <ArrowRight size={18} />
+            </a>
+
+            <Link
+              href="/CampusLife/campusoverview"
+              className="gallery-outline-btn"
+            >
+              Explore Campus
+            </Link>
+          </div>
         </div>
 
         <div className="gallery-hero-bottom">
-          <span>CAMPUS LIFE</span>
-          <span>MEMORIES</span>
-          <span>CELEBRATIONS</span>
-          <span>TOGETHERNESS</span>
+          <span>DD COLLEGE DEHRADUN</span>
+          <span>LEARN · GROW · ACHIEVE</span>
         </div>
       </section>
 
       {/* INTRO SECTION */}
       <section className="gallery-intro">
-        <span className="gallery-section-label">
-          CAPTURING THE DD EXPERIENCE
-        </span>
-
-        <h2>
-          Every Picture Tells a <span>Story</span>
-        </h2>
-
-        <p>
-          From academic activities to cultural celebrations,
-          explore the experiences and memories that make college life special.
-        </p>
-      </section>
-
-      {/* MAIN GALLERY */}
-      <section
-        className="gallery-main"
-        id="gallery-photos"
-      >
-        <div className="gallery-heading">
+        <div className="gallery-container gallery-intro-grid">
           <div>
             <span className="gallery-section-label">
-              PHOTO COLLECTION
+              <Sparkles size={16} />
+              OUR CAMPUS STORIES
             </span>
 
-            <h2>Explore Our Moments</h2>
+            <h2>
+              Every Picture
+              <span> Tells a Story</span>
+            </h2>
           </div>
 
           <p>
-            Browse photographs from different aspects of college life.
+            From classroom learning to cultural celebrations,
+            discover the experiences, achievements and everyday
+            moments that create the DD College community.
           </p>
         </div>
+      </section>
 
-        {/* CATEGORY FILTERS */}
-        <div className="gallery-filters">
-          {categories.map((category) => (
-            <button
-              key={category}
-              type="button"
-              className={
-                activeCategory === category
-                  ? "gallery-filter active"
-                  : "gallery-filter"
-              }
-              onClick={() => {
-                setActiveCategory(category);
-                setSelectedPhoto(null);
-              }}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+      {/* GALLERY SECTION */}
+      <section
+        className="gallery-main-section"
+        id="college-gallery"
+      >
+        <div className="gallery-container">
 
-        {/* PHOTO GRID */}
-        <div className="gallery-grid">
-          {filteredPhotos.map((photo, index) => (
-            <button
-              className={`gallery-photo gallery-photo-${(index % 6) + 1}`}
-              key={photo.id}
-              type="button"
-              onClick={() => setSelectedPhoto(photo.id)}
-              aria-label={`View ${photo.title}`}
-            >
-              <img
-                src={photo.image}
-                alt={photo.alt}
-                loading="lazy"
-              />
-
-              <span className="gallery-photo-overlay">
-                <span className="gallery-photo-category">
-                  {photo.category}
-                </span>
-
-                <strong>{photo.title}</strong>
-
-                <span className="gallery-view-icon">
-                  ↗
-                </span>
+          <div className="gallery-heading-row">
+            <div>
+              <span className="gallery-section-label">
+                PHOTO COLLECTION
               </span>
-            </button>
-          ))}
-        </div>
 
-        {/* EMPTY STATE */}
-        {filteredPhotos.length === 0 && (
-          <p className="gallery-empty">
-            No photos found in this category.
-          </p>
-        )}
+              <h2>Explore Our Gallery</h2>
+
+              <p>
+                A glimpse into student life, campus activities
+                and college celebrations.
+              </p>
+            </div>
+
+            <div className="gallery-total">
+              <ImageIcon size={19} />
+              <span>{filteredPhotos.length} Photos</span>
+            </div>
+          </div>
+
+          {/* CATEGORY FILTERS */}
+          <div className="gallery-filters">
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={
+                  activeCategory === category
+                    ? "gallery-filter active"
+                    : "gallery-filter"
+                }
+                onClick={() => {
+                  setActiveCategory(category);
+                  setSelectedPhoto(null);
+                }}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* PHOTO GRID */}
+          <div className="gallery-grid">
+            {filteredPhotos.map((photo, index) => (
+              <button
+                type="button"
+                className={`gallery-card gallery-card-${index + 1}`}
+                key={photo.id}
+                onClick={() => setSelectedPhoto(photo.id)}
+                aria-label={`View ${photo.title}`}
+              >
+                <div className="gallery-card-image">
+                  <Image
+                    src={photo.src}
+                    alt={photo.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="gallery-photo"
+                  />
+
+                  <div className="gallery-card-overlay">
+                    <span className="gallery-card-category">
+                      {photo.category}
+                    </span>
+
+                    <div className="gallery-card-info">
+                      <div>
+                        <h3>{photo.title}</h3>
+                        <p>{photo.description}</p>
+                      </div>
+
+                      <span className="gallery-expand-icon">
+                        <Maximize2 size={19} />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {filteredPhotos.length === 0 && (
+            <div className="gallery-empty">
+              <ImageIcon size={35} />
+              <h3>No photos available</h3>
+              <p>Please select another category.</p>
+            </div>
+          )}
+
+        </div>
       </section>
 
-      {/* CALL TO ACTION */}
-      <section className="gallery-cta">
-        <span className="gallery-section-label">
-          LIFE AT DD COLLEGE
-        </span>
+      {/* CAMPUS EXPERIENCE */}
+      <section className="gallery-experience">
+        <div className="gallery-container gallery-experience-inner">
 
-        <h2>Memories That Last a Lifetime</h2>
+          <div className="gallery-experience-icon">
+            <Camera size={34} />
+          </div>
 
-        <p>
-          Discover more about our campus, student activities and college events.
-        </p>
+          <div className="gallery-experience-content">
+            <span>MORE THAN JUST A CAMPUS</span>
 
-        <div className="gallery-cta-links">
-          <Link href="/CampusLife/campusoverview">
-            Campus Overview ↗
-          </Link>
+            <h2>Experience Life at DD College</h2>
 
-          <Link href="/CampusLife/events">
-            Events & Activities ↗
-          </Link>
+            <p>
+              Discover our campus facilities, student clubs
+              and exciting college events.
+            </p>
+          </div>
 
-          <Link href="/CampusLife/clubs">
-            Clubs & Societies ↗
-          </Link>
+          <div className="gallery-experience-links">
+            <Link href="/CampusLife/campusoverview">
+              Campus Overview
+              <ArrowRight size={17} />
+            </Link>
+
+            <Link href="/CampusLife/events">
+              College Events
+              <ArrowRight size={17} />
+            </Link>
+
+            <Link href="/CampusLife/clubs">
+              Student Clubs
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+
         </div>
       </section>
 
-      {/* IMAGE LIGHTBOX */}
+      {/* LIGHTBOX */}
       {currentPhoto && (
         <div
           className="gallery-lightbox"
           role="dialog"
           aria-modal="true"
-          aria-label="Photo preview"
-          onClick={() => setSelectedPhoto(null)}
+          aria-label="Photo viewer"
+          onClick={closePhoto}
         >
-          {/* CLOSE BUTTON */}
           <button
             type="button"
-            className="gallery-close"
-            onClick={() => setSelectedPhoto(null)}
-            aria-label="Close preview"
+            className="gallery-lightbox-close"
+            onClick={closePhoto}
+            aria-label="Close image"
           >
-            <X size={25} />
+            <X size={26} />
           </button>
 
-          {/* PREVIOUS BUTTON */}
           <button
             type="button"
-            className="gallery-arrow gallery-prev"
+            className="gallery-lightbox-arrow gallery-lightbox-prev"
             onClick={(event) => {
               event.stopPropagation();
               showPrevious();
             }}
-            aria-label="Previous photo"
+            aria-label="Previous image"
           >
-            <ChevronLeft size={30} />
+            <ChevronLeft size={32} />
           </button>
 
-          {/* IMAGE CONTENT */}
           <div
             className="gallery-lightbox-content"
             onClick={(event) => event.stopPropagation()}
           >
-            <img
-              src={currentPhoto.image}
-              alt={currentPhoto.alt}
-            />
+            <div className="gallery-lightbox-image">
+              <Image
+                src={currentPhoto.src}
+                alt={currentPhoto.title}
+                fill
+                sizes="90vw"
+                className="gallery-lightbox-photo"
+                priority
+              />
+            </div>
 
             <div className="gallery-lightbox-caption">
               <div>
                 <span>{currentPhoto.category}</span>
                 <h3>{currentPhoto.title}</h3>
+                <p>{currentPhoto.description}</p>
               </div>
 
-              <small>
-                {currentIndex + 1} / {filteredPhotos.length}
-              </small>
+              <span className="gallery-image-count">
+                {selectedIndex + 1} / {filteredPhotos.length}
+              </span>
             </div>
           </div>
 
-          {/* NEXT BUTTON */}
           <button
             type="button"
-            className="gallery-arrow gallery-next"
+            className="gallery-lightbox-arrow gallery-lightbox-next"
             onClick={(event) => {
               event.stopPropagation();
               showNext();
             }}
-            aria-label="Next photo"
+            aria-label="Next image"
           >
-            <ChevronRight size={30} />
+            <ChevronRight size={32} />
           </button>
         </div>
       )}

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -10,18 +11,12 @@ import {
   ExternalLink,
   ChevronDown,
   FileText,
-  FolderOpen,
   ArrowRight,
   Phone,
   Mail,
 } from "lucide-react";
 
 import "./syllabus.css";
-
-type SyllabusYear = {
-  label: string;
-  file: string;
-};
 
 type SyllabusCourse = {
   id: number;
@@ -30,24 +25,20 @@ type SyllabusCourse = {
   category: string;
   description: string;
   duration: string;
-  years: SyllabusYear[];
+  file: string;
 };
 
 const syllabusCourses: SyllabusCourse[] = [
   {
-    id: 1,
-    name: "Bachelor of Computer Applications",
-    shortName: "BCA",
-    category: "Undergraduate",
-    description:
-      "Computer applications, programming, software development and modern information technology.",
-    duration: "3 Years",
-    years: [
-      { label: "1st Year", file: "/syllabus/bca/1st-year.pdf" },
-      { label: "2nd Year", file: "/syllabus/bca/2nd-year.pdf" },
-      { label: "3rd Year", file: "/syllabus/bca/3rd-year.pdf" },
-    ],
-  },
+  id: 1,
+  name: "Bachelor of Science (Honours)",
+  shortName: "B.Sc. (Hons.)",
+  category: "Undergraduate",
+  description:
+    "Honours-level science education with in-depth subject knowledge, scientific research and practical laboratory learning.",
+  duration: "3 Years",
+  file: "/syb/bschon.pdf",
+},
   {
     id: 2,
     name: "Bachelor of Business Administration",
@@ -56,11 +47,7 @@ const syllabusCourses: SyllabusCourse[] = [
     description:
       "Business management, marketing, finance, entrepreneurship and leadership.",
     duration: "3 Years",
-    years: [
-      { label: "1st Year", file: "/syllabus/bba/1st-year.pdf" },
-      { label: "2nd Year", file: "/syllabus/bba/2nd-year.pdf" },
-      { label: "3rd Year", file: "/syllabus/bba/3rd-year.pdf" },
-    ],
+    file: "/syllabus/bba.pdf",
   },
   {
     id: 3,
@@ -70,11 +57,7 @@ const syllabusCourses: SyllabusCourse[] = [
     description:
       "Accounting, business studies, finance, taxation and commerce.",
     duration: "3 Years",
-    years: [
-      { label: "1st Year", file: "/syllabus/bcom/1st-year.pdf" },
-      { label: "2nd Year", file: "/syllabus/bcom/2nd-year.pdf" },
-      { label: "3rd Year", file: "/syllabus/bcom/3rd-year.pdf" },
-    ],
+    file: "/syllabus/bcom.pdf",
   },
   {
     id: 4,
@@ -84,11 +67,7 @@ const syllabusCourses: SyllabusCourse[] = [
     description:
       "Humanities, social sciences, literature and related disciplines.",
     duration: "3 Years",
-    years: [
-      { label: "1st Year", file: "/syllabus/ba/1st-year.pdf" },
-      { label: "2nd Year", file: "/syllabus/ba/2nd-year.pdf" },
-      { label: "3rd Year", file: "/syllabus/ba/3rd-year.pdf" },
-    ],
+    file: "/syllabus/ba.pdf",
   },
   {
     id: 5,
@@ -98,11 +77,7 @@ const syllabusCourses: SyllabusCourse[] = [
     description:
       "Scientific concepts, laboratory learning and practical knowledge.",
     duration: "3 Years",
-    years: [
-      { label: "1st Year", file: "/syllabus/bsc/1st-year.pdf" },
-      { label: "2nd Year", file: "/syllabus/bsc/2nd-year.pdf" },
-      { label: "3rd Year", file: "/syllabus/bsc/3rd-year.pdf" },
-    ],
+    file: "/syllabus/bsc.pdf",
   },
   {
     id: 6,
@@ -112,10 +87,7 @@ const syllabusCourses: SyllabusCourse[] = [
     description:
       "Advanced studies, research and specialized knowledge in humanities.",
     duration: "2 Years",
-    years: [
-      { label: "1st Year", file: "/syllabus/ma/1st-year.pdf" },
-      { label: "2nd Year", file: "/syllabus/ma/2nd-year.pdf" },
-    ],
+    file: "/syllabus/ma.pdf",
   },
   {
     id: 7,
@@ -125,10 +97,7 @@ const syllabusCourses: SyllabusCourse[] = [
     description:
       "Advanced commerce, accounting, financial management and business studies.",
     duration: "2 Years",
-    years: [
-      { label: "1st Year", file: "/syllabus/mcom/1st-year.pdf" },
-      { label: "2nd Year", file: "/syllabus/mcom/2nd-year.pdf" },
-    ],
+    file: "/syllabus/mcom.pdf",
   },
 ];
 
@@ -193,15 +162,11 @@ export default function SyllabusPage() {
           </h1>
 
           <p>
-            Access course-wise and year-wise syllabus documents
-            to plan your academic journey at D.D. College,
-            Dehradun.
+            Access complete course-wise syllabus PDFs and download
+            your academic curriculum at D.D. College, Dehradun.
           </p>
 
-          <a
-            href="#syllabus-list"
-            className="syllabus-hero-btn"
-          >
+          <a href="#syllabus-list" className="syllabus-hero-btn">
             Explore Syllabus
             <ArrowRight size={18} />
           </a>
@@ -219,19 +184,16 @@ export default function SyllabusPage() {
             <span>STUDENT RESOURCES</span>
             <h2>Find Your Course Syllabus</h2>
             <p>
-              Browse the available academic syllabus by course
-              and year. View or download the documents to stay
-              updated with your curriculum.
+              Browse the complete syllabus for your selected course.
+              Each course has one combined PDF containing its available
+              academic curriculum.
             </p>
           </div>
         </div>
       </section>
 
       {/* SYLLABUS LIST */}
-      <section
-        className="syllabus-main"
-        id="syllabus-list"
-      >
+      <section className="syllabus-main" id="syllabus-list">
         <div className="syllabus-container">
           <div className="syllabus-section-heading">
             <div>
@@ -242,8 +204,8 @@ export default function SyllabusPage() {
               <h2>Courses & Syllabus</h2>
 
               <p>
-                Select your course to view the available
-                academic documents.
+                Select your course to view or download its complete
+                syllabus PDF.
               </p>
             </div>
 
@@ -287,9 +249,7 @@ export default function SyllabusPage() {
                   type="button"
                   key={category}
                   className={
-                    selectedCategory === category
-                      ? "active"
-                      : ""
+                    selectedCategory === category ? "active" : ""
                   }
                   onClick={() => setSelectedCategory(category)}
                 >
@@ -329,7 +289,6 @@ export default function SyllabusPage() {
                         </div>
 
                         <h3>{course.name}</h3>
-
                         <p>{course.shortName}</p>
                       </div>
 
@@ -348,49 +307,48 @@ export default function SyllabusPage() {
                         </p>
 
                         <div className="syllabus-year-heading">
-                          <FolderOpen size={19} />
-                          Available Syllabus
+                          <BookOpen size={19} />
+                          Complete Course Syllabus
                         </div>
 
                         <div className="syllabus-year-grid">
-                          {course.years.map((year) => (
-                            <div
-                              className="syllabus-year-card"
-                              key={year.file}
-                            >
-                              <div className="syllabus-year-file">
-                                <FileText size={22} />
+                          <div className="syllabus-year-card">
+                            <div className="syllabus-year-file">
+                              <FileText size={25} />
 
-                                <div>
-                                  <h4>{year.label}</h4>
-                                  <span>PDF Document</span>
-                                </div>
-                              </div>
-
-                              <div className="syllabus-year-actions">
-                                <a
-                                  href={year.file}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="syllabus-view-btn"
-                                  aria-label={`View ${course.shortName} ${year.label} syllabus`}
-                                >
-                                  <ExternalLink size={16} />
-                                  View
-                                </a>
-
-                                <a
-                                  href={year.file}
-                                  download
-                                  className="syllabus-download-btn"
-                                  aria-label={`Download ${course.shortName} ${year.label} syllabus`}
-                                >
-                                  <Download size={16} />
-                                  Download
-                                </a>
+                              <div>
+                                <h4>
+                                  {course.shortName} Complete Syllabus
+                                </h4>
+                                <span>
+                                  Combined PDF Document
+                                </span>
                               </div>
                             </div>
-                          ))}
+
+                            <div className="syllabus-year-actions">
+                              <a
+                                href={course.file}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="syllabus-view-btn"
+                                aria-label={`View ${course.shortName} syllabus`}
+                              >
+                                <ExternalLink size={16} />
+                                View PDF
+                              </a>
+
+                              <a
+                                href={course.file}
+                                download
+                                className="syllabus-download-btn"
+                                aria-label={`Download ${course.shortName} syllabus`}
+                              >
+                                <Download size={16} />
+                                Download PDF
+                              </a>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     )}
