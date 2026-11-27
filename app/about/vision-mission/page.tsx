@@ -60,24 +60,23 @@ const coreValues = [
 ];
 
 const commitments = [
-  "Provide a supportive and student-focused learning environment.",
-  "Encourage academic excellence and practical knowledge.",
-  "Develop leadership, communication and teamwork skills.",
-  "Promote ethical values, discipline and social responsibility.",
-  "Support students in preparing for future career opportunities.",
+  "Keeping education accessible. Offering affordable, quality education to all, with special emphasis on students from underprivileged and diverse backgrounds, so that financial constraints never impede potential.",
+  "Upholding academic excellence. Reviewing teaching and learning practices consistently, supported by experienced, committed faculty.",
+  "Building skills for life and work. Combining academics with skill development, personality enhancement and guidance for a changing employment landscape.",
+  "Nurturing inquiry, innovation and integrity. Sustaining a positive, disciplined environment where knowledge and ethical values grow together.",
+  "Fostering inclusion and belonging. Respecting diversity, ensuring parity, and keeping every classroom safe, supportive and stimulating.",
+  "Engaging the whole community. Keeping parents and guardians informed of their ward’s progress and encouraging every student to take part in extracurricular activities.",
 ];
 
 export default function MissionVisionPage() {
   return (
     <main className="mv-page">
-
       {/* HERO */}
       <section className="mv-hero">
         <div className="mv-hero-bg-shape mv-shape-one" />
         <div className="mv-hero-bg-shape mv-shape-two" />
 
         <div className="mv-container mv-hero-grid">
-
           <div className="mv-hero-content">
             <div className="mv-eyebrow">
               <Sparkles size={16} />
@@ -115,7 +114,6 @@ export default function MissionVisionPage() {
           </div>
 
           <div className="mv-hero-visual">
-
             <div className="mv-visual-orbit mv-orbit-one" />
             <div className="mv-visual-orbit mv-orbit-two" />
 
@@ -125,7 +123,7 @@ export default function MissionVisionPage() {
                   <GraduationCap size={48} strokeWidth={1.5} />
                 </div>
 
-                <span>EST. EDUCATION WITH PURPOSE</span>
+                <span>EDUCATION WITH PURPOSE</span>
               </div>
 
               <h2>Education That Inspires.</h2>
@@ -174,7 +172,6 @@ export default function MissionVisionPage() {
                 <small>Continuously</small>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -200,7 +197,6 @@ export default function MissionVisionPage() {
       {/* MISSION & VISION */}
       <section className="mv-section" id="our-mission">
         <div className="mv-container">
-
           <div className="mv-section-heading">
             <span className="mv-eyebrow">WHAT GUIDES US</span>
 
@@ -216,7 +212,7 @@ export default function MissionVisionPage() {
           </div>
 
           <div className="mv-purpose-grid">
-
+            {/* MISSION CARD */}
             <article className="mv-purpose-card mv-mission-card">
               <div className="mv-purpose-top">
                 <div className="mv-purpose-icon">
@@ -227,15 +223,14 @@ export default function MissionVisionPage() {
 
               <span className="mv-card-label">OUR MISSION</span>
 
-              <h3>Empowering Minds Through Education</h3>
+              <h3>Empowering Every Learner Through Quality Education</h3>
 
               <p>
-                Our mission is to provide a supportive and enriching
-                learning environment that encourages academic development,
-                practical skills, ethical values and personal growth.
-                We aim to help students become confident, responsible
-                and capable individuals who can contribute positively
-                to society.
+                To provide affordable, quality education to every
+                learner, and to empower young minds with knowledge,
+                confidence and a sense of responsibility, so they
+                emerge as well-rounded, independent individuals
+                prepared to lead.
               </p>
 
               <div className="mv-card-footer">
@@ -245,6 +240,7 @@ export default function MissionVisionPage() {
               </div>
             </article>
 
+            {/* VISION CARD */}
             <article className="mv-purpose-card mv-vision-card">
               <div className="mv-purpose-top">
                 <div className="mv-purpose-icon">
@@ -255,15 +251,31 @@ export default function MissionVisionPage() {
 
               <span className="mv-card-label">OUR VISION</span>
 
-              <h3>Inspiring Excellence for Tomorrow</h3>
+              <h3>Building Confident and Responsible Individuals</h3>
 
               <p>
-                Our vision is to contribute to a future where education
-                empowers individuals to think independently, embrace
-                innovation and respond to real-world challenges.
-                We aspire to nurture lifelong learners and socially
-                responsible citizens who are prepared to make a
-                meaningful impact.
+                Our vision is a learning environment that goes beyond
+                textbooks and classrooms, shaping confident, skilled
+                and responsible individuals who face real-world
+                challenges with clarity and purpose.
+              </p>
+
+              <p>
+                We believe education must be accessible, practical
+                and value-driven. Academic excellence, skill
+                development, personality enhancement and ethical
+                grounding together make students career-ready and
+                life-ready.
+              </p>
+
+              <p>
+                Opportunity here is affordable yet impactful and
+                open to all backgrounds, so finances never stand
+                in the way of quality education. Through continuous
+                learning, discipline and guidance, we aspire to
+                build a generation that thinks independently,
+                acts responsibly and contributes meaningfully
+                to society.
               </p>
 
               <div className="mv-card-footer">
@@ -272,7 +284,6 @@ export default function MissionVisionPage() {
                 <ArrowRight size={18} />
               </div>
             </article>
-
           </div>
         </div>
       </section>
@@ -280,19 +291,20 @@ export default function MissionVisionPage() {
       {/* COMMITMENTS */}
       <section className="mv-commitment-section">
         <div className="mv-container mv-commitment-grid">
-
           <div className="mv-commitment-content">
             <span className="mv-eyebrow">OUR COMMITMENT</span>
 
             <h2>
-              Helping Every Student Reach Their
-              <span> Full Potential</span>
+              Building Skills for
+              <span> Life and Work</span>
             </h2>
 
             <p>
-              We strive to make education meaningful by supporting
-              students in their academic journey, personal development
-              and preparation for the opportunities ahead.
+              We are committed to accessible education, academic
+              excellence, practical skills, ethical values and an
+              inclusive learning environment. We also encourage
+              meaningful engagement between students, parents,
+              guardians and the wider college community.
             </p>
 
             <div className="mv-commitment-highlight">
@@ -303,7 +315,8 @@ export default function MissionVisionPage() {
               <div>
                 <strong>Student First Approach</strong>
                 <span>
-                  Supporting growth at every step of the journey.
+                  Supporting every learner through education,
+                  guidance and opportunity.
                 </span>
               </div>
             </div>
@@ -324,14 +337,12 @@ export default function MissionVisionPage() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* CORE VALUES */}
       <section className="mv-values-section" id="core-values">
         <div className="mv-container">
-
           <div className="mv-section-heading">
             <span className="mv-eyebrow">THE VALUES WE LIVE BY</span>
 
@@ -372,7 +383,6 @@ export default function MissionVisionPage() {
               );
             })}
           </div>
-
         </div>
       </section>
 
@@ -394,7 +404,6 @@ export default function MissionVisionPage() {
           </Link>
         </div>
       </section>
-
     </main>
   );
 }

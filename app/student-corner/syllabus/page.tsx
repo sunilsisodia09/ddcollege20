@@ -24,7 +24,6 @@ type SyllabusCourse = {
   shortName: string;
   category: string;
   description: string;
-  duration: string;
   file: string;
 };
 
@@ -36,39 +35,35 @@ const syllabusCourses: SyllabusCourse[] = [
   category: "Undergraduate",
   description:
     "Honours-level science education with in-depth subject knowledge, scientific research and practical laboratory learning.",
-  duration: "3 Years",
   file: "/syb/bschon.pdf",
 },
+{
+  id: 2,
+  name: "Master of Arts in Political Science",
+  shortName: "M.A. Political Science",
+  category: "Postgraduate",
+  description:
+    "Advanced study of political theory, Indian government and politics, comparative politics, international relations, public administration and political thought.",
+ file: "/syb/ma.pdf",
+},
+{
+  id: 3,
+  name: "Master of Science in Horticulture",
+  shortName: "M.Sc. Horticulture",
+  category: "Postgraduate",
+  description:
+    "Advanced study of fruit and vegetable science, floriculture, plant propagation, landscaping, nursery management, horticultural crop production and post-harvest technology.",
+ file: "/syb/Msc.pdf",
+},
   {
-    id: 2,
-    name: "Bachelor of Business Administration",
-    shortName: "BBA",
-    category: "Undergraduate",
-    description:
-      "Business management, marketing, finance, entrepreneurship and leadership.",
-    duration: "3 Years",
-    file: "/syllabus/bba.pdf",
-  },
-  {
-    id: 3,
-    name: "Bachelor of Commerce",
-    shortName: "B.Com",
-    category: "Undergraduate",
-    description:
-      "Accounting, business studies, finance, taxation and commerce.",
-    duration: "3 Years",
-    file: "/syllabus/bcom.pdf",
-  },
-  {
-    id: 4,
-    name: "Bachelor of Arts",
-    shortName: "BA",
-    category: "Undergraduate",
-    description:
-      "Humanities, social sciences, literature and related disciplines.",
-    duration: "3 Years",
-    file: "/syllabus/ba.pdf",
-  },
+  id: 4,
+  name: "Master of Science in Agronomy",
+  shortName: "M.Sc. Agronomy",
+  category: "Postgraduate",
+  description:
+    "Advanced study of crop production, soil fertility, agricultural practices, crop physiology, weed management, irrigation and sustainable farming systems.",
+ file: "/syb/sc.pdf",
+},
   {
     id: 5,
     name: "Bachelor of Science",
@@ -76,7 +71,6 @@ const syllabusCourses: SyllabusCourse[] = [
     category: "Undergraduate",
     description:
       "Scientific concepts, laboratory learning and practical knowledge.",
-    duration: "3 Years",
     file: "/syllabus/bsc.pdf",
   },
   {
@@ -86,7 +80,6 @@ const syllabusCourses: SyllabusCourse[] = [
     category: "Postgraduate",
     description:
       "Advanced studies, research and specialized knowledge in humanities.",
-    duration: "2 Years",
     file: "/syllabus/ma.pdf",
   },
   {
@@ -96,7 +89,6 @@ const syllabusCourses: SyllabusCourse[] = [
     category: "Postgraduate",
     description:
       "Advanced commerce, accounting, financial management and business studies.",
-    duration: "2 Years",
     file: "/syllabus/mcom.pdf",
   },
 ];
@@ -285,7 +277,6 @@ export default function SyllabusPage() {
                       <div className="syllabus-course-info">
                         <div className="syllabus-course-meta">
                           <span>{course.category}</span>
-                          <span>{course.duration}</span>
                         </div>
 
                         <h3>{course.name}</h3>

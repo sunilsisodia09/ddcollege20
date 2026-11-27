@@ -53,24 +53,19 @@ export default function ChairmanMessagePage() {
           </p>
 
           <div className="dd-chairman-message-text">
-            <p>Dear Students, Parents and Well-Wishers,</p>
+            <p>Beyond textbooks. Beyond classrooms. ,</p>
 
             <p>
-              It gives me immense pleasure to welcome you to D.D. College,
-              Dehradun, an institution committed to quality education,
-              character building and the holistic development of students.
-              We believe that a college is not just a place of learning,
-              but a nurturing environment where young minds are encouraged
-              to dream, learn and grow into responsible citizens and future
-              leaders.
+              At D.D. College, the vision is to build an educational environment where learning goes well 
+beyond textbooks and classrooms. The aim is to nurture students into confident, skilled and 
+responsible individuals, ready to face real-world challenges with clarity and purpose. 
             </p>
 
             <p>
-              At D.D. College, we believe that education is one of the most
-              powerful tools for transforming lives and building a better
-              tomorrow. Our aim is to provide an encouraging academic
-              environment that promotes excellence, creativity, practical
-              learning and personal growth.
+     Education, as the college sees it, must be accessible, practical and value-driven. Academic 
+excellence stands alongside skill development, personality enhancement and ethical grounding, 
+because a degree alone does not prepare a person for life. The goal is graduates who are not only 
+career-ready but life-ready. 
             </p>
 
             <p>

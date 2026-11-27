@@ -56,43 +56,32 @@ export default function PrincipalMessagePage() {
             <p>Dear Students, Parents and Well-Wishers,</p>
 
             <p>
-              It is my pleasure to welcome you to D.D. College, Dehradun.
-              Education is a continuous journey of discovery, growth and
-              transformation. At our institution, we aim to provide an
-              environment where students can develop their knowledge,
-              talents, confidence and character.
+         D.D. College reviews its teaching and learning practices consistently to meet the evolving needs 
+of students. Our experienced, motivated faculty are committed to academic excellence and foster 
+a culture of inquiry, innovation and integrity, within a positive, disciplined environment where 
+students can hone their skills. 
             </p>
 
             <p>
-              We believe that true education goes beyond textbooks and
-              examinations. It encourages curiosity, critical thinking,
-              creativity and the ability to apply knowledge in real-life
-              situations. Our focus is on creating meaningful learning
-              experiences that prepare students for the opportunities and
-              challenges of the modern world.
+          The college offers undergraduate, postgraduate and diploma programmes across Sciences, 
+Commerce and Humanities, along with professional courses in B.Ed., Computer Applications, 
+Agriculture and Yoga. 
             </p>
 
             <p>
-              Our dedicated faculty members work to support students in
-              their academic and personal development. We encourage
-              discipline, integrity, teamwork, respect and social
-              responsibility so that our students grow into capable
-              professionals and responsible citizens.
+            Beyond the classroom, faculty provide updated subject material and guidance to help students 
+navigate a changing education and employment landscape. They also work with the 
+administration on action plans that bring out the best in students and staff. The results show: year 
+after year, students secure top university-level positions. 
             </p>
 
             <p>
-              At D.D. College, we value the partnership between students,
-              parents and educators. Together, we strive to build a
-              positive learning community that promotes excellence,
-              innovation and lifelong learning.
+           Affordable fees keep quality education accessible to all. Regular communication keeps parents 
+and guardians informed of their ward’s progress, and every student is encouraged to take part in 
+extracurricular activities throughout the year. 
             </p>
 
-            <p>
-              I encourage every student to remain curious, work
-              consistently towards their goals and make the most of the
-              opportunities available to them. Your dedication and
-              perseverance will help shape a bright and successful future.
-            </p>
+   
 
             <p className="dd-principal-wishes">
               I wish all our students success in their academic journey
